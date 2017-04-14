@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
+  s.add_dependency 'shopify_api', '>= 4.2.2'
+  s.add_dependency 'activeresource'
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
@@ -37,4 +39,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pg'
   s.add_development_dependency 'mysql2'
   s.add_development_dependency 'appraisal'
+  s.add_development_dependency 'shoulda-matchers'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end
