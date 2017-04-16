@@ -17,4 +17,8 @@ RSpec.describe Shopify::DataFeed, type: :model do
       it { is_expected.to validate_uniqueness_of(:spree_object_id).scoped_to(:spree_object_type).allow_nil }
     end
   end
+
+  describe 'associations' do
+    it { is_expected.to belong_to(:spree_object) }
+  end
 end
