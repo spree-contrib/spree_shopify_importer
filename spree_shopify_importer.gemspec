@@ -1,9 +1,11 @@
 # encoding: UTF-8
+
 lib = File.expand_path('../lib/', __FILE__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
 require 'spree_shopify_importer/version'
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_shopify_importer'

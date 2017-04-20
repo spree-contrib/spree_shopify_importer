@@ -1,13 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Shopify::Products::Imports::Create, type: :service do
-  let!(:client) { ShopifyAPI::Base.site = "https://foo:baz@test_shop.myshopify.com/admin" }
+  let!(:client) { ShopifyAPI::Base.site = 'https://foo:baz@test_shop.myshopify.com/admin' }
   subject { described_class.new(product_data_feed) }
 
   describe '#call' do
     context 'with base product data feed', vcr: { cassette_name: 'shopify/base_product' } do
-      let(:shopify_product) { ShopifyAPI::Product.find(9884552707) }
-      let(:product_data_feed) { create(:shopify_data_feed, shopify_object_id: '9884552707', data_feed: shopify_product.to_json) }
+      let(:shopify_product) { ShopifyAPI::Product.find(9_884_552_707) }
+      let(:product_data_feed) do
+        create(:shopify_data_feed,
+               shopify_object_id: '9884552707', data_feed: shopify_product.to_json)
+      end
 
       it 'create spree product' do
         expect { subject.save! }.to change(Spree::Product, :count).by(1)
@@ -49,7 +52,7 @@ RSpec.describe Shopify::Products::Imports::Create, type: :service do
 
         it 'creates product tags' do
           subject.save!
-          expect(spree_product.tag_list).to match_array ['tag', 'some', 'product']
+          expect(spree_product.tag_list).to match_array %w[tag some product]
         end
       end
     end

@@ -1,3 +1,4 @@
+# rubocop:disable Style/FileName
 appraise 'spree-3-2' do
   gem 'spree', '~> 3.2.0.rc1'
   gem 'spree_auth_devise', '~> 3.2.0.beta'
