@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/spark-solutions/spree_shopify_importer.svg?branch=master)](https://travis-ci.org/spark-solutions/spree_shopify_importer)
+
 SpreeShopifyImporter
 ====================
 
