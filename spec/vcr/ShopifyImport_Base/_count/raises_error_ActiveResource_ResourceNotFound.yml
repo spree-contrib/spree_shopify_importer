@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://shop_name.myshopify.com/admin/bases/count.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic M2NkZjIxMTM0MWRiMzQyNWFiOGY5NWJkMjQwZDYwN2M6YzNmZDc0YWZmNGVlMmRkN2Q1ZjE1OGNhZWI4NjIzOTU=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.5.0 ActiveResource/5.0.0 Ruby/2.2.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 22 Apr 2017 11:24:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '19040011'
+      X-Shardid:
+      - '2'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1595797'
+      X-Stats-Apipermissionid:
+      - '47354223'
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://stats.g.doubleclick.net
+        https://www.google-analytics.com https://visitors.shopify.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin&source%5Buuid%5D=985fa7ff-faa0-41dc-9b3e-d6315d7fe1ca'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin&source%5Buuid%5D=985fa7ff-faa0-41dc-9b3e-d6315d7fe1ca
+      X-Dc:
+      - ash,chi2
+      X-Request-Id:
+      - 985fa7ff-faa0-41dc-9b3e-d6315d7fe1ca
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Sat, 22 Apr 2017 11:24:44 GMT
+- request:
+    method: get
+    uri: https://shop_name.myshopify.com/admin/bases/count.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic M2NkZjIxMTM0MWRiMzQyNWFiOGY5NWJkMjQwZDYwN2M6YzNmZDc0YWZmNGVlMmRkN2Q1ZjE1OGNhZWI4NjIzOTU=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.5.0 ActiveResource/5.0.0 Ruby/2.2.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 22 Apr 2017 11:43:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '19040011'
+      X-Shardid:
+      - '2'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1595797'
+      X-Stats-Apipermissionid:
+      - '47354223'
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://stats.g.doubleclick.net
+        https://www.google-analytics.com https://visitors.shopify.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin&source%5Buuid%5D=632a1d9e-fa3a-4165-82ef-ae950de0e5e6'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin&source%5Buuid%5D=632a1d9e-fa3a-4165-82ef-ae950de0e5e6
+      X-Dc:
+      - ash,chi2
+      X-Request-Id:
+      - 632a1d9e-fa3a-4165-82ef-ae950de0e5e6
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Sat, 22 Apr 2017 11:43:26 GMT
+recorded_with: VCR 3.0.3
