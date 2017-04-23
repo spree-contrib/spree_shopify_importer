@@ -9,7 +9,9 @@ class CreateShopifyDataFeeds < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :shopify_data_feeds, [:shopify_object_id, :shopify_object_type], name: 'index_shopify_object_id_shopify_object_type', unique: true
-    add_index :shopify_data_feeds, [:spree_object_id, :spree_object_type], name: 'index_spree_object_id_spree_object_type', unique: true
+    add_index :shopify_data_feeds, [:shopify_object_id, :shopify_object_type],
+              name: 'index_shopify_object_id_shopify_object_type', unique: true
+    add_index :shopify_data_feeds, [:spree_object_id, :spree_object_type],
+              name: 'index_spree_object_id_spree_object_type', unique: true
   end
 end

@@ -11,7 +11,8 @@ module Shopify
         Shopify::DataFeed.create!(
           shopify_object_id: shopify_object.id,
           shopify_object_type: shopify_type,
-          data_feed: shopify_object.to_json)
+          data_feed: shopify_object.to_json
+        )
       end
 
       private

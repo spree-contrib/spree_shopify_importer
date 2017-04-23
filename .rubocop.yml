@@ -1,0 +1,46 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+   - 'bin/*'
+   - 'db/schema.rb'
+   - 'vendor/bundle/**/*'
+   - 'spec/dummy/**/*'
+  Include:
+    - 'lib/tasks/**/*'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Guardfile'
+  TargetRubyVersion: 2.2.2
+Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/**'
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/production.rb
+    - '**/*_spec.rb'
+    - 'spec/shared_examples/**'
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**'
+Metrics/ModuleLength:
+  Exclude:
+    - '**/*_spec.rb'
+    - 'spec/shared_examples/**'
+Lint/Debugger:
+  Enabled: false
+Lint/DefEndAlignment:
+  AutoCorrect: true
+Lint/EndAlignment:
+  AutoCorrect: true
+Rails:
+  Enabled: true
+Rails/Output:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
