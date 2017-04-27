@@ -21,3 +21,8 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
+  code_climate:
+    repo_token: 7ca9964050acd0a0fbedb864033493bb31c166b170bb034246b714b46419c605
+
+after_success:
+  - bundle exec codeclimate-test-reporter
