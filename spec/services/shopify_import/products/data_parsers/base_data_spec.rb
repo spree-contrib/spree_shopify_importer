@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Shopify::Products::DataParsers::BaseData, type: :service do
+RSpec.describe ShopifyImport::Products::DataParsers::Create, type: :service do
   describe '.prepare_data' do
-    subject { described_class.prepare_data(shopify_product) }
+    subject { described_class.to_spree(shopify_product) }
 
     context 'with sample product' do
       let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
