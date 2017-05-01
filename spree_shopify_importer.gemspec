@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency 'spring-commands-rubocop'
   s.add_development_dependency 'vcr'
