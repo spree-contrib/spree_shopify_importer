@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  errors:
+    not_implemented:
+      resources: Resource fetcher is not implemented
+      creator: Creator is not implemented
