@@ -1,16 +1,12 @@
 module ShopifyImport
   module Products
     module DataParsers
-      class Create
-        def self.to_spree(shopify_product)
-          new(shopify_product).create_data_hash
-        end
-
+      class BaseData
         def initialize(shopify_product)
           @shopify_product = shopify_product
         end
 
-        def create_data_hash
+        def product_attributes
           {
             name: @shopify_product.title,
             description: @shopify_product.body_html,
@@ -20,6 +16,10 @@ module ShopifyImport
             created_at: @shopify_product.created_at,
             shipping_category: shipping_category # TODO: DEFAULT SHIPPING CATEGORY
           }
+        end
+
+        def product_tags
+          @shopify_product.tags
         end
 
         private

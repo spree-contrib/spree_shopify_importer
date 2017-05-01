@@ -26,12 +26,20 @@ module ShopifyImport
       def add_tags
         return unless @spree_product.respond_to?(:tag_list)
 
-        @spree_product.tag_list.add(shopify_product.tags, parse: true)
+        @spree_product.tag_list.add(product_tags, parse: true)
         @spree_product.save!
       end
 
       def product_attributes
-        DataParsers::Create.to_spree(shopify_product)
+        parser.product_attributes
+      end
+
+      def product_tags
+        parser.product_tags
+      end
+
+      def parser
+        @parser ||= DataParsers::BaseData.new(shopify_product)
       end
 
       def shopify_product

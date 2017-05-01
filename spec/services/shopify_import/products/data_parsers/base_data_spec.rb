@@ -1,13 +1,14 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Products::DataParsers::Create, type: :service do
+RSpec.describe ShopifyImport::Products::DataParsers::BaseData, type: :service do
   describe '.prepare_data' do
-    subject { described_class.to_spree(shopify_product) }
+    subject { described_class.new(shopify_product) }
 
     context 'with sample product' do
       let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
       let(:shopify_product) { create(:shopify_product) }
-      let(:result) do
+      let(:product_tags) { shopify_product.tags }
+      let(:product_attributes) do
         {
           name: shopify_product.title,
           description: shopify_product.body_html,
@@ -20,7 +21,11 @@ RSpec.describe ShopifyImport::Products::DataParsers::Create, type: :service do
       end
 
       it 'creates properly formatted hash of attributes' do
-        expect(subject).to eq result
+        expect(subject.product_attributes).to eq product_attributes
+      end
+
+      it 'creates properly formatted tags list' do
+        expect(subject.product_tags).to eq product_tags
       end
     end
   end
