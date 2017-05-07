@@ -9,6 +9,7 @@ module ShopifyImport
         Spree::Product.transaction do
           @spree_product = create_spree_product
           assign_spree_product_to_data_feed
+          add_option_types
           add_tags
         end
       end
@@ -30,6 +31,30 @@ module ShopifyImport
         @spree_product.save!
       end
 
+      def add_option_types
+        return if shopify_product.options.blank?
+
+        @spree_product.update!(option_type_ids: create_option_types)
+      end
+
+      def create_option_types
+        option_types_data.map do |option_type, option_values|
+          spree_option_type =
+            Spree::OptionType.where('lower(name) = ?', option_type).first_or_create!(name: option_type,
+                                                                                     presentation: option_type)
+          create_option_values(spree_option_type, option_values)
+          spree_option_type.id
+        end
+      end
+
+      def create_option_values(spree_option_type, option_values)
+        option_values.each do |option_value|
+          spree_option_type
+            .option_values.where('lower(name) = ?', option_value)
+            .first_or_create!(name: option_value, presentation: option_value)
+        end
+      end
+
       def product_attributes
         parser.product_attributes
       end
@@ -38,16 +63,16 @@ module ShopifyImport
         parser.product_tags
       end
 
+      def option_types_data
+        parser.option_types
+      end
+
       def parser
         @parser ||= DataParsers::BaseData.new(shopify_product)
       end
 
       def shopify_product
         @shopify_product ||= ShopifyAPI::Product.new(JSON.parse(@shopify_data_feed.data_feed))
-      end
-
-      def shipping_category
-        Spree::ShippingCategory.where(name: 'ShopifyImported').first_or_create
       end
     end
   end
