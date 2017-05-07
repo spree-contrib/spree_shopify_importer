@@ -22,10 +22,22 @@ module ShopifyImport
           @shopify_product.tags
         end
 
+        def option_types
+          @shopify_product.options.map do |option|
+            { option.name.strip.downcase => option_values(option.values) }
+          end.inject(:merge)
+        end
+
         private
 
         def shipping_category
           Spree::ShippingCategory.where(name: 'ShopifyImported').first_or_create
+        end
+
+        def option_values(values)
+          values.map do |value|
+            value.strip.downcase
+          end
         end
       end
     end
