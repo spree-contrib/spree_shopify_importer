@@ -13,5 +13,24 @@ FactoryGirl.define do
     created_at '2011-10-20T14:05:13-04:00'
     updated_at '2011-10-20T14:05:13-04:00'
     published_at '2011-10-20T14:05:13-04:00'
+
+    transient do
+      variants_count 1
+      options_count 1
+    end
+
+    factory :shopify_product_single_variant do
+      variants { build_list(:shopify_variant, 1) }
+      options { build_list(:shopify_single_option, 1) }
+    end
+
+    factory :shopify_product_multiple_variants do
+      after(:build) do |product, evaluator|
+        product.variants = build_list(:shopify_variant, evaluator.variants_count)
+        product.options = Array.new(evaluator.options_count) do |i|
+          build(:shopify_multiple_option, options_count: evaluator.variants_count, position: i + 1)
+        end
+      end
+    end
   end
 end

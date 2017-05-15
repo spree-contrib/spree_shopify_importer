@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe ShopifyImport::Products::DataParsers::BaseData, type: :service do
-  describe '.prepare_data' do
-    subject { described_class.new(shopify_product) }
+  subject { described_class.new(shopify_product) }
+  let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
+  let(:shopify_product) { create(:shopify_product) }
 
+  describe '#product_attributes' do
     context 'with sample product' do
-      let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
-      let(:shopify_product) { create(:shopify_product) }
-      let(:product_tags) { shopify_product.tags }
       let(:product_attributes) do
         {
           name: shopify_product.title,
@@ -20,13 +19,31 @@ RSpec.describe ShopifyImport::Products::DataParsers::BaseData, type: :service do
         }
       end
 
-      it 'creates properly formatted hash of attributes' do
+      it 'prepares hash of attributes' do
         expect(subject.product_attributes).to eq product_attributes
       end
+    end
+  end
 
-      it 'creates properly formatted tags list' do
-        expect(subject.product_tags).to eq product_tags
-      end
+  describe '#product_tags' do
+    let(:product_tags) { shopify_product.tags }
+
+    it 'prepares list tags' do
+      expect(subject.product_tags).to eq product_tags
+    end
+  end
+
+  describe '#option_types' do
+    let(:shopify_product) { create(:shopify_product_multiple_variants, variants_count: 2, options_count: 2) }
+    let(:option_types) do
+      {
+        shopify_product.options.first.name.downcase => shopify_product.options.first.values,
+        shopify_product.options.last.name.downcase => shopify_product.options.last.values
+      }
+    end
+
+    it '#option_types' do
+      expect(subject.option_types).to eq option_types
     end
   end
 end
