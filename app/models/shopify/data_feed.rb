@@ -1,5 +1,5 @@
 module Shopify
-  class DataFeed < ActiveRecord::Base
+  class DataFeed < ApplicationRecord
     belongs_to :spree_object, polymorphic: true
 
     validates :shopify_object_id, :shopify_object_type, presence: true
