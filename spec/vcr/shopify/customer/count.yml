@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/customers/count.json
+    uri: https://example.myshopify.com/admin/customers/count.json
     body:
       encoding: US-ASCII
       string: ''

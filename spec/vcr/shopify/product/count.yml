@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/products/count.json
+    uri: https://example.myshopify.com/admin/products/count.json
     body:
       encoding: US-ASCII
       string: ''
@@ -79,6 +79,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"count":2}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 22 Apr 2017 13:36:09 GMT
 recorded_with: VCR 3.0.3

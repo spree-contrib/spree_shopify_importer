@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/customers.json?page=1
+    uri: https://example.myshopify.com/admin/customers.json?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -103,7 +103,7 @@ http_interactions:
   recorded_at: Fri, 02 Jun 2017 04:57:49 GMT
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/customers.json?page=2
+    uri: https://example.myshopify.com/admin/customers.json?page=2
     body:
       encoding: US-ASCII
       string: ''
