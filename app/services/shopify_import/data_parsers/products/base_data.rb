@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Products
-    module DataParsers
+  module DataParsers
+    module Products
       class BaseData
         def initialize(shopify_product)
           @shopify_product = shopify_product

@@ -68,7 +68,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= DataParsers::BaseData.new(shopify_product)
+        @parser ||= ShopifyImport::DataParsers::Products::BaseData.new(shopify_product)
       end
 
       def shopify_product
