@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Products
-    class Create
+  module Creators
+    class Product
       def initialize(shopify_data_feed)
         @shopify_data_feed = shopify_data_feed
       end
