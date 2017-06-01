@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Products::Create, type: :service do
+RSpec.describe ShopifyImport::Creators::Product, type: :service do
   subject { described_class.new(product_data_feed) }
 
   before { ShopifyAPI::Base.site = 'https://foo:baz@test_shop.myshopify.com/admin' }

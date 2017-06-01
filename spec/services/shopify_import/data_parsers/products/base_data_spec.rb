@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Products::DataParsers::BaseData, type: :service do
+RSpec.describe ShopifyImport::DataParsers::Products::BaseData, type: :service do
   subject { described_class.new(shopify_product) }
   let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
   let(:shopify_product) { create(:shopify_product) }

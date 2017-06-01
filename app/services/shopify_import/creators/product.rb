@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Products
-    class Create
+  module Creators
+    class Product
       def initialize(shopify_data_feed)
         @shopify_data_feed = shopify_data_feed
       end
@@ -68,7 +68,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= DataParsers::BaseData.new(shopify_product)
+        @parser ||= ShopifyImport::DataParsers::Products::BaseData.new(shopify_product)
       end
 
       def shopify_product
