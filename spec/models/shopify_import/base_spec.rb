@@ -5,7 +5,7 @@ RSpec.describe ShopifyImport::Base, type: :model do
 
   describe '.new' do
     context 'with credentials' do
-      let(:credentials) { { api_key: 'foo', password: 'bar', shop_name: 'baz' } }
+      let(:credentials) { { api_key: 'foo', password: 'bar', shop_domain: 'baz.myshopify.com' } }
 
       it 'calls singleton for client with params' do
         expect_any_instance_of(ShopifyImport::Client).to receive(:get_connection).with(credentials)
@@ -31,7 +31,7 @@ RSpec.describe ShopifyImport::Base, type: :model do
   end
 
   describe '#count', :vcr do
-    let(:credentials) { { credentials: { api_key: 'foo', password: 'bar', shop_name: 'shop_name' } } }
+    let(:credentials) { { credentials: { api_key: 'foo', password: 'bar', shop_domain: 'shop_name.myshopify.com' } } }
 
     it 'raises error ActiveResource::ResourceNotFound' do
       expect { subject.new(credentials).count }.to raise_error ActiveResource::ResourceNotFound
