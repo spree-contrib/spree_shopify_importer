@@ -12,6 +12,7 @@ module ShopifyImport
           add_option_types
           add_tags
         end
+        create_spree_variants
       end
 
       private
@@ -52,6 +53,12 @@ module ShopifyImport
           spree_option_type
             .option_values.where('lower(name) = ?', option_value)
             .first_or_create!(name: option_value, presentation: option_value)
+        end
+      end
+
+      def create_spree_variants
+        @shopify_product.variants.each do |variant|
+          ShopifyImport::Creators::Variant.new(variant, @spree_product).save!
         end
       end
 

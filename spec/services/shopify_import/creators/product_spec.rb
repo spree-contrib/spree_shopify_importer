@@ -23,7 +23,7 @@ RSpec.describe ShopifyImport::Creators::Product, type: :service do
       end
 
       context 'product attributes' do
-        let(:spree_product) { Spree::Product.find_by!(name: shopify_product.title) }
+        let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
 
         before { subject.save! }
 
@@ -49,7 +49,7 @@ RSpec.describe ShopifyImport::Creators::Product, type: :service do
       end
 
       context 'product tags' do
-        let(:spree_product) { Spree::Product.find_by!(name: shopify_product.title) }
+        let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
 
         it 'creates product tags' do
           subject.save!
@@ -57,10 +57,29 @@ RSpec.describe ShopifyImport::Creators::Product, type: :service do
         end
       end
 
+      context 'spree variants' do
+        let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
+
+        it 'creates spree variant' do
+          expect { subject.save! }.to change(Spree::Variant, :count).by(2)
+        end
+
+        it 'assings variants to product' do
+          subject.save!
+          expect(Spree::Variant.last.product).to eq spree_product
+        end
+      end
+
       context 'option types' do
-        let(:spree_product) { Spree::Product.find_by!(name: shopify_product.title) }
-        let(:shopify_product) { create(:shopify_product_multiple_variants, variants_count: 2, options_count: 2) }
+        let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
+        let(:shopify_product) do
+          create(:shopify_product_multiple_variants, variants_count: 2, options_count: 2, handle: 'some-handle')
+        end
         let(:option_types_names) { shopify_product.options.map(&:name).map(&:downcase) }
+
+        it 'creates variants' do
+          expect { subject.save! }.to change(Spree::Variant, :count).by(3)
+        end
 
         it 'creates option types' do
           expect { subject.save! }.to change(Spree::OptionType, :count).by(2)
@@ -72,19 +91,19 @@ RSpec.describe ShopifyImport::Creators::Product, type: :service do
         end
 
         context 'option values' do
-          let(:f_option_type) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
-          let(:s_option_type) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
-          let(:f_ot_values) { shopify_product.options.first.values }
-          let(:s_ot_values) { shopify_product.options.last.values }
+          let(:option_type1) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
+          let(:option_type2) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
+          let(:option_type1_values) { shopify_product.options.first.values.map(&:downcase) }
+          let(:option_type2_values) { shopify_product.options.last.values.map(&:downcase) }
 
           it 'creates option values' do
-            expect { subject.save! }.to change(Spree::OptionValue, :count).by(4)
+            expect { subject.save! }.to change(Spree::OptionValue, :count).by(6)
           end
 
           it 'assigns option values to option types' do
             subject.save!
-            expect(f_option_type.option_values.pluck(:name)).to match_array f_ot_values
-            expect(s_option_type.option_values.pluck(:name)).to match_array s_ot_values
+            expect(option_type1.option_values.pluck(:name)).to match_array option_type1_values
+            expect(option_type2.option_values.pluck(:name)).to match_array option_type2_values
           end
         end
       end
