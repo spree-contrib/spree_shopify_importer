@@ -14,6 +14,7 @@ RSpec.describe ShopifyImport::Invoker do
     end
 
     it 'calls all the importers' do
+      allow(ShopifyImport::Client.instance).to receive(:get_connection)
       products_importer = double('products_importer', import!: '')
       allow(ShopifyImport::Importers::ProductsImporter).to receive(:new).and_return(products_importer)
 

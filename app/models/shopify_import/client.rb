@@ -1,6 +1,8 @@
 require 'singleton'
 
 module ShopifyImport
+  class ClientError < StandardError; end
+
   class Client
     include Singleton
 
@@ -15,20 +17,35 @@ module ShopifyImport
 
     private
 
-    # TODO: ADD ERROR HANDLING TO EMPTY CREDENTIALS
-    # TODO: ADD ERROR HANDLING TO INVALID CREDENTIALS
+    # Authenticates to Shopify as either a Shopify app with oauth token or a private app
+    # This method can raise various ActiveResource errors:
+    # https://github.com/rails/activeresource/blob/f8abaf13174e94d179227f352c9dd6fb8b03e0da/lib/active_resource/exceptions.rb
+    # ActiveResource::ConnectionError
+    # ActiveResource::TimeoutError
+    # ActiveResource::SSLError
+    # ActiveResource::Redirection < ConnectionError
+    # ActiveResource::MissingPrefixParam
+    # ActiveResource::ClientError < ConnectionError
+    # ActiveResource::BadRequest < ClientError
+    # ActiveResource::UnauthorizedAccess < ClientError - on invalid password, invalid auth token or invalid domain
+    # ActiveResource::ForbiddenAccess < ClientError    - on invalid api_key
+    # ActiveResource::ResourceNotFound < ClientError   - on invalid API endpoint
+    # ActiveResource::ResourceConflict < ClientError
+    # ActiveResource::ResourceGone < ClientError
+    # ActiveResource::ServerError < ConnectionError
+    # ActiveResource::MethodNotAllowed < ClientError
     def initiate_session(api_key, password, shop_domain, token)
-      if password.present?
-        authenticate_private_app(api_key, password, shop_domain)
+      if api_key.present? && password.present?
+        ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
       elsif token.present?
-        ShopifyAPI::Session.new(shop_domain, token)
+        session = ShopifyAPI::Session.new(shop_domain, token)
+        ShopifyAPI::Base.activate_session(session)
       else
-        raise I18n.t('shopify_import.client.missing_credentials')
+        raise ShopifyImport::ClientError, I18n.t('shopify_import.client.missing_credentials')
       end
-    end
 
-    def authenticate_private_app(api_key, password, shop_domain)
-      ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
+      # the above code doesn't make the call to Shopify to authenticate, so we have to make a call manually
+      ShopifyAPI::Shop.current
     end
   end
 end
