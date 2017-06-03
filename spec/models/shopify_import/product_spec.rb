@@ -6,7 +6,7 @@ RSpec.describe ShopifyImport::Product, type: :module do
   before do
     Spree::Config[:shopify_api_key] = 'api_key'
     Spree::Config[:shopify_password] = 'password'
-    Spree::Config[:shopify_shop_domain] = 'shop_domain'
+    Spree::Config[:shopify_shop_domain] = 'shop_domain.myshopify.com'
   end
 
   it 'is inheriting from base' do

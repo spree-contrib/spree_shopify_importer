@@ -31,8 +31,8 @@ guard :rspec, cmd: 'spring rspec', failed_mode: :keep do
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # watch /app files
-  watch(%r{^app/(.+)/spree_shopify_importer/(.+).rb$}) do |m|
-    "spec/#{m[1]}/spree_shopify_importer/#{m[2]}_spec.rb"
+  watch(%r{^app/(.+)/shopify_import/(.+).rb$}) do |m|
+    "spec/#{m[1]}/shopify_import/#{m[2]}_spec.rb"
   end
   watch(%r{^app/(.+)/spree/(.+).rb$}) do |m|
     "spec/#{m[1]}/spree/#{m[2]}_spec.rb"

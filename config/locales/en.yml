@@ -7,3 +7,6 @@ en:
     not_implemented:
       resources: Resource fetcher is not implemented
       creator: Creator is not implemented
+  shopify_import:
+    client:
+      missing_credentials: You must provide authentication token or api_key and password in order to authenticate.
