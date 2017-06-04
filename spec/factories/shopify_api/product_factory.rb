@@ -28,7 +28,9 @@ FactoryGirl.define do
       after(:build) do |product, evaluator|
         product.variants = build_list(:shopify_variant, evaluator.variants_count)
         product.options = Array.new(evaluator.options_count) do |i|
-          build(:shopify_multiple_option, options_count: evaluator.variants_count, position: i + 1)
+          variant = product.variants[i]
+          values = [variant.option1, variant.option2, variant.option3]
+          build(:shopify_base_option, options_count: evaluator.variants_count, position: i + 1, values: values)
         end
       end
     end
