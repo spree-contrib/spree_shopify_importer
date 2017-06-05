@@ -4,7 +4,7 @@ module ShopifyImport
       private
 
       def resources
-        ShopifyImport::Customer.new(credentials: @credentials).find_all(@params)
+        ShopifyImport::Customer.all(@params)
       end
 
       def creator

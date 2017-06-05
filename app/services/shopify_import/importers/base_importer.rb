@@ -1,16 +1,11 @@
 module ShopifyImport
   module Importers
     class BaseImporter
-      def self.import!(**params)
-        new(params).import
-      end
-
-      def initialize(credentials: {}, **params)
-        @credentials = credentials
+      def initialize(params = {})
         @params = params
       end
 
-      def import
+      def import!
         resources.each do |resource|
           data_feed = Shopify::DataFeeds::Create.new(resource).save!
           creator.new(data_feed).save!
