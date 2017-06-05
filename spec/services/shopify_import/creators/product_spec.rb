@@ -3,14 +3,14 @@ require 'spec_helper'
 RSpec.describe ShopifyImport::Creators::Product, type: :service do
   subject { described_class.new(product_data_feed) }
 
-  before { ShopifyAPI::Base.site = 'https://foo:baz@test_shop.myshopify.com/admin' }
+  before { authenticate_with_shopify }
 
-  describe '#call' do
+  describe '#save!' do
     context 'with base product data feed', vcr: { cassette_name: 'shopify/base_product' } do
-      let(:shopify_product) { ShopifyAPI::Product.find(9_884_552_707) }
+      let(:shopify_product) { ShopifyAPI::Product.find(11_101_525_828) }
       let(:product_data_feed) do
         create(:shopify_data_feed,
-               shopify_object_id: '9884552707', data_feed: shopify_product.to_json)
+               shopify_object_id: shopify_product.id, data_feed: shopify_product.to_json)
       end
 
       it 'create spree product' do

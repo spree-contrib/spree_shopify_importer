@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: https://example.myshopify.com/admin/products/count.json
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products/count.json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Authorization:
-      - Basic M2NkZjIxMTM0MWRiMzQyNWFiOGY5NWJkMjQwZDYwN2M6YzNmZDc0YWZmNGVlMmRkN2Q1ZjE1OGNhZWI4NjIzOTU=
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
       Accept:
       - application/json
       User-Agent:
-      - ShopifyAPI/4.6.0 ActiveResource/5.0.0 Ruby/2.2.4
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.4.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -23,13 +23,28 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 22 Apr 2017 13:36:09 GMT
+      - Mon, 05 Jun 2017 05:45:35 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '1'
+      - '1'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '1'
+      - '1'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -37,9 +52,9 @@ http_interactions:
       X-Frame-Options:
       - DENY
       X-Shopid:
-      - '19040011'
+      - '20513691'
       X-Shardid:
-      - '2'
+      - '3'
       X-Shopify-Shop-Api-Call-Limit:
       - 1/40
       Http-X-Shopify-Shop-Api-Call-Limit:
@@ -47,19 +62,20 @@ http_interactions:
       X-Stats-Userid:
       - '0'
       X-Stats-Apiclientid:
-      - '1595797'
+      - '1680429'
       X-Stats-Apipermissionid:
-      - '47354223'
+      - '52824317'
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
         connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
         https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
         https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
-        https://appcenter.intuit.com https://www.paypal.com https://stats.g.doubleclick.net
-        https://www.google-analytics.com https://visitors.shopify.com https://v.shopify.com
-        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
-        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=cad5617c-a63f-4c57-9715-58f08a46534e'
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=fcf7b061-b199-4cb3-a5d8-857868c9b0ed'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -69,16 +85,16 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=cad5617c-a63f-4c57-9715-58f08a46534e
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=fcf7b061-b199-4cb3-a5d8-857868c9b0ed
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
-      - ash,chi2
+      - chi2,ash
       X-Request-Id:
-      - cad5617c-a63f-4c57-9715-58f08a46534e
+      - fcf7b061-b199-4cb3-a5d8-857868c9b0ed
     body:
       encoding: ASCII-8BIT
       string: '{"count":2}'
-    http_version:
-  recorded_at: Sat, 22 Apr 2017 13:36:09 GMT
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 05:45:35 GMT
 recorded_with: VCR 3.0.3
