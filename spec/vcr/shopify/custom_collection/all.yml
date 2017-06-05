@@ -1,0 +1,198 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://shop_domain.myshopify.com/admin/custom_collections.json?page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic M2NkZjIxMTM0MWRiMzQyNWFiOGY5NWJkMjQwZDYwN2M6YzNmZDc0YWZmNGVlMmRkN2Q1ZjE1OGNhZWI4NjIzOTU=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 05 Jun 2017 15:39:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '2'
+      - '2'
+      X-Sorting-Hat-Podid-Cached:
+      - '1'
+      - '1'
+      X-Sorting-Hat-Shopid:
+      - '19040011'
+      - '19040011'
+      X-Sorting-Hat-Section:
+      - pod
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '1'
+      - '1'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '19040011'
+      X-Shardid:
+      - '2'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1595797'
+      X-Stats-Apipermissionid:
+      - '47354223'
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin&source%5Buuid%5D=4018c0dc-f89c-4f44-81fb-2d907d77b94b'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin&source%5Buuid%5D=4018c0dc-f89c-4f44-81fb-2d907d77b94b
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash,chi2
+      X-Request-Id:
+      - 4018c0dc-f89c-4f44-81fb-2d907d77b94b
+    body:
+      encoding: ASCII-8BIT
+      string: '{"custom_collections":[{"id":377307075,"handle":"frontpage","title":"Home
+        page","updated_at":"2017-04-08T15:40:35+02:00","body_html":null,"published_at":"2017-04-05T20:50:58+02:00","sort_order":"best-selling","template_suffix":null,"published_scope":"global"},{"id":388567107,"handle":"samplecollection","title":"SampleCollection","updated_at":"2017-06-05T17:32:39+02:00","body_html":"SomeSampleCollection","published_at":"2017-05-31T18:33:25+02:00","sort_order":"best-selling","template_suffix":null,"published_scope":"global"}]}'
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 15:39:46 GMT
+- request:
+    method: get
+    uri: https://shop_domain.myshopify.com/admin/custom_collections.json?page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic M2NkZjIxMTM0MWRiMzQyNWFiOGY5NWJkMjQwZDYwN2M6YzNmZDc0YWZmNGVlMmRkN2Q1ZjE1OGNhZWI4NjIzOTU=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 05 Jun 2017 15:39:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '2'
+      - '2'
+      X-Sorting-Hat-Podid-Cached:
+      - '1'
+      - '1'
+      X-Sorting-Hat-Shopid:
+      - '19040011'
+      - '19040011'
+      X-Sorting-Hat-Section:
+      - pod
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '1'
+      - '1'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '19040011'
+      X-Shardid:
+      - '2'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1595797'
+      X-Stats-Apipermissionid:
+      - '47354223'
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin&source%5Buuid%5D=b8631ac5-92e1-449f-ad60-3ed7919595ad'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin&source%5Buuid%5D=b8631ac5-92e1-449f-ad60-3ed7919595ad
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash,chi2
+      X-Request-Id:
+      - b8631ac5-92e1-449f-ad60-3ed7919595ad
+    body:
+      encoding: ASCII-8BIT
+      string: '{"custom_collections":[]}'
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 15:39:47 GMT
+recorded_with: VCR 3.0.3
