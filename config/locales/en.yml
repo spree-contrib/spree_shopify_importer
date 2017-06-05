@@ -11,3 +11,4 @@ en:
   shopify_import:
     client:
       missing_credentials: You must provide authentication token or api_key and password in order to authenticate.
+  shopify_custom_collections: Shopify Custom Collections
