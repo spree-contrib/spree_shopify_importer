@@ -6,17 +6,6 @@ module ShopifyImport
   class Client
     include Singleton
 
-    def get_connection(api_key: nil, password: nil, shop_domain: nil, token: nil)
-      api_key ||= Spree::Config[:shopify_api_key]
-      password ||= Spree::Config[:shopify_password]
-      shop_domain ||= Spree::Config[:shopify_shop_domain]
-      token ||= Spree::Config[:shopify_token]
-
-      initiate_session(api_key, password, shop_domain, token)
-    end
-
-    private
-
     # Authenticates to Shopify as either a Shopify app with oauth token or a private app
     # This method can raise various ActiveResource errors:
     # https://github.com/rails/activeresource/blob/f8abaf13174e94d179227f352c9dd6fb8b03e0da/lib/active_resource/exceptions.rb
@@ -34,7 +23,7 @@ module ShopifyImport
     # ActiveResource::ResourceGone < ClientError
     # ActiveResource::ServerError < ConnectionError
     # ActiveResource::MethodNotAllowed < ClientError
-    def initiate_session(api_key, password, shop_domain, token)
+    def get_connection(api_key: nil, password: nil, shop_domain: nil, token: nil)
       if api_key.present? && password.present?
         ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
       elsif token.present?
