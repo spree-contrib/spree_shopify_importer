@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
   s.add_dependency 'shopify_api', '>= 4.2.2'
   s.add_dependency 'activesupport', '~> 5.0.0'
-  s.add_dependency 'activeresource'
+  s.add_dependency 'activeresource', '~> 5.0.0'
 
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara'
