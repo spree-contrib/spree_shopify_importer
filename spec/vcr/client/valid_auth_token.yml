@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/shop.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.4.0
+      X-Shopify-Access-Token:
+      - 918b6723f062d8805b364dba757782c5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 05 Jun 2017 06:23:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1601709'
+      X-Stats-Apipermissionid:
+      - '53149145'
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin&source%5Buuid%5D=0b2e3416-14a2-4f8b-96da-5f8b7407a966'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin&source%5Buuid%5D=0b2e3416-14a2-4f8b-96da-5f8b7407a966
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - chi2,ash
+      X-Request-Id:
+      - 0b2e3416-14a2-4f8b-96da-5f8b7407a966
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJzaG9wIjp7ImlkIjoyMDUxMzY5MSwibmFtZSI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImVtYWlsIjoidmlrdG9yLmZvbmljQGdtYWlsLmNvbSIsImRvbWFpbiI6InNwcmVlLXNob3BpZnktaW1wb3J0ZXItdGVzdC1zdG9yZS5teXNob3BpZnkuY29tIiwiY3JlYXRlZF9hdCI6IjIwMTctMDUtMzFUMDY6MTg6MDIrMDI6MDAiLCJwcm92aW5jZSI6IiIsImNvdW50cnkiOiJIUiIsImFkZHJlc3MxIjoiQ3JvYXRpYW4gc3RyZWV0IDU5IiwiemlwIjoiMjEwMDAiLCJjaXR5IjoiU3BsaXQiLCJzb3VyY2UiOm51bGwsInBob25lIjoiMDk4MTIzNDU2NyIsInVwZGF0ZWRfYXQiOiIyMDE3LTA2LTAzVDExOjM5OjMwKzAyOjAwIiwiY3VzdG9tZXJfZW1haWwiOm51bGwsImxhdGl0dWRlIjo0My41MDgxMzIzLCJsb25naXR1ZGUiOjE2LjQ0MDE5MzUsInByaW1hcnlfbG9jYXRpb25faWQiOjI1ODg0MTY0LCJwcmltYXJ5X2xvY2FsZSI6ImVuIiwiYWRkcmVzczIiOiIiLCJjb3VudHJ5X2NvZGUiOiJIUiIsImNvdW50cnlfbmFtZSI6IkNyb2F0aWEiLCJjdXJyZW5jeSI6IkVVUiIsInRpbWV6b25lIjoiKEdNVCswMTowMCkgRXVyb3BlXC9QYXJpcyIsImlhbmFfdGltZXpvbmUiOiJFdXJvcGVcL1BhcmlzIiwic2hvcF9vd25lciI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSBBZG1pbiIsIm1vbmV5X2Zvcm1hdCI6IuKCrHt7YW1vdW50fX0iLCJtb25leV93aXRoX2N1cnJlbmN5X2Zvcm1hdCI6IuKCrHt7YW1vdW50fX0gRVVSIiwid2VpZ2h0X3VuaXQiOiJnIiwicHJvdmluY2VfY29kZSI6bnVsbCwidGF4ZXNfaW5jbHVkZWQiOnRydWUsInRheF9zaGlwcGluZyI6bnVsbCwiY291bnR5X3RheGVzIjp0cnVlLCJwbGFuX2Rpc3BsYXlfbmFtZSI6ImFmZmlsaWF0ZSIsInBsYW5fbmFtZSI6ImFmZmlsaWF0ZSIsImhhc19kaXNjb3VudHMiOmZhbHNlLCJoYXNfZ2lmdF9jYXJkcyI6ZmFsc2UsIm15c2hvcGlmeV9kb21haW4iOiJzcHJlZS1zaG9waWZ5LWltcG9ydGVyLXRlc3Qtc3RvcmUubXlzaG9waWZ5LmNvbSIsImdvb2dsZV9hcHBzX2RvbWFpbiI6bnVsbCwiZ29vZ2xlX2FwcHNfbG9naW5fZW5hYmxlZCI6bnVsbCwibW9uZXlfaW5fZW1haWxzX2Zvcm1hdCI6IuKCrHt7YW1vdW50fX0iLCJtb25leV93aXRoX2N1cnJlbmN5X2luX2VtYWlsc19mb3JtYXQiOiLigqx7e2Ftb3VudH19IEVVUiIsImVsaWdpYmxlX2Zvcl9wYXltZW50cyI6ZmFsc2UsInJlcXVpcmVzX2V4dHJhX3BheW1lbnRzX2FncmVlbWVudCI6ZmFsc2UsInBhc3N3b3JkX2VuYWJsZWQiOnRydWUsImhhc19zdG9yZWZyb250Ijp0cnVlLCJlbGlnaWJsZV9mb3JfY2FyZF9yZWFkZXJfZ2l2ZWF3YXkiOmZhbHNlLCJmaW5hbmNlcyI6dHJ1ZSwic2V0dXBfcmVxdWlyZWQiOmZhbHNlLCJmb3JjZV9zc2wiOnRydWV9fQ==
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 06:23:05 GMT
+recorded_with: VCR 3.0.3
