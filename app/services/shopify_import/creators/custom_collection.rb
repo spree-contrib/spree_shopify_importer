@@ -1,10 +1,6 @@
 module ShopifyImport
   module Creators
-    class CustomCollection
-      def initialize(shopify_data_feed)
-        @shopify_data_feed = shopify_data_feed
-      end
-
+    class CustomCollection < Base
       def save!
         Spree::Taxon.transaction do
           @spree_taxon = create_spree_taxon
@@ -46,7 +42,7 @@ module ShopifyImport
       end
 
       def shopify_custom_collection
-        @shopify_custom_collection ||= ShopifyAPI::CustomCollection.new(JSON.parse(@shopify_data_feed.data_feed))
+        @shopify_custom_collection ||= ShopifyAPI::CustomCollection.new(data_feed)
       end
     end
   end
