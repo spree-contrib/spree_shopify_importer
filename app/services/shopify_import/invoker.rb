@@ -22,9 +22,11 @@ module ShopifyImport
       ShopifyImport::Client.instance.get_connection(@credentials)
     end
 
+    # TODO: custom params for importers
     def initiate_import!
       ShopifyImport::Importers::ProductsImporter.new.import!
       ShopifyImport::Importers::CustomersImporter.new.import!
+      ShopifyImport::Importers::CustomCollectionsImporter.new.import!
     end
   end
 end
