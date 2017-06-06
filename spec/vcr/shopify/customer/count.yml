@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://example.myshopify.com/admin/customers/count.json
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/customers/count.json
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 02 Jun 2017 04:57:48 GMT
+      - Mon, 05 Jun 2017 05:41:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,8 +34,8 @@ http_interactions:
       - '3'
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
-      - '1'
+      - '0'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       - '20513691'
@@ -75,7 +75,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin&source%5Buuid%5D=f86c2f26-26ee-438f-9200-1a31f589cd26'
+        /csp-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin&source%5Buuid%5D=6baeb03b-a057-407a-9d98-97ba6fc17f92'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -85,16 +85,16 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin&source%5Buuid%5D=f86c2f26-26ee-438f-9200-1a31f589cd26
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=count&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin&source%5Buuid%5D=6baeb03b-a057-407a-9d98-97ba6fc17f92
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
       - chi2,ash
       X-Request-Id:
-      - f86c2f26-26ee-438f-9200-1a31f589cd26
+      - 6baeb03b-a057-407a-9d98-97ba6fc17f92
     body:
       encoding: ASCII-8BIT
-      string: '{"count":1}'
-    http_version:
-  recorded_at: Fri, 02 Jun 2017 04:57:48 GMT
+      string: '{"count":2}'
+    http_version: 
+  recorded_at: Mon, 05 Jun 2017 05:41:52 GMT
 recorded_with: VCR 3.0.3

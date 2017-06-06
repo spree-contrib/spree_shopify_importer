@@ -6,7 +6,7 @@ RSpec.describe ShopifyImport::Customer, type: :module do
   before { authenticate_with_shopify }
 
   describe '.count', vcr: { cassette_name: 'shopify/customer/count' } do
-    let(:result) { { 'count' => 1 } }
+    let(:result) { { 'count' => 2 } }
 
     it 'returns number of customers in Shopify' do
       expect(subject.count).to eq result
@@ -15,7 +15,7 @@ RSpec.describe ShopifyImport::Customer, type: :module do
 
   describe '.all', vcr: { cassette_name: 'shopify/customer/all' } do
     it 'find all customers in Shopify' do
-      expect(subject.all.length).to eq 1
+      expect(subject.all.length).to eq 2
     end
   end
 end

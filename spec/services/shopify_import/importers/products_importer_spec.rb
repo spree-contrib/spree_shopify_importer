@@ -5,7 +5,7 @@ RSpec.describe ShopifyImport::Importers::ProductsImporter, type: :service do
     before { authenticate_with_shopify }
 
     context 'with params', vcr: { cassette_name: 'shopify_import/products_importer/import_with_params' } do
-      let(:params) { { created_at_min: '2017-04-22T15:00:00+02:00' } }
+      let(:params) { { created_at_min: '2017-06-04T15:00:00+02:00' } }
 
       it 'creates shopify data feeds' do
         expect { described_class.new(params).import! }.to change(Shopify::DataFeed, :count).by(1)
