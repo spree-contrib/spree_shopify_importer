@@ -1,10 +1,6 @@
 module ShopifyImport
   module Creators
-    class Product
-      def initialize(shopify_data_feed)
-        @shopify_data_feed = shopify_data_feed
-      end
-
+    class Product < Base
       def save!
         Spree::Product.transaction do
           @spree_product = create_spree_product
@@ -79,7 +75,7 @@ module ShopifyImport
       end
 
       def shopify_product
-        @shopify_product ||= ShopifyAPI::Product.new(JSON.parse(@shopify_data_feed.data_feed))
+        @shopify_product ||= ShopifyAPI::Product.new(data_feed)
       end
     end
   end

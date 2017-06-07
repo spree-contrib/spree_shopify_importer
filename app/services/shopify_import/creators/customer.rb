@@ -1,10 +1,6 @@
 module ShopifyImport
   module Creators
-    class Customer
-      def initialize(shopify_data_feed)
-        @shopify_data_feed = shopify_data_feed
-      end
-
+    class Customer < Base
       def save!
         Spree.user_class.transaction do
           @spree_user = create_spree_user
@@ -43,7 +39,7 @@ module ShopifyImport
       end
 
       def shopify_customer
-        @shopify_customer ||= ShopifyAPI::Customer.new(JSON.parse(@shopify_data_feed.data_feed))
+        @shopify_customer ||= ShopifyAPI::Customer.new(data_feed)
       end
     end
   end
