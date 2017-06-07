@@ -2,7 +2,11 @@ require 'spec_helper'
 
 RSpec.describe ShopifyImport::Invoker do
   describe '#import!' do
-    ROOT_IMPORTERS = [ShopifyImport::Importers::ProductsImporter, ShopifyImport::Importers::CustomersImporter].freeze
+    ROOT_IMPORTERS = [
+      ShopifyImport::Importers::ProductsImporter,
+      ShopifyImport::Importers::CustomersImporter,
+      ShopifyImport::Importers::CustomCollectionsImporter
+    ].freeze
 
     before do
       allow(ShopifyImport::Client.instance).to receive(:get_connection)
