@@ -1,5 +1,11 @@
 module ShopifyImport
   class Invoker
+    ROOT_IMPORTERS = [
+      ShopifyImport::Importers::ProductsImporter,
+      ShopifyImport::Importers::CustomersImporter,
+      ShopifyImport::Importers::CustomCollectionsImporter
+    ].freeze
+
     def initialize(credentials: nil)
       @credentials = credentials
       @credentials ||= {
@@ -24,9 +30,9 @@ module ShopifyImport
 
     # TODO: custom params for importers
     def initiate_import!
-      ShopifyImport::Importers::ProductsImporter.new.import!
-      ShopifyImport::Importers::CustomersImporter.new.import!
-      ShopifyImport::Importers::CustomCollectionsImporter.new.import!
+      ROOT_IMPORTERS.each do |importer|
+        importer.new.import!
+      end
     end
   end
 end
