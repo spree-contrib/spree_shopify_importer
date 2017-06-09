@@ -18,6 +18,8 @@ require 'pry'
 require 'ffaker'
 require 'rspec/rails'
 
+require 'spree_shopify_importer/factories'
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = false
