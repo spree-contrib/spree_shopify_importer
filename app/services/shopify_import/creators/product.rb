@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Product < Base
+    class Product < ShopifyImport::Creators::Base
       def save!
         Spree::Product.transaction do
           @spree_product = create_spree_product

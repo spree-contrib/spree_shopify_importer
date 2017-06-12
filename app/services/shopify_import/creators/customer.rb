@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Customer < Base
+    class Customer < ShopifyImport::Creators::Base
       def save!
         Spree.user_class.transaction do
           @spree_user = create_spree_user
