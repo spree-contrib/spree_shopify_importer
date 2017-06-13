@@ -7,6 +7,7 @@ module ShopifyImport
           generate_api_key
           assign_spree_user_to_data_feed
         end
+        create_spree_addresses
       end
 
       private
@@ -28,6 +29,12 @@ module ShopifyImport
 
       def generate_api_key
         @spree_user.try(:generate_spree_api_key!)
+      end
+
+      def create_spree_addresses
+        shopify_customer.addresses.each do |address|
+          ShopifyImport::Creators::Address.new(address, @spree_user).save!
+        end
       end
 
       def user_attributes
