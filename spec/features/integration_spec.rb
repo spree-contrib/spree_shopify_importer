@@ -9,6 +9,10 @@ RSpec.feature 'end to end import' do
       }
     ).import!
 
-    expect(Spree::Product.count).to eq(2)
+    expect(Spree::Product.count).to eq 2
+    expect(Spree::Variant.count).to eq 4
+    expect(Spree.user_class.count).to eq 2
+    expect(Spree::Taxonomy.count).to eq 1
+    expect(Spree::Taxon.count).to eq 2
   end
 end
