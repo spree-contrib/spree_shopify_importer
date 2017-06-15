@@ -21,7 +21,7 @@ Metrics/BlockLength:
     - config/environments/production.rb
     - '**/*_spec.rb'
     - 'spec/shared_examples/**'
-    - 'spec/factories/**/*'
+    - '**/factories/**/*'
     - 'vendor/**/*'
 Metrics/LineLength:
   Max: 120
