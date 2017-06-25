@@ -4,6 +4,7 @@ RSpec.describe Shopify::DataFeed, type: :model do
   describe 'database' do
     it { is_expected.to have_db_index([:shopify_object_id, :shopify_object_type]).unique }
     it { is_expected.to have_db_index([:spree_object_id, :spree_object_type]).unique }
+    it { is_expected.to have_db_index(:parent_id) }
   end
 
   describe 'validations' do
@@ -20,5 +21,7 @@ RSpec.describe Shopify::DataFeed, type: :model do
 
   describe 'associations' do
     it { is_expected.to belong_to(:spree_object) }
+    it { is_expected.to belong_to(:parent).class_name('Shopify::DataFeed') }
+    it { is_expected.to have_many(:children).class_name('Shopify::DataFeed').with_foreign_key(:parent_id) }
   end
 end
