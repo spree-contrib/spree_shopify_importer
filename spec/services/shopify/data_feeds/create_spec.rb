@@ -25,6 +25,20 @@ RSpec.describe Shopify::DataFeeds::Create, type: :service do
         it 'shopify object as data feed' do
           expect(data_feed.data_feed).to eq shopify_object.to_json.to_s
         end
+
+        it 'does not assigns parent' do
+          expect(data_feed.parent).to be_nil
+        end
+
+        context 'with existing parent' do
+          let!(:parent) { create(:shopify_data_feed) }
+
+          subject { described_class.new(shopify_object, parent) }
+
+          it 'assigns parent to data feed' do
+            expect(data_feed.parent).to eq parent
+          end
+        end
       end
     end
   end
