@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "activeresource", github: "rails/activeresource"
 gem "spree", "~> 3.2.0.rc1"
 gem "spree_auth_devise", "~> 3.2.0.beta"
 gem "activesupport", "~> 5.0.0"
+gem "activeresource", github: "rails/activeresource"
 gem "rails-controller-testing"
 
 gemspec path: "../"
