@@ -70,6 +70,14 @@ RSpec.describe ShopifyImport::Creators::Product, type: :service do
         end
       end
 
+      context 'shopify data feeds for variants' do
+        it 'creates data feeds' do
+          expect { subject.save! }.to change {
+            Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Variant').reload.count
+          }.by(1)
+        end
+      end
+
       context 'option types' do
         let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
         let(:shopify_product) do

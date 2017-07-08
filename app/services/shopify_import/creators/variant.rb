@@ -1,8 +1,8 @@
 module ShopifyImport
   module Creators
-    class Variant
-      def initialize(shopify_variant, spree_product)
-        @shopify_variant = shopify_variant
+    class Variant < ShopifyImport::Creators::Base
+      def initialize(shopify_data_feed, spree_product)
+        super(shopify_data_feed)
         @spree_product = spree_product
       end
 
@@ -49,7 +49,11 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= ShopifyImport::DataParsers::Variants::BaseData.new(@shopify_variant, @spree_product)
+        @parser ||= ShopifyImport::DataParsers::Variants::BaseData.new(shopify_variant, @spree_product)
+      end
+
+      def shopify_variant
+        ShopifyAPI::Variant.new(data_feed)
       end
     end
   end

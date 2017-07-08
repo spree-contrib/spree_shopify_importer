@@ -4,6 +4,12 @@ RSpec.describe ShopifyImport::Creators::Variant, type: :service do
   let(:spree_product) { create(:product) }
   let(:shopify_variant) { create(:shopify_variant, sku: '1234') }
   let(:option_type) { create(:option_type) }
+  let(:shopify_data_feed) do
+    create(:shopify_data_feed,
+           shopify_object_type: 'ShopifyAPI::Variant',
+           shopify_object_id: shopify_variant.id,
+           data_feed: shopify_variant.to_json)
+  end
   let!(:f_option_value) do
     create(:option_value, name: shopify_variant.option1.strip.downcase, option_type: option_type)
   end
@@ -14,7 +20,7 @@ RSpec.describe ShopifyImport::Creators::Variant, type: :service do
     create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type)
   end
 
-  subject { described_class.new(shopify_variant, spree_product) }
+  subject { described_class.new(shopify_data_feed, spree_product) }
 
   before { spree_product.option_types << option_type }
 
