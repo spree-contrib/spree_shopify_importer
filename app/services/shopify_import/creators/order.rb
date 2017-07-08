@@ -5,8 +5,9 @@ module ShopifyImport
         Spree::Order.transaction do
           @spree_order = create_spree_order
           assign_spree_order_to_data_feed
-          @spree_order.update_columns(order_timestamps)
+          create_spree_line_items
         end
+        @spree_order.update_columns(order_timestamps)
       end
 
       private
@@ -16,6 +17,12 @@ module ShopifyImport
         order.assign_attributes(order_attributes)
         order.save!
         order
+      end
+
+      def create_spree_line_items
+        shopify_order.line_items.each do |shopify_line_item|
+          ShopifyImport::Creators::LineItem.new(shopify_line_item, shopify_order, @spree_order).save
+        end
       end
 
       def user

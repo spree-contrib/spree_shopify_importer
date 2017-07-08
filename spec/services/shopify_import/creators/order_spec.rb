@@ -125,6 +125,25 @@ RSpec.describe ShopifyImport::Creators::Order, type: :service do
           expect(spree_order.updated_at).to eq shopify_order.updated_at
         end
       end
+
+      context 'order associated items' do
+        context 'line items' do
+          let(:count) { shopify_order.line_items.count }
+
+          before do
+            shopify_order.line_items.each do |line_item|
+              create(:shopify_data_feed,
+                     spree_object: create(:variant),
+                     shopify_object_type: 'ShopifyAPI::Variant',
+                     shopify_object_id: line_item.variant_id)
+            end
+          end
+
+          it 'creates spree line items' do
+            expect { subject.save! }.to change(Spree::LineItem, :count).by(count)
+          end
+        end
+      end
     end
   end
 end
