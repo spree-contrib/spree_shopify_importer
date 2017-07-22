@@ -8,7 +8,7 @@ RSpec.describe ShopifyImport::Creators::Order, type: :service do
   describe '#save!' do
     context 'with base shopify order data', vcr: { cassette_name: 'shopify/base_order' } do
       let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
-      let(:order_data_feed) do
+      let!(:order_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_order.id, data_feed: shopify_order.to_json)
       end
@@ -141,6 +141,16 @@ RSpec.describe ShopifyImport::Creators::Order, type: :service do
 
           it 'creates spree line items' do
             expect { subject.save! }.to change(Spree::LineItem, :count).by(count)
+          end
+        end
+
+        context 'payments' do
+          it 'creates shopify data feeds' do
+            expect { subject.save! }.to change(Shopify::DataFeed, :count).by(1)
+          end
+
+          it 'creates spree payments' do
+            expect { subject.save! }.to change(Spree::Payment, :count).by(1)
           end
         end
       end
