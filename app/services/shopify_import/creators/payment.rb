@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Transaction < ShopifyImport::Creators::Base
+    class Payment < ShopifyImport::Creators::Base
       def initialize(shopify_data_feed, spree_order)
         super(shopify_data_feed)
         @spree_order = spree_order

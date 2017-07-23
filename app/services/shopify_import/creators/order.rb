@@ -69,7 +69,7 @@ module ShopifyImport
 
       def create_spree_payment(transaction)
         transaction_data_feed = Shopify::DataFeeds::Create.new(transaction, @shopify_data_feed).save!
-        ShopifyImport::Creators::Transaction.new(transaction_data_feed, @spree_order).save!
+        ShopifyImport::Creators::Payment.new(transaction_data_feed, @spree_order).save!
       end
 
       def user

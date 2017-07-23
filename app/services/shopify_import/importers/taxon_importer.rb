@@ -1,6 +1,6 @@
 module ShopifyImport
   module Importers
-    class CustomCollectionsImporter < BaseImporter
+    class TaxonImporter < BaseImporter
       private
 
       def resources
@@ -8,7 +8,7 @@ module ShopifyImport
       end
 
       def creator
-        ShopifyImport::Creators::CustomCollection
+        ShopifyImport::Creators::Taxon
       end
     end
   end

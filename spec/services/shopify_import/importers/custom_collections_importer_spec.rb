@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Importers::CustomCollectionsImporter, type: :service do
+RSpec.describe ShopifyImport::Importers::TaxonImporter, type: :service do
   before { authenticate_with_shopify }
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/custom_collections_importer/import' } do
