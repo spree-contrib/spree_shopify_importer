@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Shipment < ShopifyImport::Creators::Base
+    class ShipmentCreator < BaseCreator
       def initialize(shopify_data_feed, spree_order)
         super(shopify_data_feed)
         @spree_order = spree_order

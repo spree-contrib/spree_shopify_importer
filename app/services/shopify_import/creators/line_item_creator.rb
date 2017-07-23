@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class LineItem
+    class LineItemCreator
       def initialize(shopify_line_item, shopify_order, spree_order)
         @shopify_line_item = shopify_line_item
         @shopify_order = shopify_order

@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Taxon < ShopifyImport::Creators::Base
+    class TaxonCreator < BaseCreator
       def save!
         Spree::Taxon.transaction do
           @spree_taxon = create_spree_taxon

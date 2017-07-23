@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::Shipment, type: :service do
+describe ShopifyImport::Creators::ShipmentCreator, type: :service do
   subject { described_class.new(shopify_data_feed, spree_order) }
 
   before { authenticate_with_shopify }

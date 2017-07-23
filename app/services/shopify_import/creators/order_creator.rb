@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Order < ShopifyImport::Creators::Base
+    class OrderCreator < BaseCreator
       def save!
         Spree::Order.transaction do
           @spree_order = create_spree_order
@@ -27,7 +27,7 @@ module ShopifyImport
 
       def create_spree_line_items
         shopify_order.line_items.each do |shopify_line_item|
-          ShopifyImport::Creators::LineItem.new(shopify_line_item, shopify_order, @spree_order).save
+          ShopifyImport::Creators::LineItemCreator.new(shopify_line_item, shopify_order, @spree_order).save
         end
       end
 
@@ -69,7 +69,7 @@ module ShopifyImport
 
       def create_spree_payment(transaction)
         transaction_data_feed = Shopify::DataFeeds::Create.new(transaction, @shopify_data_feed).save!
-        ShopifyImport::Creators::Payment.new(transaction_data_feed, @spree_order).save!
+        ShopifyImport::Creators::PaymentCreator.new(transaction_data_feed, @spree_order).save!
       end
 
       def user

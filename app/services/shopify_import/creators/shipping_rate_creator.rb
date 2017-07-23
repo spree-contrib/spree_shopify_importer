@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class ShippingRate
+    class ShippingRateCreator
       def initialize(shopify_shipping_line, shopify_order, spree_shipment)
         @shopify_shipping_line = shopify_shipping_line
         @shopify_order = shopify_order

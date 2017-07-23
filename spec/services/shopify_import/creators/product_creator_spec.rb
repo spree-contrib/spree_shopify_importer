@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::Product, type: :service do
+RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
   subject { described_class.new(product_data_feed) }
 
   before { authenticate_with_shopify }

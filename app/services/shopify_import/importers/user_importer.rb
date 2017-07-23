@@ -8,7 +8,7 @@ module ShopifyImport
       end
 
       def creator
-        ShopifyImport::Creators::User
+        ShopifyImport::Creators::UserCreator
       end
     end
   end

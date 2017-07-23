@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::Base, type: :service do
+RSpec.describe ShopifyImport::Creators::BaseCreator, type: :service do
   let(:shopify_data_feed) { create(:shopify_data_feed) }
   subject { described_class.new(shopify_data_feed) }
 

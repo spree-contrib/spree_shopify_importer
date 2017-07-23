@@ -8,7 +8,7 @@ module ShopifyImport
       end
 
       def creator
-        ShopifyImport::Creators::Taxon
+        ShopifyImport::Creators::TaxonCreator
       end
     end
   end

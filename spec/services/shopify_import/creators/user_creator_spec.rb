@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::User do
+RSpec.describe ShopifyImport::Creators::UserCreator do
   subject { described_class.new(customer_data_feed) }
 
   before { ShopifyAPI::Base.site = 'https://foo:baz@test_shop.myshopify.com/admin' }
