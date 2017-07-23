@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::Variant, type: :service do
+RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
   let(:spree_product) { create(:product) }
   let(:shopify_variant) { create(:shopify_variant, sku: '1234') }
   let(:option_type) { create(:option_type) }

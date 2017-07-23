@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Variant < ShopifyImport::Creators::Base
+    class VariantCreator < BaseCreator
       def initialize(shopify_data_feed, spree_product)
         super(shopify_data_feed)
         @spree_product = spree_product

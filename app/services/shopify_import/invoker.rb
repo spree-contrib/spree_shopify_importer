@@ -2,8 +2,8 @@ module ShopifyImport
   class Invoker
     ROOT_IMPORTERS = [
       ShopifyImport::Importers::ProductsImporter,
-      ShopifyImport::Importers::CustomersImporter,
-      ShopifyImport::Importers::CustomCollectionsImporter
+      ShopifyImport::Importers::UserImporter,
+      ShopifyImport::Importers::TaxonImporter
     ].freeze
 
     def initialize(credentials: nil)

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::LineItem, type: :service do
+describe ShopifyImport::Creators::LineItemCreator, type: :service do
   subject { described_class.new(shopify_line_item, shopify_order, spree_order) }
 
   before { authenticate_with_shopify }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Importers::CustomersImporter do
+RSpec.describe ShopifyImport::Importers::UserImporter do
   describe '#import!', vcr: { cassette_name: 'shopify_import/customers_importer/import' } do
     before { authenticate_with_shopify }
 

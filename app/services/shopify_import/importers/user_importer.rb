@@ -1,6 +1,6 @@
 module ShopifyImport
   module Importers
-    class CustomersImporter < BaseImporter
+    class UserImporter < BaseImporter
       private
 
       def resources
@@ -8,7 +8,7 @@ module ShopifyImport
       end
 
       def creator
-        ShopifyImport::Creators::Customer
+        ShopifyImport::Creators::UserCreator
       end
     end
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::CustomCollection, type: :service do
+RSpec.describe ShopifyImport::Creators::TaxonCreator, type: :service do
   subject { described_class.new(shopify_data_feed) }
 
   before { ShopifyAPI::Base.site = 'https://api_key:passowrd@shop_domain.myshopify.com/admin' }

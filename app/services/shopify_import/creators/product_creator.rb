@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Product < ShopifyImport::Creators::Base
+    class ProductCreator < BaseCreator
       def save!
         Spree::Product.transaction do
           @spree_product = create_spree_product
@@ -55,7 +55,7 @@ module ShopifyImport
       def create_spree_variants
         @shopify_product.variants.each do |variant|
           data_feed = Shopify::DataFeeds::Create.new(variant, @shopify_data_feed).save!
-          ShopifyImport::Creators::Variant.new(data_feed, @spree_product).save!
+          ShopifyImport::Creators::VariantCreator.new(data_feed, @spree_product).save!
         end
       end
 
