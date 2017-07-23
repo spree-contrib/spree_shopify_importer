@@ -1,6 +1,6 @@
 module ShopifyImport
   module DataParsers
-    module CustomCollections
+    module Taxons
       class BaseData
         def initialize(shopify_custom_collection)
           @shopify_custom_collection = shopify_custom_collection

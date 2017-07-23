@@ -1,6 +1,6 @@
 module ShopifyImport
   module DataParsers
-    module Transactions
+    module Payments
       class BaseData
         class InvalidStatus < ::StandardError; end
 

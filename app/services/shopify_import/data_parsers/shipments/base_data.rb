@@ -1,6 +1,6 @@
 module ShopifyImport
   module DataParsers
-    module Fulfillments
+    module Shipments
       class BaseData
         def initialize(shopify_fulfillment)
           @shopify_fulfillment = shopify_fulfillment

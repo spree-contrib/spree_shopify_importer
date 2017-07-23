@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::DataParsers::CustomCollections::BaseData, type: :service do
+RSpec.describe ShopifyImport::DataParsers::Taxons::BaseData, type: :service do
   let(:shopify_custom_collection) { create(:shopify_custom_collection) }
   subject { described_class.new(shopify_custom_collection) }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::DataParsers::Fulfillments::BaseData, type: :service do
+describe ShopifyImport::DataParsers::Shipments::BaseData, type: :service do
   let(:shopify_fulfillment) { create(:shopify_fulfillment) }
   subject { described_class.new(shopify_fulfillment) }
 

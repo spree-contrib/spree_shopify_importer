@@ -35,7 +35,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= ShopifyImport::DataParsers::Customers::BaseData.new(shopify_customer)
+        @parser ||= ShopifyImport::DataParsers::Users::BaseData.new(shopify_customer)
       end
 
       def shopify_customer

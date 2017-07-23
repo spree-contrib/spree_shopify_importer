@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::DataParsers::Transactions::BaseData, type: :service do
+describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
   let(:shopify_transaction) { create(:shopify_transaction) }
   subject { described_class.new(shopify_transaction) }
 
@@ -47,7 +47,7 @@ describe ShopifyImport::DataParsers::Transactions::BaseData, type: :service do
 
     context 'for wrong payment status' do
       let(:shopify_transaction) { create(:shopify_transaction, kind: 'authorization', status: 'random') }
-      let(:error) { ShopifyImport::DataParsers::Transactions::BaseData::InvalidStatus }
+      let(:error) { ShopifyImport::DataParsers::Payments::BaseData::InvalidStatus }
       let(:error_message) { I18n.t('errors.transaction.no_payment_state', status: 'random') }
 
       it 'raises a error message' do
