@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::DataParsers::Customers::BaseData do
+RSpec.describe ShopifyImport::DataParsers::Users::BaseData do
   subject { described_class.new(shopify_customer) }
   let(:shopify_customer) { create(:shopify_customer) }
 

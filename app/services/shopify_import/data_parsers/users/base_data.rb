@@ -1,6 +1,6 @@
 module ShopifyImport
   module DataParsers
-    module Customers
+    module Users
       class BaseData
         def initialize(shopify_customer)
           @shopify_customer = shopify_customer

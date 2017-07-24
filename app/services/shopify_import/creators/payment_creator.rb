@@ -43,7 +43,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= ShopifyImport::DataParsers::Transactions::BaseData.new(shopify_transaction)
+        @parser ||= ShopifyImport::DataParsers::Payments::BaseData.new(shopify_transaction)
       end
 
       def shopify_transaction

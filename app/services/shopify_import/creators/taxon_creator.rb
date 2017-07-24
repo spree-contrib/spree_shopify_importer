@@ -38,7 +38,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= ShopifyImport::DataParsers::CustomCollections::BaseData.new(shopify_custom_collection)
+        @parser ||= ShopifyImport::DataParsers::Taxons::BaseData.new(shopify_custom_collection)
       end
 
       def shopify_custom_collection
