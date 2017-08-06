@@ -75,6 +75,18 @@ RSpec.describe ShopifyImport::Creators::UserCreator do
           expect(spree_user.created_at).to be_within(1.second).of(shopify_customer.created_at)
         end
       end
+
+      context 'customer associations' do
+        let(:shopify_address) { create(:shopify_address) }
+
+        before do
+          allow_any_instance_of(ShopifyAPI::Customer).to receive(:addresses).and_return([shopify_address])
+        end
+
+        it 'creates spree address' do
+          expect { subject.save! }.to change(Spree::Address, :count).by(1)
+        end
+      end
     end
   end
 end

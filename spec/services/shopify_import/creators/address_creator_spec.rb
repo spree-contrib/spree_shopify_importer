@@ -1,7 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe ShopifyImport::Creators::AddressCreator do
-  subject { described_class.new(shopify_address, spree_user) }
+  let(:shopify_data_feed) do
+    create(:shopify_data_feed,
+           shopify_object_id: shopify_address.id,
+           shopify_object_type: 'ShopifyAPI::Address',
+           data_feed: shopify_address.to_json)
+  end
+  subject { described_class.new(shopify_data_feed, spree_user) }
 
   before { authenticate_with_shopify }
 
@@ -71,6 +77,12 @@ RSpec.describe ShopifyImport::Creators::AddressCreator do
         subject.save!
 
         expect(address.state).to eq state
+      end
+
+      it 'assigns spree address to shopify data feed' do
+        subject.save!
+
+        expect(shopify_data_feed.reload.spree_object).to eq address
       end
     end
   end

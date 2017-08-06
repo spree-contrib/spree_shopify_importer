@@ -5,7 +5,7 @@ RSpec.describe ShopifyImport::Importers::UserImporter do
     before { authenticate_with_shopify }
 
     it 'creates shopify data feeds' do
-      expect { described_class.new.import! }.to change(Shopify::DataFeed, :count).by(2)
+      expect { described_class.new.import! }.to change(Shopify::DataFeed, :count).by(4)
     end
 
     it 'creates spree users' do

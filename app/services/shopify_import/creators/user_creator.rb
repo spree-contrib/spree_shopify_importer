@@ -6,6 +6,7 @@ module ShopifyImport
           @spree_user = create_spree_user
           generate_api_key
           assign_spree_user_to_data_feed
+          create_spree_addresses
         end
       end
 
@@ -40,6 +41,15 @@ module ShopifyImport
 
       def shopify_customer
         @shopify_customer ||= ShopifyAPI::Customer.new(data_feed)
+      end
+
+      def create_spree_addresses
+        return if (addresses = shopify_customer.try(:addresses)).blank?
+
+        addresses.each do |address|
+          data_feed = Shopify::DataFeeds::Create.new(address, @shopify_data_feed).save!
+          ShopifyImport::Creators::AddressCreator.new(data_feed, @spree_user).save!
+        end
       end
     end
   end
