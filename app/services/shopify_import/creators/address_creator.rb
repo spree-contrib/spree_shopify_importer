@@ -15,8 +15,10 @@ module ShopifyImport
 
       private
 
+      # Shopify has'n got validation for filed like zipcode, city or province code.
       def create_spree_address
-        @spree_address = Spree::Address.create!(address_attributes)
+        @spree_address = Spree::Address.new(address_attributes)
+        @spree_address.save(validate: false)
       end
 
       def assigns_spree_address_to_data_feed
