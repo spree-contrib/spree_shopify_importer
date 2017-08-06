@@ -40,6 +40,14 @@ describe ShopifyImport::Creators::InventoryUnitsCreator, type: :service do
       end
     end
 
+    context 'stock' do
+      let(:product) { spree_variant.product }
+
+      it 'does not change product stock' do
+        expect { subject.save! }.not_to change { product.total_on_hand }
+      end
+    end
+
     context 'sets inventory unit attributes' do
       let(:inventory_units) { Spree::InventoryUnit.last(3) }
 
