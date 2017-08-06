@@ -7,10 +7,14 @@ module ShopifyImport
       end
 
       def save!
-        Spree::Address.create!(parser.address_attributes)
+        Spree::Address.create!(address_attributes)
       end
 
       private
+
+      def address_attributes
+        parser.address_attributes
+      end
 
       def parser
         @parser ||= ShopifyImport::DataParsers::Addresses::BaseData.new(@shopify_address, @spree_user)

@@ -14,7 +14,47 @@ RSpec.describe ShopifyImport::Creators::AddressCreator do
       expect { subject.save! }.to change(Spree::Address, :count).by(1)
     end
 
+    context 'sets address attributes' do
+      let(:spree_address) { Spree::Address.last }
+
+      before { subject.save! }
+
+      it 'firstname' do
+        expect(spree_address.firstname).to eq shopify_address.first_name
+      end
+
+      it 'lastname' do
+        expect(spree_address.lastname).to eq shopify_address.last_name
+      end
+
+      it 'address1' do
+        expect(spree_address.address1).to eq shopify_address.address1
+      end
+
+      it 'address2' do
+        expect(spree_address.address2).to eq shopify_address.address2
+      end
+
+      it 'company' do
+        expect(spree_address.company).to eq shopify_address.company
+      end
+
+      it 'city' do
+        expect(spree_address.city).to eq shopify_address.city
+      end
+
+      it 'phone' do
+        expect(spree_address.phone).to eq shopify_address.phone
+      end
+
+      it 'zipcode' do
+        expect(spree_address.zipcode).to eq shopify_address.zip
+      end
+    end
+
     context 'associations' do
+      let(:country) { Spree::Country.find_by!(iso: shopify_address.country_code) }
+      let(:state) { Spree::State.find_by(abbr: shopify_address.province_code) }
       let(:address) { Spree::Address.last }
 
       it 'assigns new address to user' do
@@ -24,23 +64,13 @@ RSpec.describe ShopifyImport::Creators::AddressCreator do
       it 'assigns country to address' do
         subject.save!
 
-        expect(address.country_id).to be_present
-      end
-    end
-
-    xcontext 'address attributes' do
-      let(:spree_address) { Spree::Address.last }
-
-      it 'email' do
-        subject.save!
-
-        expect(spree_address.email).to eq(shopify_address.email)
+        expect(address.country).to eq country
       end
 
-      it 'created_at' do
+      it 'assigns state to address' do
         subject.save!
 
-        expect(spree_address.created_at).to be_within(1.second).of(shopify_address.created_at)
+        expect(address.state).to eq state
       end
     end
   end
