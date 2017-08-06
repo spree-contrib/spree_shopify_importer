@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::Address do
+RSpec.describe ShopifyImport::Creators::AddressCreator do
   subject { described_class.new(shopify_address, spree_user) }
 
   before { authenticate_with_shopify }
@@ -14,7 +14,9 @@ RSpec.describe ShopifyImport::Creators::Address do
       expect { subject.save! }.to change(Spree::Address, :count).by(1)
     end
 
-    context 'relationships' do
+    context 'associations' do
+      let(:address) { Spree::Address.last }
+
       it 'assigns new address to user' do
         expect { subject.save! }.to change { spree_user.addresses.reload.count }.by(1)
       end

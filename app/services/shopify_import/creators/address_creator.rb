@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class Address
+    class AddressCreator
       def initialize(shopify_address, spree_user)
         @shopify_address = shopify_address
         @spree_user = spree_user
