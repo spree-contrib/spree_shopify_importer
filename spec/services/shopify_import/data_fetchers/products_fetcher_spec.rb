@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Importers::ProductsImporter, type: :service do
+RSpec.describe ShopifyImport::DataFetchers::ProductsFetcher, type: :service do
   describe '#import!' do
     before { authenticate_with_shopify }
 
