@@ -25,6 +25,8 @@ module ShopifyImport
         end
         # rubocop:enable Metrics/MethodLength
 
+        private
+
         def country
           @country ||= Spree::Country.find_or_create_by!(iso: @shopify_address.country_code) do |country|
             country.name = @shopify_address.country_name
@@ -32,8 +34,11 @@ module ShopifyImport
           end
         end
 
+        # TODO: find state
         def state
-          @state ||= country.states.find_or_create_by!(abbr: @shopify_address.province_code) do |state|
+          return if (abbr = @shopify_address.province_code).blank?
+
+          @state ||= country.states.find_or_create_by!(abbr: abbr) do |state|
             state.name = @shopify_address.province
           end
         end
