@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Importers
-    class UserImporter < BaseImporter
+  module DataFetchers
+    class UsersFetcher < BaseFetcher
       private
 
       def resources

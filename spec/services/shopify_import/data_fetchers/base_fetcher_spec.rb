@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Importers::BaseImporter, type: :service do
+RSpec.describe ShopifyImport::DataFetchers::BaseFetcher, type: :service do
   describe '.import!' do
     let(:expected_message) { I18n.t('errors.not_implemented.resources') }
 

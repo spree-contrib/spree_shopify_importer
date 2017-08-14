@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Importers
-    class TaxonImporter < BaseImporter
+  module DataFetchers
+    class TaxonsFetcher < BaseFetcher
       private
 
       def resources

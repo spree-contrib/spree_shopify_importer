@@ -1,6 +1,6 @@
 module ShopifyImport
-  module Importers
-    class BaseImporter
+  module DataFetchers
+    class BaseFetcher
       def initialize(params = {})
         @params = params
       end

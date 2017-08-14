@@ -1,9 +1,9 @@
 module ShopifyImport
   class Invoker
-    ROOT_IMPORTERS = [
-      ShopifyImport::Importers::ProductsImporter,
-      ShopifyImport::Importers::UserImporter,
-      ShopifyImport::Importers::TaxonImporter
+    ROOT_FETCHERS = [
+      ShopifyImport::DataFetchers::ProductsFetcher,
+      ShopifyImport::DataFetchers::UsersFetcher,
+      ShopifyImport::DataFetchers::TaxonsFetcher
     ].freeze
 
     def initialize(credentials: nil)
@@ -30,7 +30,7 @@ module ShopifyImport
 
     # TODO: custom params for importers
     def initiate_import!
-      ROOT_IMPORTERS.each do |importer|
+      ROOT_FETCHERS.each do |importer|
         importer.new.import!
       end
     end
