@@ -7,8 +7,7 @@ module ShopifyImport
 
       def import!
         resources.each do |resource|
-          data_feed = Shopify::DataFeeds::Create.new(resource).save!
-          creator.new(data_feed).save!
+          job.perform_later(resource.to_json)
         end
       end
 
@@ -18,8 +17,8 @@ module ShopifyImport
         raise NotImplementedError, I18n.t('errors.not_implemented.resources')
       end
 
-      def creator
-        raise NotImplementedError, I18n.t('errors.not_implemented.creator')
+      def job
+        raise NotImplementedError, I18n.t('errors.not_implemented.job')
       end
     end
   end
