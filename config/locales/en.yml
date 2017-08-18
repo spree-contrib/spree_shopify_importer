@@ -8,6 +8,7 @@ en:
       resources: Resource fetcher is not implemented
       creator: Creator is not implemented
       shopify_class: Shopify object class is not implemented
+      job: Job is not implemented
     transaction:
       no_payment_state: 'no payment state for %{status}'
   shopify: Shopify
