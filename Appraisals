@@ -5,6 +5,7 @@ appraise 'spree-3-2' do
   gem 'activesupport', '~> 5.0.0'
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
+  gem 'curb'
 end
 
 appraise 'spree-master' do
@@ -12,4 +13,5 @@ appraise 'spree-master' do
   gem 'spree_auth_devise', github: 'spree/spree_auth_devise'
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
+  gem 'curb'
 end
