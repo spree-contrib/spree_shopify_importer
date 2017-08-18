@@ -1,20 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe ShopifyImport::DataFetchers::TaxonsFetcher, type: :service do
+  subject { described_class.new }
+
   before { authenticate_with_shopify }
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/custom_collections_importer/import' } do
-    it 'creates shopify data feeds' do
-      expect { described_class.new.import! }.to change(Shopify::DataFeed, :count).by(2)
-    end
-
-    it 'creates spree taxonomy' do
-      expect { described_class.new.import! }.to change(Spree::Taxonomy, :count).by(1)
-    end
-
-    it 'creates spree taxons' do
-      # One of taxons is taxonomy root.
-      expect { described_class.new.import! }.to change(Spree::Taxon, :count).by(3)
+    it 'enqueue a job' do
+      expect { subject.import! }.to have_enqueued_job(ShopifyImport::Importers::TaxonImporterJob).twice
     end
   end
 end
