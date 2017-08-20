@@ -14,12 +14,16 @@ module ShopifyImport
                                               shopify_object_type: 'ShopifyAPI::Customer').try(:spree_object)
         end
 
-        def order_attributes
-          [base_order_attributes, order_totals, order_states].inject(&:merge)
+        def attributes
+          @attribtues ||= [
+            base_order_attributes,
+            order_totals,
+            order_states
+          ].inject(&:merge).select { |a| Spree::Order.attribute_method?(a) }
         end
 
-        def order_timestamps
-          {
+        def timestamps
+          @timestamps ||= {
             created_at: @shopify_order.created_at.to_datetime,
             updated_at: @shopify_order.updated_at.to_datetime
           }

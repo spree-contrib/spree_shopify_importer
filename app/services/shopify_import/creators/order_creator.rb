@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class OrderCreator < BaseCreator
+      delegate :user, :attributes, :timestamps, to: :parser
+
       def save!
         Spree::Order.transaction do
           @spree_order = create_spree_order
@@ -13,14 +15,14 @@ module ShopifyImport
           # TODO: refunds
           # TODO: addresses
         end
-        @spree_order.update_columns(order_timestamps)
+        @spree_order.update_columns(timestamps)
       end
 
       private
 
       def create_spree_order
         order = Spree::Order.new(user: user)
-        order.assign_attributes(order_attributes)
+        order.assign_attributes(attributes)
         order.save!
         order
       end
@@ -70,18 +72,6 @@ module ShopifyImport
       def create_spree_payment(transaction)
         transaction_data_feed = Shopify::DataFeeds::Create.new(transaction, @shopify_data_feed).save!
         ShopifyImport::Creators::PaymentCreator.new(transaction_data_feed, @spree_order).save!
-      end
-
-      def user
-        parser.user
-      end
-
-      def order_attributes
-        parser.order_attributes.select { |a| Spree::Order.attribute_method?(a) }
-      end
-
-      def order_timestamps
-        parser.order_timestamps
       end
 
       def parser
