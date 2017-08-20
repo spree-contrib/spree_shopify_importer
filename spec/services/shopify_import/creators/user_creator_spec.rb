@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe ShopifyImport::Creators::UserCreator do
+  include ActiveJob::TestHelper
+
   subject { described_class.new(customer_data_feed) }
 
   before { ShopifyAPI::Base.site = 'https://foo:baz@test_shop.myshopify.com/admin' }
@@ -84,7 +86,11 @@ RSpec.describe ShopifyImport::Creators::UserCreator do
         end
 
         it 'creates spree address' do
-          expect { subject.save! }.to change(Spree::Address, :count).by(1)
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change(Spree::Address, :count).by(1)
         end
       end
     end

@@ -47,8 +47,7 @@ module ShopifyImport
         return if (addresses = shopify_customer.try(:addresses)).blank?
 
         addresses.each do |address|
-          data_feed = Shopify::DataFeeds::Create.new(address, @shopify_data_feed).save!
-          ShopifyImport::Creators::AddressCreator.new(data_feed, @spree_user).save!
+          ShopifyImport::Importers::AddressImporterJob.perform_later(address.to_json, @spree_user)
         end
       end
     end
