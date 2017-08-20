@@ -9,7 +9,7 @@ describe ShopifyImport::Importers::UserImporter, type: :service do
     let(:resource) { ShopifyAPI::Customer.find(5_667_226_244).to_json }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(2)
+      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
     end
 
     it 'creates spree users' do
