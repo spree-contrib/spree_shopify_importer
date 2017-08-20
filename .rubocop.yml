@@ -20,7 +20,7 @@ Metrics/BlockLength:
   Exclude:
     - config/environments/production.rb
     - '**/*_spec.rb'
-    - 'spec/shared_examples/**'
+    - 'spec/support/shared_examples/**'
     - '**/factories/**/*'
     - 'vendor/**/*'
 Metrics/LineLength:
@@ -31,7 +31,7 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - '**/*_spec.rb'
-    - 'spec/shared_examples/**'
+    - 'spec/support/shared_examples/**'
 Lint/Debugger:
   Enabled: false
 Lint/DefEndAlignment:
@@ -41,7 +41,7 @@ Lint/EndAlignment:
 Lint/AmbiguousBlockAssociation:
   Exclude:
    - '**/*_spec.rb'
-   - 'spec/shared_examples/**'
+   - 'spec/support/shared_examples/**'
 Rails:
   Enabled: true
 Rails/SkipsModelValidations:
