@@ -1,0 +1,554 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 20 Aug 2017 10:35:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      Strict-Transport-Security:
+      - max-age=7776000
+      X-Request-Id:
+      - 33850a74-00d8-4b05-bd93-e8d96836126a
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=33850a74-00d8-4b05-bd93-e8d96836126a'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=33850a74-00d8-4b05-bd93-e8d96836126a
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJvcmRlciI6eyJpZCI6NTE4MjQzNzEyNCwiZW1haWwiOiJleGFtcGxlQGV4
+        YW1wbGUuY29tIiwiY2xvc2VkX2F0IjoiMjAxNy0wNy0xNlQxNzo0Nzo1OSsw
+        MjowMCIsImNyZWF0ZWRfYXQiOiIyMDE3LTA2LTE1VDE3OjUyOjI4KzAyOjAw
+        IiwidXBkYXRlZF9hdCI6IjIwMTctMDctMTZUMTc6NDc6NTkrMDI6MDAiLCJu
+        dW1iZXIiOjEsIm5vdGUiOm51bGwsInRva2VuIjoiNjQ2MDlmMDU5MjBlYmIy
+        YzU1NDY2MjI0YTIxYTk2ZjMiLCJnYXRld2F5IjoiYm9ndXMiLCJ0ZXN0Ijp0
+        cnVlLCJ0b3RhbF9wcmljZSI6IjQ3MC4wMCIsInN1YnRvdGFsX3ByaWNlIjoi
+        NDUwLjAwIiwidG90YWxfd2VpZ2h0IjowLCJ0b3RhbF90YXgiOiIwLjAwIiwi
+        dGF4ZXNfaW5jbHVkZWQiOnRydWUsImN1cnJlbmN5IjoiRVVSIiwiZmluYW5j
+        aWFsX3N0YXR1cyI6InBhaWQiLCJjb25maXJtZWQiOnRydWUsInRvdGFsX2Rp
+        c2NvdW50cyI6IjAuMDAiLCJ0b3RhbF9saW5lX2l0ZW1zX3ByaWNlIjoiNDUw
+        LjAwIiwiY2FydF90b2tlbiI6IjgyNTRlM2RiYzFmNmFhYmQ5NDk4OTRlNzAy
+        NmMwZmYwIiwiYnV5ZXJfYWNjZXB0c19tYXJrZXRpbmciOmZhbHNlLCJuYW1l
+        IjoiIzEwMDEiLCJyZWZlcnJpbmdfc2l0ZSI6IiIsImxhbmRpbmdfc2l0ZSI6
+        IlwvYWRtaW5cL2F1dGhcL3dyb25nX3Rva2VuIiwiY2FuY2VsbGVkX2F0Ijpu
+        dWxsLCJjYW5jZWxfcmVhc29uIjpudWxsLCJ0b3RhbF9wcmljZV91c2QiOiI1
+        MjcuMDEiLCJjaGVja291dF90b2tlbiI6IjE2NWYzY2QxMjAxMzI2Y2QzYWZk
+        ZTJjNTUzMmYzMTk5IiwicmVmZXJlbmNlIjpudWxsLCJ1c2VyX2lkIjpudWxs
+        LCJsb2NhdGlvbl9pZCI6bnVsbCwic291cmNlX2lkZW50aWZpZXIiOm51bGws
+        InNvdXJjZV91cmwiOm51bGwsInByb2Nlc3NlZF9hdCI6IjIwMTctMDYtMTVU
+        MTc6NTI6MjgrMDI6MDAiLCJkZXZpY2VfaWQiOm51bGwsInBob25lIjpudWxs
+        LCJjdXN0b21lcl9sb2NhbGUiOiJlbiIsImJyb3dzZXJfaXAiOm51bGwsImxh
+        bmRpbmdfc2l0ZV9yZWYiOm51bGwsIm9yZGVyX251bWJlciI6MTAwMSwiZGlz
+        Y291bnRfY29kZXMiOltdLCJub3RlX2F0dHJpYnV0ZXMiOltdLCJwYXltZW50
+        X2dhdGV3YXlfbmFtZXMiOlsiYm9ndXMiXSwicHJvY2Vzc2luZ19tZXRob2Qi
+        OiJkaXJlY3QiLCJjaGVja291dF9pZCI6MTUzNDgyMDI2OTIsInNvdXJjZV9u
+        YW1lIjoid2ViIiwiZnVsZmlsbG1lbnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwi
+        dGF4X2xpbmVzIjpbXSwidGFncyI6IiIsImNvbnRhY3RfZW1haWwiOiJleGFt
+        cGxlQGV4YW1wbGUuY29tIiwib3JkZXJfc3RhdHVzX3VybCI6Imh0dHBzOlwv
+        XC9jaGVja291dC5zaG9waWZ5LmNvbVwvMjA1MTM2OTFcL2NoZWNrb3V0c1wv
+        MTY1ZjNjZDEyMDEzMjZjZDNhZmRlMmM1NTMyZjMxOTlcL3RoYW5rX3lvdV90
+        b2tlbj9rZXk9ZWFhMWJkNTlhZDRhMWFiMzAyZjQ4NjcyZjllZTM4MzMiLCJs
+        aW5lX2l0ZW1zIjpbeyJpZCI6MTAwNjkyOTA3NTYsInZhcmlhbnRfaWQiOjQx
+        NzMzMzQ3NTg4LCJ0aXRsZSI6Ik5vIHZhcmlhbnRzIiwicXVhbnRpdHkiOjMs
+        InByaWNlIjoiMTUwLjAwIiwiZ3JhbXMiOjAsInNrdSI6IiIsInZhcmlhbnRf
+        dGl0bGUiOiIiLCJ2ZW5kb3IiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRl
+        c3QgU3RvcmUiLCJmdWxmaWxsbWVudF9zZXJ2aWNlIjoibWFudWFsIiwicHJv
+        ZHVjdF9pZCI6MTEwNTUxNjkwMjgsInJlcXVpcmVzX3NoaXBwaW5nIjp0cnVl
+        LCJ0YXhhYmxlIjp0cnVlLCJnaWZ0X2NhcmQiOmZhbHNlLCJuYW1lIjoiTm8g
+        dmFyaWFudHMiLCJ2YXJpYW50X2ludmVudG9yeV9tYW5hZ2VtZW50IjpudWxs
+        LCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9leGlzdHMiOnRydWUsImZ1bGZp
+        bGxhYmxlX3F1YW50aXR5IjowLCJ0b3RhbF9kaXNjb3VudCI6IjAuMDAiLCJm
+        dWxmaWxsbWVudF9zdGF0dXMiOiJmdWxmaWxsZWQiLCJ0YXhfbGluZXMiOltd
+        LCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMxMzI0OTkwNzYsImNvdW50cnlf
+        Y29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJTcHJlZSBT
+        aG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJhZGRyZXNzMSI6Ik9zamVj
+        a2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHkiOiJTcGxpdCIsInppcCI6IjIx
+        MDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9uIjp7ImlkIjozMTMyNTAwNDIw
+        LCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1l
+        IjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsImFkZHJl
+        c3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIsInppcCI6IjAyLTc3NyJ9fSx7
+        ImlkIjoxMDA2OTI5MDgyMCwidmFyaWFudF9pZCI6NDIwNzc0OTIxMDAsInRp
+        dGxlIjoiUHJvZHVjdCB3aXRoIHNpbmdsZSB2YXJpYW50IiwicXVhbnRpdHki
+        OjUsInByaWNlIjoiMC4wMCIsImdyYW1zIjowLCJza3UiOiIiLCJ2YXJpYW50
+        X3RpdGxlIjoiTSIsInZlbmRvciI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIg
+        VGVzdCBTdG9yZSIsImZ1bGZpbGxtZW50X3NlcnZpY2UiOiJtYW51YWwiLCJw
+        cm9kdWN0X2lkIjoxMTEwMTUyNTgyOCwicmVxdWlyZXNfc2hpcHBpbmciOnRy
+        dWUsInRheGFibGUiOnRydWUsImdpZnRfY2FyZCI6ZmFsc2UsIm5hbWUiOiJQ
+        cm9kdWN0IHdpdGggc2luZ2xlIHZhcmlhbnQgLSBNIiwidmFyaWFudF9pbnZl
+        bnRvcnlfbWFuYWdlbWVudCI6bnVsbCwicHJvcGVydGllcyI6W10sInByb2R1
+        Y3RfZXhpc3RzIjp0cnVlLCJmdWxmaWxsYWJsZV9xdWFudGl0eSI6MCwidG90
+        YWxfZGlzY291bnQiOiIwLjAwIiwiZnVsZmlsbG1lbnRfc3RhdHVzIjoiZnVs
+        ZmlsbGVkIiwidGF4X2xpbmVzIjpbXSwib3JpZ2luX2xvY2F0aW9uIjp7Imlk
+        IjozMTMyNDk5MDc2LCJjb3VudHJ5X2NvZGUiOiJIUiIsInByb3ZpbmNlX2Nv
+        ZGUiOiIiLCJuYW1lIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0
+        b3JlIiwiYWRkcmVzczEiOiJPc2plY2thIDU4IiwiYWRkcmVzczIiOiIiLCJj
+        aXR5IjoiU3BsaXQiLCJ6aXAiOiIyMTAwMCJ9LCJkZXN0aW5hdGlvbl9sb2Nh
+        dGlvbiI6eyJpZCI6MzEzMjUwMDQyMCwiY291bnRyeV9jb2RlIjoiUEwiLCJw
+        cm92aW5jZV9jb2RlIjoiIiwibmFtZSI6IlBldGVyIFBhbiIsImFkZHJlc3Mx
+        IjoiU29tZSBTdHJlZXQiLCJhZGRyZXNzMiI6IjUiLCJjaXR5IjoiV2Fyc3ph
+        d2EiLCJ6aXAiOiIwMi03NzcifX1dLCJzaGlwcGluZ19saW5lcyI6W3siaWQi
+        OjQyMjUzMjQwMzYsInRpdGxlIjoiSW50ZXJuYXRpb25hbCBTaGlwcGluZyIs
+        InByaWNlIjoiMjAuMDAiLCJjb2RlIjoiSW50ZXJuYXRpb25hbCBTaGlwcGlu
+        ZyIsInNvdXJjZSI6InNob3BpZnkiLCJwaG9uZSI6bnVsbCwicmVxdWVzdGVk
+        X2Z1bGZpbGxtZW50X3NlcnZpY2VfaWQiOm51bGwsImRlbGl2ZXJ5X2NhdGVn
+        b3J5IjpudWxsLCJjYXJyaWVyX2lkZW50aWZpZXIiOm51bGwsInRheF9saW5l
+        cyI6W119XSwiYmlsbGluZ19hZGRyZXNzIjp7ImZpcnN0X25hbWUiOiJQZXRl
+        ciIsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJwaG9uZSI6bnVsbCwiY2l0
+        eSI6IldhcnN6YXdhIiwiemlwIjoiMDItNzc3IiwicHJvdmluY2UiOm51bGws
+        ImNvdW50cnkiOiJQb2xhbmQiLCJsYXN0X25hbWUiOiJQYW4iLCJhZGRyZXNz
+        MiI6IjUiLCJjb21wYW55IjpudWxsLCJsYXRpdHVkZSI6NTIuMTYwNDA4LCJs
+        b25naXR1ZGUiOjIxLjA1NDUwMjQsIm5hbWUiOiJQZXRlciBQYW4iLCJjb3Vu
+        dHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOm51bGx9LCJzaGlwcGlu
+        Z19hZGRyZXNzIjp7ImZpcnN0X25hbWUiOiJQZXRlciIsImFkZHJlc3MxIjoi
+        U29tZSBTdHJlZXQiLCJwaG9uZSI6bnVsbCwiY2l0eSI6IldhcnN6YXdhIiwi
+        emlwIjoiMDItNzc3IiwicHJvdmluY2UiOm51bGwsImNvdW50cnkiOiJQb2xh
+        bmQiLCJsYXN0X25hbWUiOiJQYW4iLCJhZGRyZXNzMiI6IjUiLCJjb21wYW55
+        IjpudWxsLCJsYXRpdHVkZSI6NTIuMTYwNDA4LCJsb25naXR1ZGUiOjIxLjA1
+        NDUwMjQsIm5hbWUiOiJQZXRlciBQYW4iLCJjb3VudHJ5X2NvZGUiOiJQTCIs
+        InByb3ZpbmNlX2NvZGUiOm51bGx9LCJmdWxmaWxsbWVudHMiOlt7ImlkIjo0
+        NTQ0NDkzMTg4LCJvcmRlcl9pZCI6NTE4MjQzNzEyNCwic3RhdHVzIjoic3Vj
+        Y2VzcyIsImNyZWF0ZWRfYXQiOiIyMDE3LTA3LTE2VDE3OjQ3OjU5KzAyOjAw
+        Iiwic2VydmljZSI6Im1hbnVhbCIsInVwZGF0ZWRfYXQiOiIyMDE3LTA3LTE2
+        VDE3OjQ3OjU5KzAyOjAwIiwidHJhY2tpbmdfY29tcGFueSI6bnVsbCwic2hp
+        cG1lbnRfc3RhdHVzIjpudWxsLCJ0cmFja2luZ19udW1iZXIiOm51bGwsInRy
+        YWNraW5nX251bWJlcnMiOltdLCJ0cmFja2luZ191cmwiOm51bGwsInRyYWNr
+        aW5nX3VybHMiOltdLCJyZWNlaXB0Ijp7fSwibGluZV9pdGVtcyI6W3siaWQi
+        OjEwMDY5MjkwODIwLCJ2YXJpYW50X2lkIjo0MjA3NzQ5MjEwMCwidGl0bGUi
+        OiJQcm9kdWN0IHdpdGggc2luZ2xlIHZhcmlhbnQiLCJxdWFudGl0eSI6Miwi
+        cHJpY2UiOiIwLjAwIiwiZ3JhbXMiOjAsInNrdSI6IiIsInZhcmlhbnRfdGl0
+        bGUiOiJNIiwidmVuZG9yIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0
+        IFN0b3JlIiwiZnVsZmlsbG1lbnRfc2VydmljZSI6Im1hbnVhbCIsInByb2R1
+        Y3RfaWQiOjExMTAxNTI1ODI4LCJyZXF1aXJlc19zaGlwcGluZyI6dHJ1ZSwi
+        dGF4YWJsZSI6dHJ1ZSwiZ2lmdF9jYXJkIjpmYWxzZSwibmFtZSI6IlByb2R1
+        Y3Qgd2l0aCBzaW5nbGUgdmFyaWFudCAtIE0iLCJ2YXJpYW50X2ludmVudG9y
+        eV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9l
+        eGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJ0b3RhbF9k
+        aXNjb3VudCI6IjAuMDAiLCJmdWxmaWxsbWVudF9zdGF0dXMiOiJmdWxmaWxs
+        ZWQiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMx
+        MzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6
+        IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUi
+        LCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHki
+        OiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9u
+        Ijp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3Zp
+        bmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJT
+        b21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIs
+        InppcCI6IjAyLTc3NyJ9fV19LHsiaWQiOjQ0NTMyNjA1NDgsIm9yZGVyX2lk
+        Ijo1MTgyNDM3MTI0LCJzdGF0dXMiOiJzdWNjZXNzIiwiY3JlYXRlZF9hdCI6
+        IjIwMTctMDYtMTVUMTc6NTQ6MjMrMDI6MDAiLCJzZXJ2aWNlIjoibWFudWFs
+        IiwidXBkYXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTQ6MjMrMDI6MDAiLCJ0
+        cmFja2luZ19jb21wYW55IjoiREhMIGVDb21tZXJjZSIsInNoaXBtZW50X3N0
+        YXR1cyI6bnVsbCwidHJhY2tpbmdfbnVtYmVyIjoiMjExMjMxMjMxMjMyMTMi
+        LCJ0cmFja2luZ19udW1iZXJzIjpbIjIxMTIzMTIzMTIzMjEzIl0sInRyYWNr
+        aW5nX3VybCI6Imh0dHA6XC9cL3dlYnRyYWNrLmRobGdsb2JhbG1haWwuY29t
+        XC8/dHJhY2tpbmdudW1iZXI9MjExMjMxMjMxMjMyMTMiLCJ0cmFja2luZ191
+        cmxzIjpbImh0dHA6XC9cL3dlYnRyYWNrLmRobGdsb2JhbG1haWwuY29tXC8/
+        dHJhY2tpbmdudW1iZXI9MjExMjMxMjMxMjMyMTMiXSwicmVjZWlwdCI6e30s
+        ImxpbmVfaXRlbXMiOlt7ImlkIjoxMDA2OTI5MDgyMCwidmFyaWFudF9pZCI6
+        NDIwNzc0OTIxMDAsInRpdGxlIjoiUHJvZHVjdCB3aXRoIHNpbmdsZSB2YXJp
+        YW50IiwicXVhbnRpdHkiOjEsInByaWNlIjoiMC4wMCIsImdyYW1zIjowLCJz
+        a3UiOiIiLCJ2YXJpYW50X3RpdGxlIjoiTSIsInZlbmRvciI6IlNwcmVlIFNo
+        b3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImZ1bGZpbGxtZW50X3NlcnZp
+        Y2UiOiJtYW51YWwiLCJwcm9kdWN0X2lkIjoxMTEwMTUyNTgyOCwicmVxdWly
+        ZXNfc2hpcHBpbmciOnRydWUsInRheGFibGUiOnRydWUsImdpZnRfY2FyZCI6
+        ZmFsc2UsIm5hbWUiOiJQcm9kdWN0IHdpdGggc2luZ2xlIHZhcmlhbnQgLSBN
+        IiwidmFyaWFudF9pbnZlbnRvcnlfbWFuYWdlbWVudCI6bnVsbCwicHJvcGVy
+        dGllcyI6W10sInByb2R1Y3RfZXhpc3RzIjp0cnVlLCJmdWxmaWxsYWJsZV9x
+        dWFudGl0eSI6MCwidG90YWxfZGlzY291bnQiOiIwLjAwIiwiZnVsZmlsbG1l
+        bnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwidGF4X2xpbmVzIjpbXSwib3JpZ2lu
+        X2xvY2F0aW9uIjp7ImlkIjozMTMyNDk5MDc2LCJjb3VudHJ5X2NvZGUiOiJI
+        UiIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiU3ByZWUgU2hvcGlmeSBJ
+        bXBvcnRlciBUZXN0IFN0b3JlIiwiYWRkcmVzczEiOiJPc2plY2thIDU4Iiwi
+        YWRkcmVzczIiOiIiLCJjaXR5IjoiU3BsaXQiLCJ6aXAiOiIyMTAwMCJ9LCJk
+        ZXN0aW5hdGlvbl9sb2NhdGlvbiI6eyJpZCI6MzEzMjUwMDQyMCwiY291bnRy
+        eV9jb2RlIjoiUEwiLCJwcm92aW5jZV9jb2RlIjoiIiwibmFtZSI6IlBldGVy
+        IFBhbiIsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJhZGRyZXNzMiI6IjUi
+        LCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzcifX1dfSx7ImlkIjo0
+        NDUzMjU4NzU2LCJvcmRlcl9pZCI6NTE4MjQzNzEyNCwic3RhdHVzIjoic3Vj
+        Y2VzcyIsImNyZWF0ZWRfYXQiOiIyMDE3LTA2LTE1VDE3OjUzOjQ0KzAyOjAw
+        Iiwic2VydmljZSI6Im1hbnVhbCIsInVwZGF0ZWRfYXQiOiIyMDE3LTA2LTE1
+        VDE3OjUzOjQ1KzAyOjAwIiwidHJhY2tpbmdfY29tcGFueSI6IkNhbmFkYSBQ
+        b3N0Iiwic2hpcG1lbnRfc3RhdHVzIjpudWxsLCJ0cmFja2luZ19udW1iZXIi
+        OiIxMTIzMjEzMTI0MTIzMjEzIiwidHJhY2tpbmdfbnVtYmVycyI6WyIxMTIz
+        MjEzMTI0MTIzMjEzIl0sInRyYWNraW5nX3VybCI6Imh0dHBzOlwvXC93d3cu
+        Y2FuYWRhcG9zdC5jYVwvY3BvdG9vbHNcL2FwcHNcL3RyYWNrXC9wZXJzb25h
+        bFwvZmluZEJ5VHJhY2tOdW1iZXI/dHJhY2tpbmdOdW1iZXI9MTEyMzIxMzEy
+        NDEyMzIxMyIsInRyYWNraW5nX3VybHMiOlsiaHR0cHM6XC9cL3d3dy5jYW5h
+        ZGFwb3N0LmNhXC9jcG90b29sc1wvYXBwc1wvdHJhY2tcL3BlcnNvbmFsXC9m
+        aW5kQnlUcmFja051bWJlcj90cmFja2luZ051bWJlcj0xMTIzMjEzMTI0MTIz
+        MjEzIl0sInJlY2VpcHQiOnt9LCJsaW5lX2l0ZW1zIjpbeyJpZCI6MTAwNjky
+        OTA3NTYsInZhcmlhbnRfaWQiOjQxNzMzMzQ3NTg4LCJ0aXRsZSI6Ik5vIHZh
+        cmlhbnRzIiwicXVhbnRpdHkiOjMsInByaWNlIjoiMTUwLjAwIiwiZ3JhbXMi
+        OjAsInNrdSI6IiIsInZhcmlhbnRfdGl0bGUiOiIiLCJ2ZW5kb3IiOiJTcHJl
+        ZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJmdWxmaWxsbWVudF9z
+        ZXJ2aWNlIjoibWFudWFsIiwicHJvZHVjdF9pZCI6MTEwNTUxNjkwMjgsInJl
+        cXVpcmVzX3NoaXBwaW5nIjp0cnVlLCJ0YXhhYmxlIjp0cnVlLCJnaWZ0X2Nh
+        cmQiOmZhbHNlLCJuYW1lIjoiTm8gdmFyaWFudHMiLCJ2YXJpYW50X2ludmVu
+        dG9yeV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVj
+        dF9leGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJ0b3Rh
+        bF9kaXNjb3VudCI6IjAuMDAiLCJmdWxmaWxsbWVudF9zdGF0dXMiOiJmdWxm
+        aWxsZWQiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQi
+        OjMxMzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29k
+        ZSI6IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3Rv
+        cmUiLCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNp
+        dHkiOiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0
+        aW9uIjp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInBy
+        b3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEi
+        OiJTb21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3
+        YSIsInppcCI6IjAyLTc3NyJ9fSx7ImlkIjoxMDA2OTI5MDgyMCwidmFyaWFu
+        dF9pZCI6NDIwNzc0OTIxMDAsInRpdGxlIjoiUHJvZHVjdCB3aXRoIHNpbmds
+        ZSB2YXJpYW50IiwicXVhbnRpdHkiOjIsInByaWNlIjoiMC4wMCIsImdyYW1z
+        IjowLCJza3UiOiIiLCJ2YXJpYW50X3RpdGxlIjoiTSIsInZlbmRvciI6IlNw
+        cmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImZ1bGZpbGxtZW50
+        X3NlcnZpY2UiOiJtYW51YWwiLCJwcm9kdWN0X2lkIjoxMTEwMTUyNTgyOCwi
+        cmVxdWlyZXNfc2hpcHBpbmciOnRydWUsInRheGFibGUiOnRydWUsImdpZnRf
+        Y2FyZCI6ZmFsc2UsIm5hbWUiOiJQcm9kdWN0IHdpdGggc2luZ2xlIHZhcmlh
+        bnQgLSBNIiwidmFyaWFudF9pbnZlbnRvcnlfbWFuYWdlbWVudCI6bnVsbCwi
+        cHJvcGVydGllcyI6W10sInByb2R1Y3RfZXhpc3RzIjp0cnVlLCJmdWxmaWxs
+        YWJsZV9xdWFudGl0eSI6MCwidG90YWxfZGlzY291bnQiOiIwLjAwIiwiZnVs
+        ZmlsbG1lbnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwidGF4X2xpbmVzIjpbXSwi
+        b3JpZ2luX2xvY2F0aW9uIjp7ImlkIjozMTMyNDk5MDc2LCJjb3VudHJ5X2Nv
+        ZGUiOiJIUiIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiU3ByZWUgU2hv
+        cGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiYWRkcmVzczEiOiJPc2plY2th
+        IDU4IiwiYWRkcmVzczIiOiIiLCJjaXR5IjoiU3BsaXQiLCJ6aXAiOiIyMTAw
+        MCJ9LCJkZXN0aW5hdGlvbl9sb2NhdGlvbiI6eyJpZCI6MzEzMjUwMDQyMCwi
+        Y291bnRyeV9jb2RlIjoiUEwiLCJwcm92aW5jZV9jb2RlIjoiIiwibmFtZSI6
+        IlBldGVyIFBhbiIsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJhZGRyZXNz
+        MiI6IjUiLCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzcifX1dfV0s
+        ImNsaWVudF9kZXRhaWxzIjp7ImJyb3dzZXJfaXAiOiI5NC43NS45Ni45OCIs
+        ImFjY2VwdF9sYW5ndWFnZSI6InBsLVBMLHBsO3E9MC44LGVuLVVTO3E9MC42
+        LGVuO3E9MC40IiwidXNlcl9hZ2VudCI6Ik1vemlsbGFcLzUuMCAoTWFjaW50
+        b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xMl80KSBBcHBsZVdlYktpdFwvNTM3
+        LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lXC81OC4wLjMwMjkuMTEw
+        IFNhZmFyaVwvNTM3LjM2Iiwic2Vzc2lvbl9oYXNoIjpudWxsLCJicm93c2Vy
+        X3dpZHRoIjoxNDQwLCJicm93c2VyX2hlaWdodCI6ODI2fSwicmVmdW5kcyI6
+        W10sInBheW1lbnRfZGV0YWlscyI6eyJjcmVkaXRfY2FyZF9iaW4iOiIxIiwi
+        YXZzX3Jlc3VsdF9jb2RlIjpudWxsLCJjdnZfcmVzdWx0X2NvZGUiOm51bGws
+        ImNyZWRpdF9jYXJkX251bWJlciI6IuKAouKAouKAouKAoiDigKLigKLigKLi
+        gKIg4oCi4oCi4oCi4oCiIDEiLCJjcmVkaXRfY2FyZF9jb21wYW55IjoiQm9n
+        dXMifSwiY3VzdG9tZXIiOnsiaWQiOjU3MDE3MzY4MzYsImVtYWlsIjoiZXhh
+        bXBsZUBleGFtcGxlLmNvbSIsImFjY2VwdHNfbWFya2V0aW5nIjpmYWxzZSwi
+        Y3JlYXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTE6NDcrMDI6MDAiLCJ1cGRh
+        dGVkX2F0IjoiMjAxNy0wNi0yNVQxMzozNTo1MSswMjowMCIsImZpcnN0X25h
+        bWUiOiJQZXRlciIsImxhc3RfbmFtZSI6IlBhbiIsIm9yZGVyc19jb3VudCI6
+        MCwic3RhdGUiOiJkaXNhYmxlZCIsInRvdGFsX3NwZW50IjoiMC4wMCIsImxh
+        c3Rfb3JkZXJfaWQiOm51bGwsIm5vdGUiOm51bGwsInZlcmlmaWVkX2VtYWls
+        Ijp0cnVlLCJtdWx0aXBhc3NfaWRlbnRpZmllciI6bnVsbCwidGF4X2V4ZW1w
+        dCI6ZmFsc2UsInBob25lIjpudWxsLCJ0YWdzIjoiIiwibGFzdF9vcmRlcl9u
+        YW1lIjpudWxsLCJkZWZhdWx0X2FkZHJlc3MiOnsiaWQiOjU5ODU1MDIyMTIs
+        ImN1c3RvbWVyX2lkIjo1NzAxNzM2ODM2LCJmaXJzdF9uYW1lIjoiUGV0ZXIi
+        LCJsYXN0X25hbWUiOiJQYW4iLCJjb21wYW55IjpudWxsLCJhZGRyZXNzMSI6
+        IlNvbWUgU3RyZWV0IiwiYWRkcmVzczIiOiI1IiwiY2l0eSI6IldhcnN6YXdh
+        IiwicHJvdmluY2UiOm51bGwsImNvdW50cnkiOiJQb2xhbmQiLCJ6aXAiOiIw
+        Mi03NzciLCJwaG9uZSI6bnVsbCwibmFtZSI6IlBldGVyIFBhbiIsInByb3Zp
+        bmNlX2NvZGUiOm51bGwsImNvdW50cnlfY29kZSI6IlBMIiwiY291bnRyeV9u
+        YW1lIjoiUG9sYW5kIiwiZGVmYXVsdCI6dHJ1ZX19fX0=
+    http_version: 
+  recorded_at: Sun, 20 Aug 2017 10:35:53 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/transactions.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 20 Aug 2017 10:35:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      Strict-Transport-Security:
+      - max-age=7776000
+      X-Request-Id:
+      - 513dc608-4aac-4efa-9b3a-5562eb75e2f5
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=513dc608-4aac-4efa-9b3a-5562eb75e2f5'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=513dc608-4aac-4efa-9b3a-5562eb75e2f5
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0cmFuc2FjdGlvbnMiOlt7ImlkIjo1NzMyODIwMTAwLCJvcmRlcl9pZCI6
+        NTE4MjQzNzEyNCwiYW1vdW50IjoiNDcwLjAwIiwia2luZCI6ImF1dGhvcml6
+        YXRpb24iLCJnYXRld2F5IjoiYm9ndXMiLCJzdGF0dXMiOiJzdWNjZXNzIiwi
+        bWVzc2FnZSI6IkJvZ3VzIEdhdGV3YXk6IEZvcmNlZCBzdWNjZXNzIiwiY3Jl
+        YXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTI6MjgrMDI6MDAiLCJ0ZXN0Ijp0
+        cnVlLCJhdXRob3JpemF0aW9uIjoiNTM0MzMiLCJjdXJyZW5jeSI6IkVVUiIs
+        ImxvY2F0aW9uX2lkIjpudWxsLCJ1c2VyX2lkIjpudWxsLCJwYXJlbnRfaWQi
+        Om51bGwsImRldmljZV9pZCI6bnVsbCwicmVjZWlwdCI6eyJhdXRob3JpemVk
+        X2Ftb3VudCI6IjQ3MC4wMCJ9LCJlcnJvcl9jb2RlIjpudWxsLCJzb3VyY2Vf
+        bmFtZSI6IndlYiIsInBheW1lbnRfZGV0YWlscyI6eyJjcmVkaXRfY2FyZF9i
+        aW4iOiIxIiwiYXZzX3Jlc3VsdF9jb2RlIjpudWxsLCJjdnZfcmVzdWx0X2Nv
+        ZGUiOm51bGwsImNyZWRpdF9jYXJkX251bWJlciI6IuKAouKAouKAouKAoiDi
+        gKLigKLigKLigKIg4oCi4oCi4oCi4oCiIDEiLCJjcmVkaXRfY2FyZF9jb21w
+        YW55IjoiQm9ndXMifX0seyJpZCI6NTczMjgyMjc4OCwib3JkZXJfaWQiOjUx
+        ODI0MzcxMjQsImFtb3VudCI6IjQ3MC4wMCIsImtpbmQiOiJjYXB0dXJlIiwi
+        Z2F0ZXdheSI6ImJvZ3VzIiwic3RhdHVzIjoic3VjY2VzcyIsIm1lc3NhZ2Ui
+        OiJCb2d1cyBHYXRld2F5OiBGb3JjZWQgc3VjY2VzcyIsImNyZWF0ZWRfYXQi
+        OiIyMDE3LTA2LTE1VDE3OjUzOjI2KzAyOjAwIiwidGVzdCI6dHJ1ZSwiYXV0
+        aG9yaXphdGlvbiI6bnVsbCwiY3VycmVuY3kiOiJFVVIiLCJsb2NhdGlvbl9p
+        ZCI6bnVsbCwidXNlcl9pZCI6bnVsbCwicGFyZW50X2lkIjo1NzMyODIwMTAw
+        LCJkZXZpY2VfaWQiOm51bGwsInJlY2VpcHQiOnsicGFpZF9hbW91bnQiOiI0
+        NzAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIi
+        fV19
+    http_version: 
+  recorded_at: Sun, 20 Aug 2017 10:35:53 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/transactions.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 20 Aug 2017 10:35:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      Strict-Transport-Security:
+      - max-age=7776000
+      X-Request-Id:
+      - ee3143fb-7a73-4093-a183-6bdea782ac38
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=ee3143fb-7a73-4093-a183-6bdea782ac38'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=ee3143fb-7a73-4093-a183-6bdea782ac38
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0cmFuc2FjdGlvbnMiOlt7ImlkIjo1NzMyODIwMTAwLCJvcmRlcl9pZCI6
+        NTE4MjQzNzEyNCwiYW1vdW50IjoiNDcwLjAwIiwia2luZCI6ImF1dGhvcml6
+        YXRpb24iLCJnYXRld2F5IjoiYm9ndXMiLCJzdGF0dXMiOiJzdWNjZXNzIiwi
+        bWVzc2FnZSI6IkJvZ3VzIEdhdGV3YXk6IEZvcmNlZCBzdWNjZXNzIiwiY3Jl
+        YXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTI6MjgrMDI6MDAiLCJ0ZXN0Ijp0
+        cnVlLCJhdXRob3JpemF0aW9uIjoiNTM0MzMiLCJjdXJyZW5jeSI6IkVVUiIs
+        ImxvY2F0aW9uX2lkIjpudWxsLCJ1c2VyX2lkIjpudWxsLCJwYXJlbnRfaWQi
+        Om51bGwsImRldmljZV9pZCI6bnVsbCwicmVjZWlwdCI6eyJhdXRob3JpemVk
+        X2Ftb3VudCI6IjQ3MC4wMCJ9LCJlcnJvcl9jb2RlIjpudWxsLCJzb3VyY2Vf
+        bmFtZSI6IndlYiIsInBheW1lbnRfZGV0YWlscyI6eyJjcmVkaXRfY2FyZF9i
+        aW4iOiIxIiwiYXZzX3Jlc3VsdF9jb2RlIjpudWxsLCJjdnZfcmVzdWx0X2Nv
+        ZGUiOm51bGwsImNyZWRpdF9jYXJkX251bWJlciI6IuKAouKAouKAouKAoiDi
+        gKLigKLigKLigKIg4oCi4oCi4oCi4oCiIDEiLCJjcmVkaXRfY2FyZF9jb21w
+        YW55IjoiQm9ndXMifX0seyJpZCI6NTczMjgyMjc4OCwib3JkZXJfaWQiOjUx
+        ODI0MzcxMjQsImFtb3VudCI6IjQ3MC4wMCIsImtpbmQiOiJjYXB0dXJlIiwi
+        Z2F0ZXdheSI6ImJvZ3VzIiwic3RhdHVzIjoic3VjY2VzcyIsIm1lc3NhZ2Ui
+        OiJCb2d1cyBHYXRld2F5OiBGb3JjZWQgc3VjY2VzcyIsImNyZWF0ZWRfYXQi
+        OiIyMDE3LTA2LTE1VDE3OjUzOjI2KzAyOjAwIiwidGVzdCI6dHJ1ZSwiYXV0
+        aG9yaXphdGlvbiI6bnVsbCwiY3VycmVuY3kiOiJFVVIiLCJsb2NhdGlvbl9p
+        ZCI6bnVsbCwidXNlcl9pZCI6bnVsbCwicGFyZW50X2lkIjo1NzMyODIwMTAw
+        LCJkZXZpY2VfaWQiOm51bGwsInJlY2VpcHQiOnsicGFpZF9hbW91bnQiOiI0
+        NzAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIi
+        fV19
+    http_version: 
+  recorded_at: Sun, 20 Aug 2017 10:35:54 GMT
+recorded_with: VCR 3.0.3

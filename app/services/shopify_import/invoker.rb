@@ -3,7 +3,8 @@ module ShopifyImport
     ROOT_FETCHERS = [
       ShopifyImport::DataFetchers::ProductsFetcher,
       ShopifyImport::DataFetchers::UsersFetcher,
-      ShopifyImport::DataFetchers::TaxonsFetcher
+      ShopifyImport::DataFetchers::TaxonsFetcher,
+      ShopifyImport::DataFetchers::OrdersFetcher
     ].freeze
 
     def initialize(credentials: nil)
