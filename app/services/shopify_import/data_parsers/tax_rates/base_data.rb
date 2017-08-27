@@ -7,8 +7,8 @@ module ShopifyImport
           @shopify_address = shopify_address
         end
 
-        def tax_rate_attributes
-          {
+        def attributes
+          @attributes ||= {
             name: @shopify_tax_line.title,
             amount: @shopify_tax_line.rate,
             zone: zone,

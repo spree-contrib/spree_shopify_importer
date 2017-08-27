@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class TaxRateCreator
+      delegate :attributes, to: :parser
+
       def initialize(shopify_tax_line, shopify_address)
         @shopify_tax_line = shopify_tax_line
         @shopify_address = shopify_address
@@ -8,15 +10,11 @@ module ShopifyImport
 
       def create!
         Spree::TaxRate.transaction do
-          Spree::TaxRate.create_with(calculator: calculator).find_or_create_by!(tax_rate_attributes)
+          Spree::TaxRate.create_with(calculator: calculator).find_or_create_by!(attributes)
         end
       end
 
       private
-
-      def tax_rate_attributes
-        @tax_rate_attributes ||= parser.tax_rate_attributes
-      end
 
       def calculator
         @calculator ||= Spree::Calculator::ShopifyTax.create!
