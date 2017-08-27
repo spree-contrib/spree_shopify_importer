@@ -4,7 +4,7 @@ describe ShopifyImport::DataParsers::Promotions::BaseData, type: :service do
   let!(:shopify_discount_code) { create(:shopify_discount_code) }
   subject { described_class.new(shopify_discount_code) }
 
-  describe '#promotion_attributes' do
+  describe '#attributes' do
     let(:result) do
       {
         name: shopify_discount_code.code.downcase,
@@ -13,7 +13,7 @@ describe ShopifyImport::DataParsers::Promotions::BaseData, type: :service do
     end
 
     it 'return hash of promotion attributes' do
-      expect(subject.promotion_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
   end
 

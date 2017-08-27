@@ -6,15 +6,15 @@ module ShopifyImport
           @shopify_discount_code = shopify_discount_code
         end
 
-        def promotion_attributes
-          {
+        def attributes
+          @attributes ||= {
             name: code,
             code: code
           }
         end
 
         def expires_at
-          Time.current
+          @expires_at ||= Time.current
         end
 
         private
