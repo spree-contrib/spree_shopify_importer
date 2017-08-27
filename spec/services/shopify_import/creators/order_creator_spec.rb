@@ -180,6 +180,22 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
             expect { subject.save! }.to change(Spree::Adjustment, :count).by(1)
           end
         end
+
+        context 'promotions' do
+          # TODO: change mock to real data
+          before do
+            allow_any_instance_of(ShopifyAPI::Order)
+              .to receive(:discount_codes).and_return([create(:shopify_discount_code)])
+          end
+
+          it 'creates spree tax rates' do
+            expect { subject.save! }.to change(Spree::Promotion, :count).by(1)
+          end
+
+          it 'creates spree tax adjustments' do
+            expect { subject.save! }.to change(Spree::Adjustment, :count).by(1)
+          end
+        end
       end
     end
   end
