@@ -22,5 +22,6 @@ RSpec.feature 'end to end import' do
     expect(Spree::Payment.count).to eq 1
     expect(Spree::Shipment.count).to eq 3
     expect(Spree::ShippingRate.count).to eq 3
+    expect(Spree::InventoryUnit.count).to eq 8
   end
 end
