@@ -9,8 +9,8 @@ module ShopifyImport
             @spree_tax_rate = spree_tax_rate
           end
 
-          def adjustment_attributes
-            {
+          def attributes
+            @attributes ||= {
               order: @spree_order,
               adjustable: @spree_order,
               label: @shopify_tax_line.title,
