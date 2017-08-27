@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class ShipmentCreator < BaseCreator
+      delegate :attributes, :number, :timestamps, to: :parser
+
       def initialize(shopify_data_feed, spree_order)
         super(shopify_data_feed)
         @spree_order = spree_order
@@ -12,7 +14,7 @@ module ShopifyImport
           save_shipment_with_attributes
           assign_spree_shipment_to_data_feed
         end
-        @spree_shipment.update_columns(shipment_timestamps)
+        @spree_shipment.update_columns(timestamps)
       end
 
       private
@@ -22,23 +24,11 @@ module ShopifyImport
       end
 
       def save_shipment_with_attributes
-        @spree_shipment.assign_attributes(shipment_attributes)
+        @spree_shipment.assign_attributes(attributes)
       end
 
       def assign_spree_shipment_to_data_feed
         @shopify_data_feed.update(spree_object: @spree_shipment)
-      end
-
-      def shipment_timestamps
-        parser.shipment_timestamps
-      end
-
-      def shipment_attributes
-        parser.shipment_attributes
-      end
-
-      def number
-        parser.shipment_number
       end
 
       def parser

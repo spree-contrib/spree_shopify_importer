@@ -6,20 +6,20 @@ module ShopifyImport
           @shopify_fulfillment = shopify_fulfillment
         end
 
-        def shipment_number
-          "SH#{@shopify_fulfillment.id}"
+        def number
+          @number ||= "SH#{@shopify_fulfillment.id}"
         end
 
-        def shipment_attributes
-          {
+        def attributes
+          @attributes ||= {
             stock_location: stock_location,
             tracking: @shopify_fulfillment.tracking_number,
             state: shipment_state
           }
         end
 
-        def shipment_timestamps
-          {
+        def timestamps
+          @timestamps ||= {
             created_at: @shopify_fulfillment.created_at.to_datetime,
             updated_at: @shopify_fulfillment.updated_at.to_datetime,
             shipped_at: shipped_at
