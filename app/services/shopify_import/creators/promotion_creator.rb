@@ -8,7 +8,7 @@ module ShopifyImport
         @shopify_discount_code = shopify_discount_code
       end
 
-      def save!
+      def create!
         Spree::Promotion.transaction do
           create_promotion
         end
