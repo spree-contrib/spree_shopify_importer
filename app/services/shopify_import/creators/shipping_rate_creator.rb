@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class ShippingRateCreator
+      delegate :attributes, to: :parser
+
       def initialize(shopify_shipping_line, shopify_order, spree_shipment)
         @shopify_shipping_line = shopify_shipping_line
         @shopify_order = shopify_order
@@ -8,14 +10,10 @@ module ShopifyImport
       end
 
       def save!
-        @spree_shipment.shipping_rates.create!(shipping_rate_attributes)
+        @spree_shipment.shipping_rates.create!(attributes)
       end
 
       private
-
-      def shipping_rate_attributes
-        parser.shipping_rate_attributes
-      end
 
       def parser
         @parser ||= ShopifyImport::DataParsers::ShippingRates::BaseData.new(@shopify_shipping_line, @shopify_order)

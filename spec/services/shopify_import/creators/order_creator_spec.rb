@@ -146,11 +146,23 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
 
         context 'payments' do
           it 'creates shopify data feeds' do
-            expect { subject.save! }.to change(Shopify::DataFeed, :count).by(1)
+            expect { subject.save! }
+              .to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Transaction').reload.count }.by(1)
           end
 
           it 'creates spree payments' do
             expect { subject.save! }.to change(Spree::Payment, :count).by(1)
+          end
+        end
+
+        context 'shipments' do
+          it 'creates shopify data feeds' do
+            expect { subject.save! }
+              .to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Fulfillment').reload.count }.by(2)
+          end
+
+          it 'creates spree payments' do
+            expect { subject.save! }.to change(Spree::Shipment, :count).by(2)
           end
         end
       end

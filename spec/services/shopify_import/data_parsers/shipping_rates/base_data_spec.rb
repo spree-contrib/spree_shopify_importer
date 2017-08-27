@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ShopifyImport::DataParsers::ShippingRates::BaseData, type: :service do
   subject { described_class.new(shopify_shipping_line, shopify_order) }
 
-  describe '#shipping_rate_attributes' do
+  describe '#attributes' do
     let(:shopify_shipping_line) { create(:shopify_shipping_line) }
     let(:shopify_order) { create(:shopify_order) }
     let(:shipping_method) { Spree::ShippingMethod.last }
@@ -16,15 +16,15 @@ describe ShopifyImport::DataParsers::ShippingRates::BaseData, type: :service do
     end
 
     it 'returns hash of shipping rates attributes' do
-      expect(subject.shipping_rate_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     it 'creates a shipping method' do
-      expect { subject.shipping_rate_attributes }.to change(Spree::ShippingMethod, :count).by(1)
+      expect { subject.attributes }.to change(Spree::ShippingMethod, :count).by(1)
     end
 
     it 'creates a calculator' do
-      expect { subject.shipping_rate_attributes }.to change(Spree::Calculator, :count).by(1)
+      expect { subject.attributes }.to change(Spree::Calculator, :count).by(1)
     end
 
     context 'when shipping line has missing price' do
@@ -34,7 +34,7 @@ describe ShopifyImport::DataParsers::ShippingRates::BaseData, type: :service do
       end
 
       it 'calculates price' do
-        expect(subject.shipping_rate_attributes[:cost]).to eq cost
+        expect(subject.attributes[:cost]).to eq cost
       end
     end
   end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ShopifyImport::Creators::ShipmentCreator, type: :service do
-  subject { described_class.new(shopify_data_feed, spree_order) }
+  subject { described_class.new(shopify_data_feed, parent_data_feed, spree_order) }
 
   before { authenticate_with_shopify }
 
@@ -9,6 +9,13 @@ describe ShopifyImport::Creators::ShipmentCreator, type: :service do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:shopify_fulfillment) { shopify_order.fulfillments.first }
     let(:spree_order) { create(:order) }
+    let(:parent_data_feed) do
+      create(:shopify_data_feed,
+             shopify_object_id: shopify_order.id,
+             shopify_object_type: 'ShopifyAPI::Order',
+             spree_object: spree_order,
+             data_feed: shopify_order.to_json)
+    end
     let(:shopify_data_feed) do
       create(:shopify_data_feed,
              shopify_object_id: shopify_fulfillment.id,
@@ -39,6 +46,7 @@ describe ShopifyImport::Creators::ShipmentCreator, type: :service do
 
     context 'sets associations' do
       let(:stock_location) { Spree::StockLocation.find_by(name: I18n.t(:shopify)) }
+      let(:spree_shipping_rate) { Spree::ShippingRate.last }
 
       before { subject.save! }
 
@@ -51,7 +59,9 @@ describe ShopifyImport::Creators::ShipmentCreator, type: :service do
       end
 
       it 'inventory units'
-      it 'shipping_rates'
+      it 'shipping rates' do
+        expect(spree_shipment.shipping_rates).to contain_exactly(spree_shipping_rate)
+      end
     end
   end
 end

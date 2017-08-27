@@ -9,7 +9,7 @@ describe ShopifyImport::Importers::OrderImporter, type: :service do
     let(:resource) { ShopifyAPI::Order.find(5_182_437_124).to_json }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(2)
+      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(5)
     end
 
     it 'creates spree orders' do

@@ -9,7 +9,7 @@ module ShopifyImport
           assign_spree_order_to_data_feed
           create_spree_line_items
           create_spree_payments
-          # TODO: shipments
+          create_spree_shipments
           # TODO: taxes
           # TODO: promotions
           # TODO: refunds
@@ -71,6 +71,12 @@ module ShopifyImport
 
       def create_spree_payment(transaction)
         ShopifyImport::Importers::PaymentImporter.new(transaction, @shopify_data_feed, @spree_order).import!
+      end
+
+      def create_spree_shipments
+        shopify_order.fulfillments.each do |fulfillment|
+          ShopifyImport::Importers::ShipmentImporter.new(fulfillment, @shopify_data_feed, @spree_order).import!
+        end
       end
 
       def parser
