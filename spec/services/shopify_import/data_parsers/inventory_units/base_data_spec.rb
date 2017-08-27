@@ -15,7 +15,7 @@ describe ShopifyImport::DataParsers::InventoryUnits::BaseData, type: :service do
            shopify_object_id: shopify_line_item.variant_id)
   end
 
-  describe '#inventory_unit_attributes' do
+  describe '#attributes' do
     let!(:result) do
       {
         order: spree_shipment.order,
@@ -26,14 +26,14 @@ describe ShopifyImport::DataParsers::InventoryUnits::BaseData, type: :service do
     end
 
     it 'returns hash od inventory unit attributes' do
-      expect(subject.inventory_unit_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     context 'when shipment is shipped' do
       let!(:spree_shipment) { create(:shipment, state: :shipped) }
 
       it 'returns hash od inventory unit attributes' do
-        expect(subject.inventory_unit_attributes[:state]).to eq :shipped
+        expect(subject.attributes[:state]).to eq :shipped
       end
     end
   end
