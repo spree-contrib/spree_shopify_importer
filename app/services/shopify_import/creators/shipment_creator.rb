@@ -14,7 +14,7 @@ module ShopifyImport
           find_or_initialize_shipment
           save_shipment_with_attributes
           create_shipping_rate
-          # TODO: create inventory units
+          create_inventory_units
           assign_spree_shipment_to_data_feed
         end
         @spree_shipment.update_columns(timestamps)
@@ -37,6 +37,12 @@ module ShopifyImport
 
       def create_shipping_rate
         ShopifyImport::Creators::ShippingRateCreator.new(shopify_shipping_line, shopify_order, @spree_shipment).save!
+      end
+
+      def create_inventory_units
+        shopify_fulfillment.line_items.each do |shopify_line_item|
+          ShopifyImport::Creators::InventoryUnitsCreator.new(shopify_line_item, @spree_shipment).save!
+        end
       end
 
       def shopify_shipping_line

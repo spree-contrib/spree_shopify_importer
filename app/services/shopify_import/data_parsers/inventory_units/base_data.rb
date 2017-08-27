@@ -7,8 +7,8 @@ module ShopifyImport
           @spree_shipment = spree_shipment
         end
 
-        def inventory_unit_attributes
-          {
+        def attributes
+          @attributes ||= {
             order: order,
             variant: variant,
             line_item: line_item,

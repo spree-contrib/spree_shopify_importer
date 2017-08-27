@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class InventoryUnitsCreator
+      delegate :attributes, :line_item, to: :parser
+
       def initialize(shopify_line_item, spree_shipment)
         @shopify_line_item = shopify_line_item
         @spree_shipment = spree_shipment
@@ -14,16 +16,10 @@ module ShopifyImport
         end
       end
 
+      private
+
       def create_inventory_unit
-        @spree_shipment.inventory_units.create!(inventory_unit_attributes)
-      end
-
-      def inventory_unit_attributes
-        @inventory_unit_attributes ||= parser.inventory_unit_attributes
-      end
-
-      def line_item
-        @line_item ||= @parser.line_item
+        @spree_shipment.inventory_units.create!(attributes)
       end
 
       def parser
