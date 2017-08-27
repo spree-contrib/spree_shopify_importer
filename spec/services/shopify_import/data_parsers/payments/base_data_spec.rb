@@ -6,7 +6,7 @@ describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
 
   describe '#payment_number' do
     it 'creates number with transaction id' do
-      expect(subject.payment_number).to eq "SP#{shopify_transaction.id}"
+      expect(subject.number).to eq "SP#{shopify_transaction.id}"
     end
   end
 
@@ -21,11 +21,11 @@ describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
     end
 
     it 'creates shopify payment method' do
-      expect { subject.payment_attributes }.to change(Spree::PaymentMethod, :count).by(1)
+      expect { subject.attributes }.to change(Spree::PaymentMethod, :count).by(1)
     end
 
     it 'creates a hash of variant attributes' do
-      expect(subject.payment_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     context 'payment states' do
@@ -40,7 +40,7 @@ describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
           transaction = create(:shopify_transaction, kind: payment_hash[:kind], status: payment_hash[:status])
           parser = described_class.new(transaction)
 
-          expect(parser.payment_attributes[:state]).to eq payment_hash[:spree_state]
+          expect(parser.attributes[:state]).to eq payment_hash[:spree_state]
         end
       end
     end
@@ -51,7 +51,7 @@ describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
       let(:error_message) { I18n.t('errors.transaction.no_payment_state', status: 'random') }
 
       it 'raises a error message' do
-        expect { subject.payment_attributes }.to raise_error(error).with_message(error_message)
+        expect { subject.attributes }.to raise_error(error).with_message(error_message)
       end
     end
   end
@@ -65,7 +65,7 @@ describe ShopifyImport::DataParsers::Payments::BaseData, type: :service do
     end
 
     it 'creates hash of payment timestamps' do
-      expect(subject.payment_timestamps).to eq result
+      expect(subject.timestamps).to eq result
     end
   end
 end

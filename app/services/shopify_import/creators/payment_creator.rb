@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class PaymentCreator < BaseCreator
+      delegate :number, :attributes, :timestamps, to: :parser
+
       def initialize(shopify_data_feed, spree_order)
         super(shopify_data_feed)
         @spree_order = spree_order
@@ -12,34 +14,22 @@ module ShopifyImport
           save_payment_with_attributes
           assign_spree_payment_to_data_feed
         end
-        @spree_payment.update_columns(payment_timestamps)
+        @spree_payment.update_columns(timestamps)
       end
 
       private
 
       def find_or_initialize_payment
-        @spree_payment = @spree_order.payments.find_or_initialize_by(number: payment_number)
+        @spree_payment = @spree_order.payments.find_or_initialize_by(number: number)
       end
 
       def save_payment_with_attributes
-        @spree_payment.assign_attributes(payment_attributes)
-        @spree_payment.save!
+        @spree_payment.assign_attributes(attributes)
+        @spree_payment.save!(validate: false)
       end
 
       def assign_spree_payment_to_data_feed
         @shopify_data_feed.update(spree_object: @spree_payment)
-      end
-
-      def payment_number
-        parser.payment_number
-      end
-
-      def payment_attributes
-        parser.payment_attributes
-      end
-
-      def payment_timestamps
-        parser.payment_timestamps
       end
 
       def parser
