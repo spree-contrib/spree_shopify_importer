@@ -8,20 +8,20 @@ module ShopifyImport
           @shopify_transaction = shopify_transaction
         end
 
-        def payment_number
-          "SP#{@shopify_transaction.id}"
+        def number
+          @number ||= "SP#{@shopify_transaction.id}"
         end
 
-        def payment_attributes
-          {
+        def attributes
+          @attributes ||= {
             amount: @shopify_transaction.amount,
             state: payment_state,
             payment_method: payment_method
           }
         end
 
-        def payment_timestamps
-          {
+        def timestamps
+          @timestamps ||= {
             created_at: @shopify_transaction.created_at.to_datetime,
             updated_at: @shopify_transaction.created_at.to_datetime
           }

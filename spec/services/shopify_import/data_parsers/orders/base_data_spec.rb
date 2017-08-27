@@ -23,14 +23,13 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
     end
   end
 
-  describe '#order_attributes' do
+  describe '#attributes' do
     let(:base_order_attributes) do
       {
         number: shopify_order.order_number,
         email: shopify_order.email,
         channel: I18n.t('shopify'),
         currency: shopify_order.currency,
-        note: shopify_order.note,
         confirmation_delivered: shopify_order.confirmed,
         last_ip_address: shopify_order.browser_ip,
         item_count: shopify_order.line_items.sum(&:quantity)
@@ -62,13 +61,13 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
     end
 
     it 'prepare hash of order attributes' do
-      expect(subject.order_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     context 'other order states'
   end
 
-  context '#order_timestamps' do
+  context '#timestamps' do
     let(:order_timestamps) do
       {
         created_at: shopify_order.created_at,
@@ -77,7 +76,7 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
     end
 
     it 'prepare hash of order timestamps' do
-      expect(subject.order_timestamps).to eq order_timestamps
+      expect(subject.timestamps).to eq order_timestamps
     end
   end
 end
