@@ -7,8 +7,8 @@ module ShopifyImport
           @shopify_order = shopify_order
         end
 
-        def shipping_rate_attributes
-          {
+        def attributes
+          @attributes ||= {
             selected: true,
             shipping_method: shipping_method,
             cost: shipping_cost
