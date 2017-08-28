@@ -2,6 +2,8 @@ module ShopifyImport
   module Creators
     module Adjustments
       class TaxCreator
+        delegate :attributes, to: :parser
+
         def initialize(shopify_tax_line, spree_order, spree_tax_rate)
           @shopify_tax_line = shopify_tax_line
           @spree_order = spree_order
@@ -10,15 +12,11 @@ module ShopifyImport
 
         def save!
           Spree::Adjustment.transaction do
-            @spree_order.adjustments.create!(adjustment_attributes)
+            @spree_order.adjustments.create!(attributes)
           end
         end
 
         private
-
-        def adjustment_attributes
-          @adjustment_attributes ||= parser.adjustment_attributes
-        end
 
         def parser
           @parser ||= ShopifyImport::DataParsers::Adjustments::Tax::BaseData.new(@shopify_tax_line,

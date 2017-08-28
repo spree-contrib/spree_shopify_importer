@@ -5,15 +5,15 @@ describe ShopifyImport::Creators::PromotionCreator, type: :service do
   let(:shopify_discount_code) { create(:shopify_discount_code) }
   subject { described_class.new(spree_order, shopify_discount_code) }
 
-  describe '#save!' do
+  describe '#create!!' do
     it 'creates promotion' do
-      expect { subject.save! }.to change(Spree::Promotion, :count).by(1)
+      expect { subject.create! }.to change(Spree::Promotion, :count).by(1)
     end
 
     context 'sets attributes' do
       let(:promotion) { Spree::Promotion.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'name' do
         expect(promotion.name).to eq shopify_discount_code.code.downcase

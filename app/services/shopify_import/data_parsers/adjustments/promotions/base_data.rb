@@ -9,8 +9,8 @@ module ShopifyImport
             @shopify_discount_code = shopify_discount_code
           end
 
-          def adjustment_attributes
-            {
+          def attributes
+            @attributes ||= {
               source: action,
               order: @spree_order,
               amount: amount,
@@ -20,8 +20,8 @@ module ShopifyImport
             }
           end
 
-          def adjustment_timestamps
-            {
+          def timestamps
+            @timestamps ||= {
               created_at: @spree_order.created_at,
               updated_at: @spree_order.created_at
             }

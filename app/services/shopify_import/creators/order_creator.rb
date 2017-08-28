@@ -10,8 +10,8 @@ module ShopifyImport
           create_spree_line_items
           create_spree_payments
           create_spree_shipments
-          # TODO: taxes
-          # TODO: promotions
+          create_spree_taxes
+          create_spree_promotions
           # TODO: refunds
           # TODO: addresses
         end
@@ -77,6 +77,24 @@ module ShopifyImport
         shopify_order.fulfillments.each do |fulfillment|
           ShopifyImport::Importers::ShipmentImporter.new(fulfillment, @shopify_data_feed, @spree_order).import!
         end
+      end
+
+      def create_spree_taxes
+        shopify_order.tax_lines.each do |shopify_tax_line|
+          spree_tax_rate = ShopifyImport::Creators::TaxRateCreator.new(shopify_tax_line, billing_address).create!
+          ShopifyImport::Creators::Adjustments::TaxCreator.new(shopify_tax_line, @spree_order, spree_tax_rate).save!
+        end
+      end
+
+      def create_spree_promotions
+        shopify_order.discount_codes.each do |shopify_discount_code|
+          promotion = PromotionCreator.new(@spree_order, shopify_discount_code).create!
+          Adjustments::PromotionCreator.new(@spree_order, promotion, shopify_discount_code).save!
+        end
+      end
+
+      def billing_address
+        @billing_address ||= shopify_order.billing_address
       end
 
       def parser

@@ -1,12 +1,14 @@
 module ShopifyImport
   module Creators
     class PromotionCreator
+      delegate :attributes, :expires_at, to: :parser
+
       def initialize(spree_order, shopify_discount_code)
         @spree_order = spree_order
         @shopify_discount_code = shopify_discount_code
       end
 
-      def save!
+      def create!
         Spree::Promotion.transaction do
           create_promotion
         end
@@ -16,15 +18,7 @@ module ShopifyImport
 
       def create_promotion
         @spree_promotion =
-          Spree::Promotion.create_with(expires_at: Time.current).find_or_create_by!(promotion_attributes)
-      end
-
-      def expires_at
-        @expires_at ||= parser.expires_at
-      end
-
-      def promotion_attributes
-        @promotion_attributes ||= parser.promotion_attributes
+          Spree::Promotion.create_with(expires_at: Time.current).find_or_create_by!(attributes)
       end
 
       def parser

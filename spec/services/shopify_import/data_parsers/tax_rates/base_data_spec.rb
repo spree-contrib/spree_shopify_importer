@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ShopifyImport::DataParsers::TaxRates::BaseData, type: :service do
   subject { described_class.new(shopify_tax_line, shopify_address) }
 
-  describe '#tax_rate_attributes' do
+  describe '#attributes' do
     let!(:shopify_address) { create(:shopify_address) }
     let!(:shopify_tax_line) { create(:shopify_tax_line) }
     let!(:country) { create(:country, iso: 'US') }
@@ -20,11 +20,11 @@ describe ShopifyImport::DataParsers::TaxRates::BaseData, type: :service do
     end
 
     it 'returns hash of tax rate attributes' do
-      expect(subject.tax_rate_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     it 'creates tax category' do
-      expect { subject.tax_rate_attributes }.to change(Spree::TaxCategory, :count).by(1)
+      expect { subject.attributes }.to change(Spree::TaxCategory, :count).by(1)
     end
   end
 end
