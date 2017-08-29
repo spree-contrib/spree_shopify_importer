@@ -4,7 +4,7 @@ describe ShopifyImport::DataParsers::Addresses::BaseData, type: :service do
   let(:spree_user) { create(:user) }
   let(:shopify_address) { create(:shopify_address) }
 
-  subject { described_class.new(shopify_address, spree_user) }
+  subject { described_class.new(shopify_address) }
 
   describe '#address_attributes' do
     let(:state) { Spree::State.find_by!(abbr: shopify_address.province_code) }
@@ -20,20 +20,19 @@ describe ShopifyImport::DataParsers::Addresses::BaseData, type: :service do
         city: shopify_address.city,
         zipcode: shopify_address.zip,
         state: state,
-        country: country,
-        user_id: spree_user.id
+        country: country
       }
     end
 
     it 'returns hash of address attributes' do
-      expect(subject.address_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
 
     context 'when there is no country' do
       let(:shopify_address) { create(:shopify_address, country_code: 'NONEXISTING') }
 
       it 'creates a country' do
-        expect { subject.address_attributes }.to change(Spree::Country, :count).by(1)
+        expect { subject.attributes }.to change(Spree::Country, :count).by(1)
       end
     end
 
@@ -41,7 +40,7 @@ describe ShopifyImport::DataParsers::Addresses::BaseData, type: :service do
       let(:shopify_address) { create(:shopify_address, province_code: 'NONEXISTING') }
 
       it 'creates a country' do
-        expect { subject.address_attributes }.to change(Spree::State, :count).by(1)
+        expect { subject.attributes }.to change(Spree::State, :count).by(1)
       end
     end
   end

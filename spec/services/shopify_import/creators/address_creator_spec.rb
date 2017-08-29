@@ -17,13 +17,13 @@ RSpec.describe ShopifyImport::Creators::AddressCreator do
     let(:spree_user) { create(:user) }
 
     it 'creates spree address' do
-      expect { subject.save! }.to change(Spree::Address, :count).by(1)
+      expect { subject.create! }.to change(Spree::Address, :count).by(1)
     end
 
     context 'sets address attributes' do
       let(:spree_address) { Spree::Address.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'firstname' do
         expect(spree_address.firstname).to eq shopify_address.first_name
@@ -64,23 +64,23 @@ RSpec.describe ShopifyImport::Creators::AddressCreator do
       let(:address) { Spree::Address.last }
 
       it 'assigns new address to user' do
-        expect { subject.save! }.to change { spree_user.addresses.reload.count }.by(1)
+        expect { subject.create! }.to change { spree_user.addresses.reload.count }.by(1)
       end
 
       it 'assigns country to address' do
-        subject.save!
+        subject.create!
 
         expect(address.country).to eq country
       end
 
       it 'assigns state to address' do
-        subject.save!
+        subject.create!
 
         expect(address.state).to eq state
       end
 
       it 'assigns spree address to shopify data feed' do
-        subject.save!
+        subject.create!
 
         expect(shopify_data_feed.reload.spree_object).to eq address
       end

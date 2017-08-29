@@ -2,13 +2,12 @@ module ShopifyImport
   module DataParsers
     module Addresses
       class BaseData
-        def initialize(shopify_address, spree_user)
+        def initialize(shopify_address)
           @shopify_address = shopify_address
-          @spree_user = spree_user
         end
 
         # rubocop:disable Metrics/MethodLength
-        def address_attributes
+        def attributes
           {
             firstname: @shopify_address.first_name,
             lastname: @shopify_address.last_name,
@@ -19,8 +18,7 @@ module ShopifyImport
             city: @shopify_address.city,
             zipcode: @shopify_address.zip,
             state: state,
-            country: country,
-            user_id: @spree_user.id
+            country: country
           }
         end
         # rubocop:enable Metrics/MethodLength
@@ -29,7 +27,7 @@ module ShopifyImport
 
         def country
           @country ||= Spree::Country.find_or_create_by!(iso: @shopify_address.country_code) do |country|
-            country.name = @shopify_address.country_name
+            country.name = @shopify_address.try(:country_name) || @shopify_address.try(:country)
             country.iso_name = country.name.upcase
           end
         end
