@@ -1,6 +1,8 @@
 module ShopifyImport
   module Creators
     class ProductCreator < BaseCreator
+      delegate :attributes, :tags, :option_types, to: :parser
+
       def save!
         Spree::Product.transaction do
           @spree_product = create_spree_product
@@ -14,7 +16,7 @@ module ShopifyImport
       private
 
       def create_spree_product
-        Spree::Product.create!(product_attributes)
+        Spree::Product.create!(attributes)
       end
 
       def assign_spree_product_to_data_feed
@@ -22,9 +24,7 @@ module ShopifyImport
       end
 
       def add_tags
-        return unless @spree_product.respond_to?(:tag_list)
-
-        @spree_product.tag_list.add(product_tags, parse: true)
+        @spree_product.tag_list.add(tags, parse: true)
         @spree_product.save!
       end
 
@@ -35,7 +35,7 @@ module ShopifyImport
       end
 
       def create_option_types
-        option_types_data.map do |option_type, option_values|
+        option_types.map do |option_type, option_values|
           spree_option_type =
             Spree::OptionType.where('lower(name) = ?', option_type).first_or_create!(name: option_type,
                                                                                      presentation: option_type)
@@ -57,18 +57,6 @@ module ShopifyImport
           data_feed = Shopify::DataFeeds::Create.new(variant, @shopify_data_feed).save!
           ShopifyImport::Creators::VariantCreator.new(data_feed, @spree_product).save!
         end
-      end
-
-      def product_attributes
-        parser.product_attributes
-      end
-
-      def product_tags
-        parser.product_tags
-      end
-
-      def option_types_data
-        parser.option_types
       end
 
       def parser

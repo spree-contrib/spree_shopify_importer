@@ -6,8 +6,8 @@ module ShopifyImport
           @shopify_product = shopify_product
         end
 
-        def product_attributes
-          {
+        def attributes
+          @attributes ||= {
             name: @shopify_product.title,
             description: @shopify_product.body_html,
             available_on: @shopify_product.published_at,
@@ -18,12 +18,12 @@ module ShopifyImport
           }
         end
 
-        def product_tags
-          @shopify_product.tags
+        def tags
+          @tags ||= @shopify_product.tags
         end
 
         def option_types
-          @shopify_product.options.map do |option|
+          @option_types ||= @shopify_product.options.map do |option|
             { option.name.strip.downcase => option_values(option.values) }
           end.inject(:merge)
         end

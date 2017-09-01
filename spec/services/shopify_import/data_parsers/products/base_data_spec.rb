@@ -5,7 +5,7 @@ RSpec.describe ShopifyImport::DataParsers::Products::BaseData, type: :service do
   let!(:shipping_category) { create(:shipping_category, name: 'ShopifyImported') }
   let(:shopify_product) { create(:shopify_product) }
 
-  describe '#product_attributes' do
+  describe '#attributes' do
     context 'with sample product' do
       let(:product_attributes) do
         {
@@ -20,16 +20,16 @@ RSpec.describe ShopifyImport::DataParsers::Products::BaseData, type: :service do
       end
 
       it 'prepares hash of attributes' do
-        expect(subject.product_attributes).to eq product_attributes
+        expect(subject.attributes).to eq product_attributes
       end
     end
   end
 
-  describe '#product_tags' do
+  describe '#tags' do
     let(:product_tags) { shopify_product.tags }
 
     it 'prepares list tags' do
-      expect(subject.product_tags).to eq product_tags
+      expect(subject.tags).to eq product_tags
     end
   end
 
