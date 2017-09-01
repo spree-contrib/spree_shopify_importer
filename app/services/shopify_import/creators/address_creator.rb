@@ -1,23 +1,29 @@
 module ShopifyImport
   module Creators
     class AddressCreator < BaseCreator
-      def initialize(shopify_data_feed, spree_user)
+      delegate :attributes, to: :parser
+
+      def initialize(shopify_data_feed, spree_user, is_order = false)
         @shopify_data_feed = shopify_data_feed
         @spree_user = spree_user
+        @is_order = is_order
       end
 
-      def save!
+      def create!
         Spree::Address.transaction do
           create_spree_address
-          assigns_spree_address_to_data_feed
+          assigns_spree_address_to_data_feed unless @is_order
         end
+        @spree_address
       end
 
       private
 
-      # Shopify has'n got validation for filed like zipcode, city or province code.
       def create_spree_address
-        @spree_address = Spree::Address.new(address_attributes)
+        # Spree Orders should not be users addresses same time.
+        @spree_address = (@is_order ? Spree::Address : @spree_user.addresses).new(attributes)
+
+        # Shopify has'n got validation for filed like zipcode, city or province code.
         @spree_address.save(validate: false)
       end
 
@@ -30,7 +36,7 @@ module ShopifyImport
       end
 
       def parser
-        @parser ||= ShopifyImport::DataParsers::Addresses::BaseData.new(shopify_address, @spree_user)
+        @parser ||= ShopifyImport::DataParsers::Addresses::BaseData.new(shopify_address)
       end
 
       def shopify_address

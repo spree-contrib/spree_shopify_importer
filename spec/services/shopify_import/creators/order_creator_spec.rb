@@ -6,6 +6,14 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
   before { authenticate_with_shopify }
 
   describe '#save!' do
+    let!(:user) { create(:user, email: 'example@example.com') }
+    let!(:user_data_feed) do
+      create(:shopify_data_feed,
+             spree_object: user,
+             shopify_object_id: shopify_order.customer.id,
+             shopify_object_type: 'ShopifyAPI::Customer')
+    end
+
     context 'with base shopify order data', vcr: { cassette_name: 'shopify/base_order' } do
       let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
       let!(:order_data_feed) do
@@ -24,14 +32,6 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
       end
 
       context 'with existing user' do
-        let(:user) { create(:user) }
-        let!(:user_data_feed) do
-          create(:shopify_data_feed,
-                 spree_object: user,
-                 shopify_object_id: shopify_order.customer.id,
-                 shopify_object_type: 'ShopifyAPI::Customer')
-        end
-
         it 'assigns order to user' do
           subject.save!
           expect(spree_order.reload.user).to eq user
@@ -194,6 +194,22 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
 
           it 'creates spree tax adjustments' do
             expect { subject.save! }.to change(Spree::Adjustment, :count).by(1)
+          end
+        end
+
+        context 'addresses' do
+          it 'creates spree tax rates' do
+            expect { subject.save! }.to change(Spree::Address, :count).by(2)
+          end
+
+          it 'assigns order ship address' do
+            subject.save!
+            expect(spree_order.ship_address.reload).to be_present
+          end
+
+          it 'assigns order bill address' do
+            subject.save!
+            expect(spree_order.bill_address.reload).to be_present
           end
         end
       end

@@ -8,7 +8,7 @@ module ShopifyImport
 
       def import!
         data_feed = create_data_feed
-        ShopifyImport::Creators::AddressCreator.new(data_feed, @spree_user).save!
+        ShopifyImport::Creators::AddressCreator.new(data_feed, @spree_user).create!
       end
 
       private

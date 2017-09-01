@@ -1,8 +1,10 @@
+# rubocop:disable Metrics/ClassLength
 module ShopifyImport
   module Creators
     class OrderCreator < BaseCreator
       delegate :user, :attributes, :timestamps, to: :parser
 
+      # rubocop:disable Metrics/MethodLength
       def save!
         Spree::Order.transaction do
           @spree_order = create_spree_order
@@ -12,14 +14,16 @@ module ShopifyImport
           create_spree_shipments
           create_spree_taxes
           create_spree_promotions
+          create_spree_addresses
           # TODO: refunds
-          # TODO: addresses
         end
         @spree_order.update_columns(timestamps)
       end
+      # rubocop:enable Metrics/MethodLength
 
       private
 
+      # TODO: create user if missing
       def create_spree_order
         order = Spree::Order.new(user: user)
         order.assign_attributes(attributes)
@@ -93,8 +97,35 @@ module ShopifyImport
         end
       end
 
+      def create_spree_addresses
+        create_bill_addreess
+        create_ship_address
+      end
+
+      def create_bill_addreess
+        return if billing_address.blank?
+
+        # HACK: shopify order address does not have id, so i'm not saving data feed.
+        address_data_feed = Shopify::DataFeed.new(data_feed: billing_address.to_json)
+        @spree_order.bill_address = AddressCreator.new(address_data_feed, user, true).create!
+        @spree_order.save!(validate: false)
+      end
+
+      def create_ship_address
+        return if ship_address.blank?
+
+        # HACK: shopify order address does not have id, so i'm not saving data feed.
+        address_data_feed = Shopify::DataFeed.new(data_feed: ship_address.to_json)
+        @spree_order.ship_address = AddressCreator.new(address_data_feed, user, true).create!
+        @spree_order.save!(validate: false)
+      end
+
       def billing_address
         @billing_address ||= shopify_order.billing_address
+      end
+
+      def ship_address
+        @shipping_address ||= shopify_order.shipping_address
       end
 
       def parser
