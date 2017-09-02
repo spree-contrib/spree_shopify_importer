@@ -13,6 +13,7 @@ FactoryGirl.define do
     created_at '2011-10-20T14:05:13-04:00'
     updated_at '2011-10-20T14:05:13-04:00'
     published_at '2011-10-20T14:05:13-04:00'
+    images []
 
     transient do
       variants_count 1
@@ -22,11 +23,13 @@ FactoryGirl.define do
     factory :shopify_product_single_variant do
       variants { build_list(:shopify_variant, 1) }
       options { build_list(:shopify_single_option, 1) }
+      images { build_list(:shopify_image, 1) }
     end
 
     factory :shopify_product_multiple_variants do
       after(:build) do |product, evaluator|
         product.variants = build_list(:shopify_variant, evaluator.variants_count)
+        product.images = build_list(:shopify_image, evaluator.variants_count)
         product.options = Array.new(evaluator.options_count) do |i|
           variant = product.variants[i]
           values = [variant.option1, variant.option2, variant.option3]

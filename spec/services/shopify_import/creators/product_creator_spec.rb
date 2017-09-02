@@ -93,6 +93,38 @@ RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
         end
       end
 
+      context 'spree images' do
+        let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
+
+        it 'enqueue a variant importer job' do
+          expect { subject.save! }.to enqueue_job(ShopifyImport::Importers::ImageImporterJob).once
+        end
+
+        it 'creates spree variant' do
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change(Spree::Image, :count).by(1)
+        end
+
+        it 'assings variants to product' do
+          perform_enqueued_jobs do
+            subject.save!
+          end
+
+          expect(Spree::Image.last.viewable).to eq spree_product.master
+        end
+
+        it 'creates data feeds' do
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Image').reload.count }.by(1)
+        end
+      end
+
       context 'option types' do
         let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
         let(:shopify_product) do
