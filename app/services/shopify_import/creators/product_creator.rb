@@ -54,8 +54,9 @@ module ShopifyImport
 
       def create_spree_variants
         @shopify_product.variants.each do |variant|
-          data_feed = Shopify::DataFeeds::Create.new(variant, @shopify_data_feed).save!
-          ShopifyImport::Creators::VariantCreator.new(data_feed, @spree_product).save!
+          ShopifyImport::Importers::VariantImporterJob.perform_later(variant.to_json,
+                                                                     @shopify_data_feed,
+                                                                     @spree_product)
         end
       end
 
