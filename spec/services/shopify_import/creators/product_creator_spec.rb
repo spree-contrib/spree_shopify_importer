@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
+  include ActiveJob::TestHelper
+
   subject { described_class.new(product_data_feed) }
 
   before { authenticate_with_shopify }
@@ -60,21 +62,34 @@ RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
       context 'spree variants' do
         let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
 
+        it 'enqueue a variant importer job' do
+          expect { subject.save! }.to enqueue_job(ShopifyImport::Importers::VariantImporterJob).once
+        end
+
         it 'creates spree variant' do
-          expect { subject.save! }.to change(Spree::Variant, :count).by(2)
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change(Spree::Variant, :count).by(2)
         end
 
         it 'assings variants to product' do
-          subject.save!
+          perform_enqueued_jobs do
+            subject.save!
+          end
+
           expect(Spree::Variant.last.product).to eq spree_product
         end
       end
 
       context 'shopify data feeds for variants' do
         it 'creates data feeds' do
-          expect { subject.save! }.to change {
-            Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Variant').reload.count
-          }.by(1)
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Variant').reload.count }.by(1)
         end
       end
 
@@ -86,7 +101,11 @@ RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
         let(:option_types_names) { shopify_product.options.map(&:name).map(&:downcase) }
 
         it 'creates variants' do
-          expect { subject.save! }.to change(Spree::Variant, :count).by(3)
+          expect do
+            perform_enqueued_jobs do
+              subject.save!
+            end
+          end.to change(Spree::Variant, :count).by(3)
         end
 
         it 'creates option types' do
