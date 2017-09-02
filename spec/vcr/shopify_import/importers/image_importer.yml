@@ -1,105 +1,6 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products/11101525828.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
-      Accept:
-      - application/json
-      User-Agent:
-      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.4.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx
-      Date:
-      - Mon, 05 Jun 2017 05:53:25 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      X-Sorting-Hat-Podid:
-      - '3'
-      - '3'
-      X-Sorting-Hat-Podid-Cached:
-      - '1'
-      - '1'
-      X-Sorting-Hat-Shopid:
-      - '20513691'
-      - '20513691'
-      X-Sorting-Hat-Section:
-      - pod
-      - pod
-      X-Sorting-Hat-Shopid-Cached:
-      - '1'
-      - '1'
-      Vary:
-      - Accept-Encoding
-      Referrer-Policy:
-      - origin-when-cross-origin
-      X-Frame-Options:
-      - DENY
-      X-Shopid:
-      - '20513691'
-      X-Shardid:
-      - '3'
-      X-Shopify-Shop-Api-Call-Limit:
-      - 1/40
-      Http-X-Shopify-Shop-Api-Call-Limit:
-      - 1/40
-      X-Stats-Userid:
-      - '0'
-      X-Stats-Apiclientid:
-      - '1680429'
-      X-Stats-Apipermissionid:
-      - '52824317'
-      Content-Security-Policy:
-      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
-        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
-        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
-        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
-        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
-        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
-        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
-        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
-        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=03464877-3775-4a2c-89a9-fb77f48607af'
-      X-Content-Type-Options:
-      - nosniff
-      - nosniff
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin&source%5Buuid%5D=03464877-3775-4a2c-89a9-fb77f48607af
-      P3p:
-      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
-      X-Dc:
-      - chi2,ash
-      X-Request-Id:
-      - '03464877-3775-4a2c-89a9-fb77f48607af'
-    body:
-      encoding: ASCII-8BIT
-      string: '{"product":{"id":11101525828,"title":"Product with single variant","body_html":"","vendor":"Spree
-        Shopify Importer Test Store","product_type":"","created_at":"2017-06-05T05:01:39+02:00","handle":"copy-of-product-with-single-variant","updated_at":"2017-06-05T07:53:12+02:00","published_at":"2017-05-31T06:19:15+02:00","template_suffix":null,"published_scope":"global","tags":"product,
-        some, tag","variants":[{"id":42077492100,"product_id":11101525828,"title":"M","price":"0.00","sku":"","position":1,"grams":0,"inventory_policy":"deny","compare_at_price":null,"fulfillment_service":"manual","inventory_management":null,"option1":"M","option2":null,"option3":null,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-06-05T05:01:39+02:00","taxable":true,"barcode":"","image_id":null,"inventory_quantity":1,"weight":0,"weight_unit":"g","old_inventory_quantity":1,"requires_shipping":true}],"options":[{"id":13355979396,"product_id":11101525828,"name":"Size","position":1,"values":["M"]}],"images":[{"id":26309956868,"product_id":11101525828,"position":1,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-06-05T05:01:39+02:00","width":306,"height":2136,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699","variant_ids":[]}],"image":{"id":26309956868,"product_id":11101525828,"position":1,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-06-05T05:01:39+02:00","width":306,"height":2136,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699","variant_ids":[]}}}'
-    http_version: 
-  recorded_at: Mon, 05 Jun 2017 05:53:25 GMT
-- request:
     method: head
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699
     body:
@@ -141,26 +42,26 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 02 Sep 2017 16:00:20 GMT
+      - Sat, 02 Sep 2017 16:00:39 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1532-HHN
+      - cache-hhn1533-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8146-JFK, cache-hhn1532-HHN
+      - cache-jfk8146-JFK, cache-hhn1533-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504368021.595339,VS0,VE1
+      - S1504368040.909359,VS0,VE1
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Sat, 02 Sep 2017 16:00:20 GMT
+  recorded_at: Sat, 02 Sep 2017 16:00:39 GMT
 - request:
     method: get
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699
@@ -209,21 +110,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 02 Sep 2017 16:00:20 GMT
+      - Sat, 02 Sep 2017 16:00:40 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1523-HHN
+      - cache-hhn1526-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8146-JFK, cache-hhn1523-HHN
+      - cache-jfk8146-JFK, cache-hhn1526-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
-      - 0, 1
+      - 0, 2
       X-Timer:
-      - S1504368021.807826,VS0,VE1
+      - S1504368040.102530,VS0,VE0
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -2664,5 +2565,5 @@ http_interactions:
         CxcuXLhwJcj1/50PhZ6aHT3TAAAAEnRFWHRFWElGOk9yaWVudGF0aW9uADGE
         WOzvAAAAAElFTkSuQmCC
     http_version: 
-  recorded_at: Sat, 02 Sep 2017 16:00:20 GMT
+  recorded_at: Sat, 02 Sep 2017 16:00:39 GMT
 recorded_with: VCR 3.0.3

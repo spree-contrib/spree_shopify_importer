@@ -11,6 +11,7 @@ module ShopifyImport
           add_tags
         end
         create_spree_variants
+        create_spree_images
       end
 
       private
@@ -58,6 +59,16 @@ module ShopifyImport
                                                                      @shopify_data_feed,
                                                                      @spree_product)
         end
+      end
+
+      def create_spree_images
+        shopify_images.select { |image| image.variant_ids.empty? }.each do |image|
+          ShopifyImport::Importers::ImageImporterJob.perform_later(image.to_json, @shopify_data_feed, @spree_product)
+        end
+      end
+
+      def shopify_images
+        @shopify_images ||= shopify_product.images
       end
 
       def parser
