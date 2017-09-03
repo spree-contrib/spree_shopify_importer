@@ -15,6 +15,7 @@ module ShopifyImport
           @spree_variant = build_spree_variant
           add_option_values
           @spree_variant.save!
+          assing_spree_variant_to_data_feed
           set_stock_data
         end
         create_spree_image if @shopify_image.present?
@@ -35,6 +36,10 @@ module ShopifyImport
         stock_item = @spree_variant.stock_items.find_by(stock_location: stock_location)
         stock_item.update(backorderable: backorderable?)
         stock_item.set_count_on_hand(inventory_quantity) if track_inventory?
+      end
+
+      def assing_spree_variant_to_data_feed
+        @shopify_data_feed.update(spree_object: @spree_variant)
       end
 
       def create_spree_image
