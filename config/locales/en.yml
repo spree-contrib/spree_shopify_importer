@@ -11,6 +11,8 @@ en:
       job: Job is not implemented
     transaction:
       no_payment_state: 'no payment state for %{status}'
+    line_items:
+      no_variant_found: Couldn't find Shopify Variant %{variant_id}. Enqueuing Product import
   shopify: Shopify
   shopify_import:
     client:

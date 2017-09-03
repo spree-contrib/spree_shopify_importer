@@ -32,5 +32,21 @@ describe ShopifyImport::DataParsers::LineItems::BaseData, type: :service do
     it 'returns a spree variant' do
       expect(subject.variant).to eq spree_variant
     end
+
+    context 'variant is missing', vcr: { cassette_name: 'shopify_import/data_parsers/line_item/missing_variant' } do
+      let(:shopify_line_item) { create(:shopify_line_item, product_id: 11_055_169_028) }
+      let!(:shopify_data_feed) do
+        create(:shopify_data_feed,
+               shopify_object_id: shopify_line_item.variant_id,
+               shopify_object_type: 'ShopifyAPI::Variant',
+               spree_object: nil)
+      end
+
+      before { authenticate_with_shopify }
+
+      it 'returns a spree variant' do
+        expect { subject.variant }.to raise_error(ShopifyImport::DataParsers::LineItems::VariantNotFound)
+      end
+    end
   end
 end
