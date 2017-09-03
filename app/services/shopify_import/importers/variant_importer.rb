@@ -1,10 +1,11 @@
 module ShopifyImport
   module Importers
     class VariantImporter
-      def initialize(resource, parent_feed, spree_product)
+      def initialize(resource, parent_feed, spree_product, shopify_image = nil)
         @resource = resource
         @parent_feed = parent_feed
         @spree_product = spree_product
+        @shopify_image = shopify_image
       end
 
       def import!
@@ -19,7 +20,7 @@ module ShopifyImport
       end
 
       def create_spree_variant(shopify_data_feed)
-        ShopifyImport::Creators::VariantCreator.new(shopify_data_feed, @spree_product).save!
+        ShopifyImport::Creators::VariantCreator.new(shopify_data_feed, @spree_product, @shopify_image).save!
       end
 
       def shopify_object
