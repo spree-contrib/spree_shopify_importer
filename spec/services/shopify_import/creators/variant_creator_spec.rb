@@ -35,6 +35,11 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
       expect { subject.save! }.to change { spree_product.variants.reload.count }.by(1)
     end
 
+    it 'assings new variant to data feed' do
+      subject.save!
+      expect(shopify_data_feed.reload.spree_object).to eq Spree::Variant.last
+    end
+
     it 'assigns option values to product' do
       subject.save!
       variant = Spree::Variant.last
