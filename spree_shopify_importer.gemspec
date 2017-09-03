@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.description = 'Import Shopify store to spree for easier migration.'
   s.required_ruby_version = '>= 2.2.7'
 
-  s.authors   = ['Viktor Fonic']
-  s.email     = ['viktor.fonic@gmail.com']
+  s.authors   = ['Viktor Fonic', 'Peter Rybarczyk']
+  s.email     = %w[viktor.fonic@gmail.com argonuspiotr@gmail.com]
   s.homepage  = 'https://github.com/spark-solutions/spree_shopify_importer'
-  s.license = 'BSD-3-Clause'
+  s.license   = 'BSD-3-Clause'
 
   # s.files       = `git ls-files`.split("\n")
   # s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
