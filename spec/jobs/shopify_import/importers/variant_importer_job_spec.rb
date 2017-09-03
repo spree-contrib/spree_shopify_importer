@@ -14,5 +14,16 @@ describe ShopifyImport::Importers::VariantImporterJob, type: :job do
 
       subject.perform(resource, parent_feed, spree_product)
     end
+
+    context 'with image data' do
+      let(:shopify_image) { double('ShopifyAPI::Image') }
+
+      it 'calls a importer service' do
+        expect(ShopifyImport::Importers::VariantImporter).to receive(:new).and_call_original
+        expect_any_instance_of(ShopifyImport::Importers::VariantImporter).to receive(:import!)
+
+        subject.perform(resource, parent_feed, spree_product, shopify_image)
+      end
+    end
   end
 end
