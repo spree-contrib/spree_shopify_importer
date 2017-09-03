@@ -16,6 +16,15 @@ describe ShopifyImport::Importers::OrderImporter, type: :service do
     end
     let(:resource) { shopify_order.to_json }
 
+    before do
+      shopify_order.line_items.each do |line_item|
+        create(:shopify_data_feed,
+               spree_object: create(:variant),
+               shopify_object_type: 'ShopifyAPI::Variant',
+               shopify_object_id: line_item.variant_id)
+      end
+    end
+
     it 'creates shopify data feeds' do
       expect { subject.import! }.to change(Shopify::DataFeed, :count).by(5)
     end

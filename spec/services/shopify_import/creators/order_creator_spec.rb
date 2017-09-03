@@ -22,6 +22,15 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
       end
       let(:spree_order) { Spree::Order.find_by!(number: shopify_order.order_number) }
 
+      before do
+        shopify_order.line_items.each do |line_item|
+          create(:shopify_data_feed,
+                 spree_object: create(:variant),
+                 shopify_object_type: 'ShopifyAPI::Variant',
+                 shopify_object_id: line_item.variant_id)
+        end
+      end
+
       it 'creates spree order' do
         expect { subject.save! }.to change(Spree::Order, :count).by(1)
       end
@@ -130,15 +139,6 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
         context 'line items' do
           let(:count) { shopify_order.line_items.count }
 
-          before do
-            shopify_order.line_items.each do |line_item|
-              create(:shopify_data_feed,
-                     spree_object: create(:variant),
-                     shopify_object_type: 'ShopifyAPI::Variant',
-                     shopify_object_id: line_item.variant_id)
-            end
-          end
-
           it 'creates spree line items' do
             expect { subject.save! }.to change(Spree::LineItem, :count).by(count)
           end
@@ -211,6 +211,24 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
             subject.save!
             expect(spree_order.bill_address.reload).to be_present
           end
+        end
+      end
+    end
+
+    context 'with missing data', vcr: { cassette_name: 'shopify/order_with_missing_data' } do
+      let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
+      let!(:order_data_feed) do
+        create(:shopify_data_feed,
+               shopify_object_id: shopify_order.id, data_feed: shopify_order.to_json)
+      end
+      let(:spree_order) { Spree::Order.find_by!(number: shopify_order.order_number) }
+
+      context 'missing line items variant data' do
+        it 'raises variant not found error, do not create objects and enqueue product import' do
+          expect { subject.save! }.to raise_error(ShopifyImport::DataParsers::LineItems::VariantNotFound)
+          expect(Spree::Order.count).to eq 0
+          expect(Spree::LineItem.count).to eq 0
+          expect(ShopifyImport::Importers::ProductImporterJob).to have_been_enqueued
         end
       end
     end
