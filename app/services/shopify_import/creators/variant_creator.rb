@@ -4,9 +4,10 @@ module ShopifyImport
       delegate :attributes, :option_value_ids, :track_inventory?,
                :backorderable?, :stock_location, :inventory_quantity, to: :parser
 
-      def initialize(shopify_data_feed, spree_product)
+      def initialize(shopify_data_feed, spree_product, shopify_image = nil)
         super(shopify_data_feed)
         @spree_product = spree_product
+        @shopify_image = shopify_image
       end
 
       def save!
@@ -16,6 +17,7 @@ module ShopifyImport
           @spree_variant.save!
           set_stock_data
         end
+        create_spree_image if @shopify_image.present?
       end
 
       private
@@ -33,6 +35,10 @@ module ShopifyImport
         stock_item = @spree_variant.stock_items.find_by(stock_location: stock_location)
         stock_item.update(backorderable: backorderable?)
         stock_item.set_count_on_hand(inventory_quantity) if track_inventory?
+      end
+
+      def create_spree_image
+        ShopifyImport::Importers::ImageImporterJob.perform_later(@shopify_image, @shopify_data_feed, @spree_variant)
       end
 
       def parser
