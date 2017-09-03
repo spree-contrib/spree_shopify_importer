@@ -57,8 +57,18 @@ module ShopifyImport
         @shopify_product.variants.each do |variant|
           ShopifyImport::Importers::VariantImporterJob.perform_later(variant.to_json,
                                                                      @shopify_data_feed,
-                                                                     @spree_product)
+                                                                     @spree_product,
+                                                                     variant_image(variant))
         end
+      end
+
+      # According to shopify api documentation variant can have only one image
+      # https://help.shopify.com/api/reference/product_variant
+      def variant_image(variant)
+        variant_image = shopify_images.detect { |image| image.variant_ids.include?(variant.id) }
+        return if variant_image.blank?
+
+        variant_image.to_json
       end
 
       def create_spree_images

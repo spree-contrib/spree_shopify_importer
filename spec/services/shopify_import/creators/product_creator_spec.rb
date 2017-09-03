@@ -81,15 +81,23 @@ RSpec.describe ShopifyImport::Creators::ProductCreator, type: :service do
 
           expect(Spree::Variant.last.product).to eq spree_product
         end
-      end
 
-      context 'shopify data feeds for variants' do
         it 'creates data feeds' do
           expect do
             perform_enqueued_jobs do
               subject.save!
             end
           end.to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Variant').reload.count }.by(1)
+        end
+
+        context 'with variant image', vcr: { cassette_name: 'shopify/product_with_variant_image' } do
+          it 'creates spree image' do
+            expect do
+              perform_enqueued_jobs do
+                subject.save!
+              end
+            end.to change { Spree::Image.count }.by(2)
+          end
         end
       end
 

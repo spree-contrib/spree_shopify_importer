@@ -1,9 +1,13 @@
 module ShopifyImport
   module Creators
     class VariantCreator < BaseCreator
-      def initialize(shopify_data_feed, spree_product)
+      delegate :attributes, :option_value_ids, :track_inventory?,
+               :backorderable?, :stock_location, :inventory_quantity, to: :parser
+
+      def initialize(shopify_data_feed, spree_product, shopify_image = nil)
         super(shopify_data_feed)
         @spree_product = spree_product
+        @shopify_image = shopify_image
       end
 
       def save!
@@ -13,12 +17,13 @@ module ShopifyImport
           @spree_variant.save!
           set_stock_data
         end
+        create_spree_image if @shopify_image.present?
       end
 
       private
 
       def build_spree_variant
-        Spree::Variant.new(parser.variant_attributes)
+        Spree::Variant.new(attributes)
       end
 
       def add_option_values
@@ -32,20 +37,8 @@ module ShopifyImport
         stock_item.set_count_on_hand(inventory_quantity) if track_inventory?
       end
 
-      def track_inventory?
-        @track_inventory ||= parser.track_inventory?
-      end
-
-      def backorderable?
-        @backorderable ||= parser.backorderable?
-      end
-
-      def stock_location
-        @stock_location ||= parser.stock_location
-      end
-
-      def inventory_quantity
-        @inventory_quantity ||= parser.inventory_quantity
+      def create_spree_image
+        ShopifyImport::Importers::ImageImporterJob.perform_later(@shopify_image, @shopify_data_feed, @spree_variant)
       end
 
       def parser
