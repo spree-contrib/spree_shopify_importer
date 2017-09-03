@@ -5,7 +5,7 @@ RSpec.describe ShopifyImport::DataParsers::Variants::BaseData, type: :service do
   let(:shopify_variant) { create(:shopify_variant) }
   subject { described_class.new(shopify_variant, spree_product) }
 
-  context '#variant_attributes' do
+  context '#attributes' do
     let(:result) do
       {
         sku: shopify_variant.sku,
@@ -17,7 +17,7 @@ RSpec.describe ShopifyImport::DataParsers::Variants::BaseData, type: :service do
     end
 
     it 'creates a hash of variant attributes' do
-      expect(subject.variant_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
   end
 

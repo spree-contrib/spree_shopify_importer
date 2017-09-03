@@ -7,8 +7,8 @@ module ShopifyImport
           @spree_product = spree_product
         end
 
-        def variant_attributes
-          {
+        def attributes
+          @attributes ||= {
             sku: @shopify_variant.sku,
             price: @shopify_variant.price,
             weight: @shopify_variant.grams,
@@ -18,7 +18,7 @@ module ShopifyImport
         end
 
         def option_value_ids
-          %w[option1 option2 option3].map do |option_name|
+          @option_value_ids ||= %w[option1 option2 option3].map do |option_name|
             next unless (option_value = @shopify_variant.send(option_name))
 
             Spree::OptionValue.find_by!(
@@ -29,19 +29,20 @@ module ShopifyImport
         end
 
         def track_inventory?
-          @shopify_variant.inventory_management.eql?('shopify')
+          @track_inventory ||= @shopify_variant.inventory_management.eql?('shopify')
         end
 
         def backorderable?
-          @shopify_variant.inventory_policy.eql?('continue')
+          @backorderable ||= @shopify_variant.inventory_policy.eql?('continue')
         end
 
         def inventory_quantity
-          @shopify_variant.inventory_quantity
+          @inventory_quantity ||= @shopify_variant.inventory_quantity
         end
 
         def stock_location
-          Spree::StockLocation.create_with(default: false, active: false).find_or_create_by(name: I18n.t(:shopify))
+          @stock_location ||=
+            Spree::StockLocation.create_with(default: false, active: false).find_or_create_by(name: I18n.t(:shopify))
         end
       end
     end
