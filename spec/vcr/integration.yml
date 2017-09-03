@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:23 GMT
+      - Sun, 03 Sep 2017 14:30:06 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,13 +33,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -63,7 +63,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - eaf0e850-12a0-4039-ab1c-0f7d671906db
+      - 1f973791-069d-4777-9474-5df4fe24dcb3
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -74,7 +74,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=eaf0e850-12a0-4039-ab1c-0f7d671906db'
+        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=1f973791-069d-4777-9474-5df4fe24dcb3'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -83,7 +83,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=eaf0e850-12a0-4039-ab1c-0f7d671906db
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=1f973791-069d-4777-9474-5df4fe24dcb3
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -124,7 +124,7 @@ http_interactions:
         OmZhbHNlLCJmaW5hbmNlcyI6dHJ1ZSwic2V0dXBfcmVxdWlyZWQiOmZhbHNl
         LCJmb3JjZV9zc2wiOnRydWV9fQ==
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:25 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:08 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products.json?page=1
@@ -148,7 +148,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:23 GMT
+      - Sun, 03 Sep 2017 14:30:06 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -188,7 +188,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - cb652894-39cf-4b52-9f8c-7de13423f1c9
+      - 323c08a3-59c7-431b-907a-b1b8eb2c6a2b
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -199,7 +199,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=cb652894-39cf-4b52-9f8c-7de13423f1c9'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=323c08a3-59c7-431b-907a-b1b8eb2c6a2b'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -208,7 +208,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=cb652894-39cf-4b52-9f8c-7de13423f1c9
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=323c08a3-59c7-431b-907a-b1b8eb2c6a2b
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -224,7 +224,7 @@ http_interactions:
         Store","product_type":"","created_at":"2017-06-05T05:01:39+02:00","handle":"copy-of-product-with-single-variant","updated_at":"2017-09-02T21:11:32+02:00","published_at":"2017-05-31T06:19:15+02:00","template_suffix":null,"published_scope":"global","tags":"product,
         some, tag","variants":[{"id":42077492100,"product_id":11101525828,"title":"M","price":"0.00","sku":"","position":1,"grams":0,"inventory_policy":"deny","compare_at_price":null,"fulfillment_service":"manual","inventory_management":null,"option1":"M","option2":null,"option3":null,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-09-02T21:11:32+02:00","taxable":true,"barcode":"","image_id":29252172740,"inventory_quantity":-4,"weight":0,"weight_unit":"g","old_inventory_quantity":-4,"requires_shipping":true}],"options":[{"id":13355979396,"product_id":11101525828,"name":"Size","position":1,"values":["M"]}],"images":[{"id":26309956868,"product_id":11101525828,"position":1,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-06-05T05:01:39+02:00","width":306,"height":2136,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699","variant_ids":[]},{"id":29252172740,"product_id":11101525828,"position":2,"created_at":"2017-09-02T21:11:29+02:00","updated_at":"2017-09-02T21:11:29+02:00","width":435,"height":478,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/cat.jpg?v=1504379489","variant_ids":[42077492100]}],"image":{"id":26309956868,"product_id":11101525828,"position":1,"created_at":"2017-06-05T05:01:39+02:00","updated_at":"2017-06-05T05:01:39+02:00","width":306,"height":2136,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699","variant_ids":[]}}]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:25 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:09 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products.json?page=2
@@ -248,7 +248,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:24 GMT
+      - Sun, 03 Sep 2017 14:30:07 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -288,7 +288,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - e78e6505-851f-4e2b-9c31-3338b5309343
+      - b5be604f-22bc-4b07-a296-342ee4c4ba66
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -299,7 +299,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=e78e6505-851f-4e2b-9c31-3338b5309343'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=b5be604f-22bc-4b07-a296-342ee4c4ba66'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -308,7 +308,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=e78e6505-851f-4e2b-9c31-3338b5309343
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=b5be604f-22bc-4b07-a296-342ee4c4ba66
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -317,7 +317,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"products":[]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:26 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:09 GMT
 - request:
     method: head
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-02-21_14.44.34.png?v=1496204350
@@ -360,26 +360,26 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:25 GMT
+      - Sun, 03 Sep 2017 14:30:08 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1546-HHN
+      - cache-hhn1538-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8122-JFK, cache-hhn1546-HHN
+      - cache-jfk8122-JFK, cache-hhn1538-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504429105.397479,VS0,VE8
+      - S1504449008.066597,VS0,VE5
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:27 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:10 GMT
 - request:
     method: get
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-02-21_14.44.34.png?v=1496204350
@@ -428,21 +428,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:25 GMT
+      - Sun, 03 Sep 2017 14:30:08 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1549-HHN
+      - cache-hhn1530-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8122-JFK, cache-hhn1549-HHN
+      - cache-jfk8122-JFK, cache-hhn1530-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504429106.637058,VS0,VE16
+      - S1504449008.339875,VS0,VE2
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -15017,7 +15017,7 @@ http_interactions:
         DMMwDMMwDMMwDMMwDMMwDMMwDMMwBZj/H8SxKEUsD7yqAAAAEnRFWHRFWElG
         Ok9yaWVudGF0aW9uADGEWOzvAAAAAElFTkSuQmCC
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:27 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:10 GMT
 - request:
     method: head
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/cat.jpg?v=1504379489
@@ -15059,26 +15059,26 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:30 GMT
+      - Sun, 03 Sep 2017 14:30:13 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1544-HHN
+      - cache-hhn1529-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8137-JFK, cache-hhn1544-HHN
+      - cache-jfk8137-JFK, cache-hhn1529-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504429111.663215,VS0,VE0
+      - S1504449014.809679,VS0,VE1
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:32 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:16 GMT
 - request:
     method: get
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/cat.jpg?v=1504379489
@@ -15126,21 +15126,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:30 GMT
+      - Sun, 03 Sep 2017 14:30:14 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1530-HHN
+      - cache-hhn1535-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8137-JFK, cache-hhn1530-HHN
+      - cache-jfk8137-JFK, cache-hhn1535-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504429111.854758,VS0,VE1
+      - S1504449014.004288,VS0,VE1
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -15775,7 +15775,7 @@ http_interactions:
         ORUKd8BmHHpVkLOYAglDn1JP+FR5dJmlXAkRT68ms9a32ile8RXIZm3d66jP
         4UuXct9tj5/sH+ddV607R//Z
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:32 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:16 GMT
 - request:
     method: head
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699
@@ -15818,26 +15818,26 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:31 GMT
+      - Sun, 03 Sep 2017 14:30:14 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1542-HHN
+      - cache-hhn1536-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8146-JFK, cache-hhn1542-HHN
+      - cache-jfk8146-JFK, cache-hhn1536-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1504429111.430985,VS0,VE2
+      - S1504449015.604283,VS0,VE1
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:33 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:16 GMT
 - request:
     method: get
     uri: https://cdn.shopify.com/s/files/1/2051/3691/products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699
@@ -15886,21 +15886,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 03 Sep 2017 08:58:31 GMT
+      - Sun, 03 Sep 2017 14:30:14 GMT
       Connection:
       - keep-alive
       Server:
-      - cache-hhn1521-HHN
+      - cache-hhn1527-HHN
       X-Cdn:
       - Fastly, http1
       X-Served-By:
-      - cache-jfk8146-JFK, cache-hhn1521-HHN
+      - cache-jfk8146-JFK, cache-hhn1527-HHN
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
-      - 0, 2
+      - 0, 1
       X-Timer:
-      - S1504429112.634806,VS0,VE0
+      - S1504449015.803279,VS0,VE1
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -18341,7 +18341,7 @@ http_interactions:
         CxcuXLhwJcj1/50PhZ6aHT3TAAAAEnRFWHRFWElGOk9yaWVudGF0aW9uADGE
         WOzvAAAAAElFTkSuQmCC
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:33 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:17 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/customers.json?page=1
@@ -18365,7 +18365,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:32 GMT
+      - Sun, 03 Sep 2017 14:30:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18375,13 +18375,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -18405,7 +18405,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - 1e5283ff-9952-40ad-ba43-9a8ce4996b2c
+      - d9853deb-3365-45dc-a928-ed7cef42e35c
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18416,7 +18416,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=1e5283ff-9952-40ad-ba43-9a8ce4996b2c'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=d9853deb-3365-45dc-a928-ed7cef42e35c'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18425,7 +18425,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=1e5283ff-9952-40ad-ba43-9a8ce4996b2c
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=d9853deb-3365-45dc-a928-ed7cef42e35c
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18444,7 +18444,7 @@ http_interactions:
         Development Ltd.","address1":"Ideo Mobi East Gate","address2":"Sukhumvit 46","city":"Bangkok","province":"","country":"Thailand","zip":"10110","phone":"","name":"Viktor
         Fonic","province_code":null,"country_code":"TH","country_name":"Thailand","default":true}}]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:34 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:18 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/customers.json?page=2
@@ -18468,7 +18468,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:33 GMT
+      - Sun, 03 Sep 2017 14:30:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18508,7 +18508,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - 0de2a95c-5e57-442c-8f1a-1a390a3c06cd
+      - 05a76d87-afa4-4670-8cfb-66040213e7cf
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18519,7 +18519,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=0de2a95c-5e57-442c-8f1a-1a390a3c06cd'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=05a76d87-afa4-4670-8cfb-66040213e7cf'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18528,7 +18528,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=0de2a95c-5e57-442c-8f1a-1a390a3c06cd
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustomers&source%5Bsection%5D=admin_api&source%5Buuid%5D=05a76d87-afa4-4670-8cfb-66040213e7cf
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18537,7 +18537,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"customers":[]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:35 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:19 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/custom_collections.json?page=1
@@ -18561,7 +18561,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:34 GMT
+      - Sun, 03 Sep 2017 14:30:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18571,13 +18571,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '0'
+      - '1'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '0'
+      - '1'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -18601,7 +18601,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - d878e79e-5a96-436a-85bd-8958696a42cc
+      - b86ef56c-83ff-44ba-a8ed-396144c6e65f
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18612,7 +18612,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=d878e79e-5a96-436a-85bd-8958696a42cc'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=b86ef56c-83ff-44ba-a8ed-396144c6e65f'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18621,7 +18621,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=d878e79e-5a96-436a-85bd-8958696a42cc
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=b86ef56c-83ff-44ba-a8ed-396144c6e65f
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18632,7 +18632,7 @@ http_interactions:
         page","updated_at":"2017-06-15T17:55:05+02:00","body_html":null,"published_at":"2017-05-31T06:18:03+02:00","sort_order":"best-selling","template_suffix":null,"published_scope":"global"},{"id":458118596,"handle":"sample-collectiom","title":"Sample
         Collectiom","updated_at":"2017-08-14T20:16:53+02:00","body_html":"","published_at":"2017-08-14T20:16:26+02:00","sort_order":"best-selling","template_suffix":null,"published_scope":"global"}]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:35 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:19 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/custom_collections.json?page=2
@@ -18656,7 +18656,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:34 GMT
+      - Sun, 03 Sep 2017 14:30:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18666,13 +18666,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '0'
+      - '1'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '0'
+      - '1'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -18696,7 +18696,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - 5a296717-2b9f-447a-94d4-ac91c3a66112
+      - ddc7bec8-893b-44c3-8caa-daaba556fd9e
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18707,7 +18707,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=5a296717-2b9f-447a-94d4-ac91c3a66112'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=ddc7bec8-893b-44c3-8caa-daaba556fd9e'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18716,7 +18716,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=5a296717-2b9f-447a-94d4-ac91c3a66112
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=ddc7bec8-893b-44c3-8caa-daaba556fd9e
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18725,7 +18725,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"custom_collections":[]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:36 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:20 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products.json?collection_id=440333380
@@ -18749,7 +18749,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:35 GMT
+      - Sun, 03 Sep 2017 14:30:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18759,13 +18759,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -18789,7 +18789,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - dc7bde6b-cac7-4e58-b41c-edd4bb403f9f
+      - 0dd95fac-db68-43a8-87e8-76589521696e
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18800,7 +18800,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=dc7bde6b-cac7-4e58-b41c-edd4bb403f9f'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=0dd95fac-db68-43a8-87e8-76589521696e'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18809,7 +18809,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=dc7bde6b-cac7-4e58-b41c-edd4bb403f9f
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=0dd95fac-db68-43a8-87e8-76589521696e
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18822,7 +18822,7 @@ http_interactions:
         Title","option2":null,"option3":null,"created_at":"2017-05-31T06:19:00+02:00","updated_at":"2017-06-15T17:52:31+02:00","taxable":true,"barcode":"","image_id":null,"inventory_quantity":-2,"weight":0,"weight_unit":"g","old_inventory_quantity":-2,"requires_shipping":true}],"options":[{"id":13297851780,"product_id":11055169028,"name":"Title","position":1,"values":["Default
         Title"]}],"images":[{"id":26172377540,"product_id":11055169028,"position":1,"created_at":"2017-05-31T06:19:10+02:00","updated_at":"2017-05-31T06:19:10+02:00","width":3584,"height":2270,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-02-21_14.44.34.png?v=1496204350","variant_ids":[]}],"image":{"id":26172377540,"product_id":11055169028,"position":1,"created_at":"2017-05-31T06:19:10+02:00","updated_at":"2017-05-31T06:19:10+02:00","width":3584,"height":2270,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-02-21_14.44.34.png?v=1496204350","variant_ids":[]}}]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:37 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:21 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/products.json?collection_id=458118596
@@ -18846,7 +18846,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:36 GMT
+      - Sun, 03 Sep 2017 14:30:19 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18886,7 +18886,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - 1b101bd3-3f31-4d83-b626-94d2879bf2e9
+      - 7601aa29-5652-4c55-9358-d6d27a0096d3
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18897,7 +18897,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=1b101bd3-3f31-4d83-b626-94d2879bf2e9'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=7601aa29-5652-4c55-9358-d6d27a0096d3'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18906,7 +18906,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=1b101bd3-3f31-4d83-b626-94d2879bf2e9
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=7601aa29-5652-4c55-9358-d6d27a0096d3
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -18915,7 +18915,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"products":[]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:37 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:21 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders.json?page=1
@@ -18939,7 +18939,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:36 GMT
+      - Sun, 03 Sep 2017 14:30:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -18979,7 +18979,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - b453d1fc-bff4-45e7-af91-09bc8b70d484
+      - 6ee0867b-8225-4ead-b717-4a3446f3d16d
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -18990,7 +18990,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=b453d1fc-bff4-45e7-af91-09bc8b70d484'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=6ee0867b-8225-4ead-b717-4a3446f3d16d'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -18999,7 +18999,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=b453d1fc-bff4-45e7-af91-09bc8b70d484
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=6ee0867b-8225-4ead-b717-4a3446f3d16d
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -19234,7 +19234,7 @@ http_interactions:
         b2RlIjpudWxsLCJjb3VudHJ5X2NvZGUiOiJQTCIsImNvdW50cnlfbmFtZSI6
         IlBvbGFuZCIsImRlZmF1bHQiOnRydWV9fX1dfQ==
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:38 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:22 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders.json?page=2
@@ -19258,7 +19258,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:37 GMT
+      - Sun, 03 Sep 2017 14:30:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -19298,7 +19298,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - '039d2d20-c4a8-4f1c-bf43-69a9c4aedbe1'
+      - cc961fd4-d1ca-44d5-8998-e58868cddaf0
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -19309,7 +19309,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=039d2d20-c4a8-4f1c-bf43-69a9c4aedbe1'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=cc961fd4-d1ca-44d5-8998-e58868cddaf0'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -19318,7 +19318,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=039d2d20-c4a8-4f1c-bf43-69a9c4aedbe1
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=cc961fd4-d1ca-44d5-8998-e58868cddaf0
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -19327,7 +19327,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"orders":[]}'
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:39 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:23 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/transactions.json
@@ -19351,7 +19351,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:38 GMT
+      - Sun, 03 Sep 2017 14:30:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -19361,13 +19361,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -19391,7 +19391,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - a378fa26-d531-4753-b21b-feada3f3154a
+      - 78e85dce-0f7c-43f2-902c-62328ff78702
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -19402,7 +19402,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=a378fa26-d531-4753-b21b-feada3f3154a'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=78e85dce-0f7c-43f2-902c-62328ff78702'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -19411,7 +19411,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=a378fa26-d531-4753-b21b-feada3f3154a
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=78e85dce-0f7c-43f2-902c-62328ff78702
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -19443,7 +19443,7 @@ http_interactions:
         NzAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIi
         fV19
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:39 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:23 GMT
 - request:
     method: get
     uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/transactions.json
@@ -19467,7 +19467,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Sep 2017 08:58:39 GMT
+      - Sun, 03 Sep 2017 14:30:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -19477,13 +19477,13 @@ http_interactions:
       X-Sorting-Hat-Podid:
       - '3'
       X-Sorting-Hat-Podid-Cached:
-      - '1'
+      - '0'
       X-Sorting-Hat-Shopid:
       - '20513691'
       X-Sorting-Hat-Section:
       - pod
       X-Sorting-Hat-Shopid-Cached:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       Referrer-Policy:
@@ -19507,7 +19507,7 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=7776000
       X-Request-Id:
-      - 060b7baf-ca21-4290-9bb5-0ee1381e1499
+      - 0e664f89-5f6f-404b-beb8-b716b65a9a03
       Content-Security-Policy:
       - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
         shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
@@ -19518,7 +19518,7 @@ http_interactions:
         https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
         https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
         ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
-        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=060b7baf-ca21-4290-9bb5-0ee1381e1499'
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=0e664f89-5f6f-404b-beb8-b716b65a9a03'
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -19527,7 +19527,7 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Xss-Protection:
-      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=060b7baf-ca21-4290-9bb5-0ee1381e1499
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=0e664f89-5f6f-404b-beb8-b716b65a9a03
       P3p:
       - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
       X-Dc:
@@ -19559,5 +19559,5 @@ http_interactions:
         NzAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIi
         fV19
     http_version: 
-  recorded_at: Sun, 03 Sep 2017 08:58:40 GMT
+  recorded_at: Sun, 03 Sep 2017 14:30:33 GMT
 recorded_with: VCR 3.0.3
