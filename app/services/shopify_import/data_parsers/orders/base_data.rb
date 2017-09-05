@@ -1,17 +1,22 @@
 module ShopifyImport
   module DataParsers
     module Orders
+      class UserNotFound < StandardError; end
+
       class BaseData
         def initialize(shopify_order)
           @shopify_order = shopify_order
         end
 
-        # TODO: USER NOT CREATED
         def user
           return if (customer = @shopify_order.customer).blank?
 
           @user ||= Shopify::DataFeed.find_by(shopify_object_id: customer.id,
                                               shopify_object_type: 'ShopifyAPI::Customer').try(:spree_object)
+
+          return @user if @user.present?
+
+          handle_missing_user(customer)
         end
 
         def attributes
@@ -30,6 +35,11 @@ module ShopifyImport
         end
 
         private
+
+        def handle_missing_user(customer)
+          ShopifyImport::Importers::UserImporterJob.perform_later(customer.to_json)
+          raise UserNotFound, I18n.t('errors.customers.no_user_found', customer_id: customer.id)
+        end
 
         # TODO: COMPLETED AT
         def base_order_attributes

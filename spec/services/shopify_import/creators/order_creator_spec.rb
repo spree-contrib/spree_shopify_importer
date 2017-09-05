@@ -231,6 +231,21 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
           expect(ShopifyImport::Importers::ProductImporterJob).to have_been_enqueued
         end
       end
+
+      context 'missing user data' do
+        let!(:user_data_feed) do
+          create(:shopify_data_feed,
+                 spree_object: nil,
+                 shopify_object_id: shopify_order.customer.id,
+                 shopify_object_type: 'ShopifyAPI::Customer')
+        end
+
+        it 'raises variant not found error, do not create objects and enqueue product import' do
+          expect { subject.save! }.to raise_error(ShopifyImport::DataParsers::Orders::UserNotFound)
+          expect(Spree::Order.count).to eq 0
+          expect(ShopifyImport::Importers::UserImporterJob).to have_been_enqueued
+        end
+      end
     end
   end
 end
