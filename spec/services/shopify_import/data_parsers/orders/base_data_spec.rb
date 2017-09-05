@@ -81,6 +81,7 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
   context '#timestamps' do
     let(:order_timestamps) do
       {
+        completed_at: shopify_order.created_at,
         created_at: shopify_order.created_at,
         updated_at: shopify_order.updated_at
       }

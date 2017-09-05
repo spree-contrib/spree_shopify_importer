@@ -29,6 +29,7 @@ module ShopifyImport
 
         def timestamps
           @timestamps ||= {
+            completed_at: @shopify_order.created_at.to_datetime,
             created_at: @shopify_order.created_at.to_datetime,
             updated_at: @shopify_order.updated_at.to_datetime
           }
@@ -41,7 +42,6 @@ module ShopifyImport
           raise UserNotFound, I18n.t('errors.customers.no_user_found', customer_id: customer.id)
         end
 
-        # TODO: COMPLETED AT
         def base_order_attributes
           {
             number: @shopify_order.order_number,

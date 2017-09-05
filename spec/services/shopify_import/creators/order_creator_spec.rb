@@ -126,6 +126,10 @@ RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
       context 'sets order timestamps' do
         before { subject.save! }
 
+        it 'completed at at' do
+          expect(spree_order.completed_at).to eq shopify_order.created_at
+        end
+
         it 'created at' do
           expect(spree_order.created_at).to eq shopify_order.created_at
         end
