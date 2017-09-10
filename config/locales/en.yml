@@ -4,6 +4,8 @@
 en:
   hello: "Hello world"
   errors:
+    customers:
+      no_user_found: Couldn't find Shopify Customer %{customer_id}. Enqueuing Customer import
     not_implemented:
       resources: Resource fetcher is not implemented
       creator: Creator is not implemented

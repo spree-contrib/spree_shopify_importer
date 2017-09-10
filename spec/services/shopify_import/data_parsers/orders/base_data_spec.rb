@@ -19,7 +19,18 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
     end
 
     context 'where user is not imported' do
-      it 'creates new user'
+      let!(:shopify_data_feed) do
+        create(:shopify_data_feed,
+               spree_object: nil,
+               shopify_object_id: shopify_order.customer.id,
+               shopify_object_type: 'ShopifyAPI::Customer')
+      end
+
+      it 'raise NoUserFound error and start user import job' do
+        expect { subject.user }
+          .to raise_error(ShopifyImport::DataParsers::Orders::UserNotFound)
+          .and enqueue_job(ShopifyImport::Importers::UserImporterJob)
+      end
     end
   end
 
@@ -70,6 +81,7 @@ RSpec.describe ShopifyImport::DataParsers::Orders::BaseData, type: :service do
   context '#timestamps' do
     let(:order_timestamps) do
       {
+        completed_at: shopify_order.created_at,
         created_at: shopify_order.created_at,
         updated_at: shopify_order.updated_at
       }
