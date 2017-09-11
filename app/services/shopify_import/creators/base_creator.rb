@@ -1,6 +1,10 @@
 module ShopifyImport
   module Creators
     class BaseCreator
+      def self.new(*args, &block)
+        ShopifyImport::Delegator.new(super)
+      end
+
       def initialize(shopify_data_feed)
         @shopify_data_feed = shopify_data_feed
       end

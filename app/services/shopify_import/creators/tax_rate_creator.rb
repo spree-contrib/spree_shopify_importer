@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class TaxRateCreator
+    class TaxRateCreator < BaseCreator
       delegate :attributes, to: :parser
 
       def initialize(shopify_tax_line, shopify_address)

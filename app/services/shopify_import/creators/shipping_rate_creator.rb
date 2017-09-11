@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class ShippingRateCreator
+    class ShippingRateCreator < BaseCreator
       delegate :attributes, to: :parser
 
       def initialize(shopify_shipping_line, shopify_order, spree_shipment)

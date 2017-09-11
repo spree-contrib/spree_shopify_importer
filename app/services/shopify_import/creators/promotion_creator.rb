@@ -1,6 +1,6 @@
 module ShopifyImport
   module Creators
-    class PromotionCreator
+    class PromotionCreator < BaseCreator
       delegate :attributes, :expires_at, to: :parser
 
       def initialize(spree_order, shopify_discount_code)
