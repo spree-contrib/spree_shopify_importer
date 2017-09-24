@@ -1,17 +1,18 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::AddressCreator do
+describe ShopifyImport::DataSavers::Addresses::AddressCreator, type: :service do
   let(:shopify_data_feed) do
     create(:shopify_data_feed,
            shopify_object_id: shopify_address.id,
            shopify_object_type: 'ShopifyAPI::Address',
            data_feed: shopify_address.to_json)
   end
+
   subject { described_class.new(shopify_data_feed, spree_user) }
 
   before { authenticate_with_shopify }
 
-  describe '#save!' do
+  describe '#create!' do
     let(:shopify_address) { create(:shopify_address) }
     let(:address_data_feed) { create(:shopify_data_feed, data_feed: shopify_address.to_json) }
     let(:spree_user) { create(:user) }
