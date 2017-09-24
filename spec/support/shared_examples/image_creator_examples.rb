@@ -1,10 +1,10 @@
 shared_examples_for 'create spree image' do
   it 'creates spree image' do
-    expect { subject.save! }.to change(Spree::Image, :count).by(1)
+    expect { subject.create! }.to change(Spree::Image, :count).by(1)
   end
 
   context 'sets attributes' do
-    before { subject.save! }
+    before { subject.create! }
 
     it 'attachment' do
       expect(spree_image.attachment).to be_present
@@ -20,7 +20,7 @@ shared_examples_for 'create spree image' do
   end
 
   context 'sets timestamps' do
-    before { subject.save! }
+    before { subject.create! }
 
     it 'created at' do
       expect(spree_image.created_at.to_datetime).to eq shopify_image.created_at.to_datetime
