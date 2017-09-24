@@ -1,39 +1,30 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::TaxonCreator, type: :service do
-  subject { described_class.new(shopify_data_feed) }
+describe ShopifyImport::DataSavers::Taxons::TaxonUpdater, type: :service do
+  subject { described_class.new(shopify_data_feed, spree_taxon) }
 
   before { ShopifyAPI::Base.site = 'https://api_key:passowrd@shop_domain.myshopify.com/admin' }
 
-  describe '#save!', vcr: { cassette_name: 'shopify/base_custom_collection' } do
+  describe '#update!', vcr: { cassette_name: 'shopify/base_custom_collection' } do
     let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(388_567_107) }
     let(:shopify_data_feed) { create(:shopify_data_feed, data_feed: shopify_custom_collection.to_json) }
-    let(:spree_taxon) { Spree::Taxon.where.not(parent: nil).last }
+    let(:taxonomy) { create(:taxonomy, name: I18n.t('shopify_custom_collections')) }
 
-    it 'creates spree taxonomy' do
-      expect { subject.save! }.to change(Spree::Taxonomy, :count).by(1)
-    end
+    let!(:spree_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
 
-    it 'creates spree taxon' do
-      expect { subject.save! }.to change { Spree::Taxon.where.not(parent: nil).reload.count }.by(1)
-    end
-
-    it 'assigns shopify data feed to spree taxon' do
-      subject.save!
-      expect(shopify_data_feed.reload.spree_object).to eq spree_taxon
+    it 'does not create spree taxon' do
+      expect { subject.update! }.not_to change { Spree::Taxon.where.not(parent: nil).reload.count }
     end
 
     context 'taxon attributes' do
-      let(:permalink) { 'shopify-custom-collections/samplecollection' }
-
-      before { subject.save! }
+      before { subject.update! }
 
       it 'name' do
         expect(spree_taxon.name).to eq shopify_custom_collection.title
       end
 
       it 'permalink' do
-        expect(spree_taxon.permalink).to eq permalink
+        expect(spree_taxon.permalink).to eq shopify_custom_collection.handle
       end
 
       it 'description' do
@@ -51,7 +42,7 @@ RSpec.describe ShopifyImport::Creators::TaxonCreator, type: :service do
                  spree_object: spree_product)
         end
 
-        before { subject.save! }
+        before { subject.update! }
 
         it 'assigns products to spree_taxon' do
           expect(spree_taxon.products).to contain_exactly(spree_product)

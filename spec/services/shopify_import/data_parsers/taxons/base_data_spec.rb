@@ -4,7 +4,7 @@ RSpec.describe ShopifyImport::DataParsers::Taxons::BaseData, type: :service do
   let(:shopify_custom_collection) { create(:shopify_custom_collection) }
   subject { described_class.new(shopify_custom_collection) }
 
-  describe '#taxon_attributes' do
+  describe '#attributes' do
     let(:result) do
       {
         name: shopify_custom_collection.title,
@@ -14,7 +14,7 @@ RSpec.describe ShopifyImport::DataParsers::Taxons::BaseData, type: :service do
     end
 
     it 'returns hash of attributes' do
-      expect(subject.taxon_attributes).to eq result
+      expect(subject.attributes).to eq result
     end
   end
 
@@ -34,6 +34,16 @@ RSpec.describe ShopifyImport::DataParsers::Taxons::BaseData, type: :service do
 
     it 'returns array of products ids' do
       expect(subject.product_ids).to contain_exactly(spree_product.id)
+    end
+  end
+
+  describe '#taxonomy' do
+    it 'creates spree taxonomy' do
+      expect { subject.taxonomy }.to change(Spree::Taxonomy, :count).by(1)
+    end
+
+    it 'assigns proper name to taxonomy' do
+      expect(subject.taxonomy.name).to eq I18n.t('shopify_custom_collections')
     end
   end
 end
