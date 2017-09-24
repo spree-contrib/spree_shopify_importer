@@ -22,6 +22,9 @@ RSpec.describe Shopify::DataFeed, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:spree_object) }
     it { is_expected.to belong_to(:parent).class_name('Shopify::DataFeed') }
-    it { is_expected.to have_many(:children).class_name('Shopify::DataFeed').with_foreign_key(:parent_id) }
+    it 'to have many children data feeds' do
+      is_expected
+        .to have_many(:children).class_name('Shopify::DataFeed').with_foreign_key(:parent_id).dependent(:destroy)
+    end
   end
 end
