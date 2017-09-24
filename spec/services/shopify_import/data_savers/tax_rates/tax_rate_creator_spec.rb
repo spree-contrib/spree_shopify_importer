@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::TaxRateCreator, type: :service do
+describe ShopifyImport::DataSavers::TaxRates::TaxRateCreator, type: :service do
   let!(:country) { create(:country, iso: 'US') }
   let!(:zone) { create(:global_zone) }
   subject { described_class.new(shopify_tax_line, shopify_address) }

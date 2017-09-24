@@ -88,7 +88,7 @@ module ShopifyImport
 
         def create_spree_taxes
           shopify_order.tax_lines.each do |shopify_tax_line|
-            spree_tax_rate = ShopifyImport::Creators::TaxRateCreator.new(shopify_tax_line, billing_address).create!
+            spree_tax_rate = ShopifyImport::DataSavers::TaxRates::TaxRateCreator.new(shopify_tax_line, billing_address).create!
             ShopifyImport::Creators::Adjustments::TaxCreator.new(shopify_tax_line, @spree_order, spree_tax_rate).save!
           end
         end
