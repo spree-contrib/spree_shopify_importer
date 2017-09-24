@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::OrderCreator, type: :service do
+RSpec.describe ShopifyImport::DataSavers::Orders::OrderCreator, type: :service do
   subject { described_class.new(order_data_feed) }
 
   before { authenticate_with_shopify }

@@ -4,7 +4,7 @@ module ShopifyImport
       private
 
       def creator
-        ShopifyImport::Creators::OrderCreator
+        ShopifyImport::DataSavers::Orders::OrderCreator
       end
 
       def shopify_class
