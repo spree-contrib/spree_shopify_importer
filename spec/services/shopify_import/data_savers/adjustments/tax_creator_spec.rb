@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::Adjustments::TaxCreator, type: :service do
+describe ShopifyImport::DataSavers::Adjustments::TaxCreator, type: :service do
   subject { described_class.new(shopify_tax_line, spree_order, spree_tax_rate) }
 
   describe '#save!' do

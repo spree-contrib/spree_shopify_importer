@@ -1,5 +1,5 @@
 module ShopifyImport
-  module Creators
+  module DataSavers
     module Adjustments
       class TaxCreator
         delegate :attributes, to: :parser

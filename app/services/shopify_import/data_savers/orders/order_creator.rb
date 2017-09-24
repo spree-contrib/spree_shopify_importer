@@ -89,14 +89,14 @@ module ShopifyImport
         def create_spree_taxes
           shopify_order.tax_lines.each do |shopify_tax_line|
             spree_tax_rate = ShopifyImport::DataSavers::TaxRates::TaxRateCreator.new(shopify_tax_line, billing_address).create!
-            ShopifyImport::Creators::Adjustments::TaxCreator.new(shopify_tax_line, @spree_order, spree_tax_rate).save!
+            ShopifyImport::DataSavers::Adjustments::TaxCreator.new(shopify_tax_line, @spree_order, spree_tax_rate).save!
           end
         end
 
         def create_spree_promotions
           shopify_order.discount_codes.each do |shopify_discount_code|
             promotion = ShopifyImport::DataSavers::Promotions::PromotionCreator.new(@spree_order, shopify_discount_code).create!
-            ShopifyImport::Creators::Adjustments::PromotionCreator.new(@spree_order, promotion, shopify_discount_code).save!
+            ShopifyImport::DataSavers::Adjustments::PromotionCreator.new(@spree_order, promotion, shopify_discount_code).save!
           end
         end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::Adjustments::PromotionCreator, type: :service do
+describe ShopifyImport::DataSavers::Adjustments::PromotionCreator, type: :service do
   let(:spree_order) { create(:order) }
   let(:spree_promotion) { create(:promotion) }
   let(:shopify_discount_code) { create(:shopify_discount_code) }
