@@ -95,7 +95,7 @@ module ShopifyImport
 
         def create_spree_promotions
           shopify_order.discount_codes.each do |shopify_discount_code|
-            promotion = ShopifyImport::Creators::PromotionCreator.new(@spree_order, shopify_discount_code).create!
+            promotion = ShopifyImport::DataSavers::Promotions::PromotionCreator.new(@spree_order, shopify_discount_code).create!
             ShopifyImport::Creators::Adjustments::PromotionCreator.new(@spree_order, promotion, shopify_discount_code).save!
           end
         end
