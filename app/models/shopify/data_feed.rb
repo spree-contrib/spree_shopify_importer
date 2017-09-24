@@ -2,7 +2,7 @@ module Shopify
   class DataFeed < ApplicationRecord
     belongs_to :spree_object, polymorphic: true
     belongs_to :parent, class_name: 'Shopify::DataFeed'
-    has_many :children, class_name: 'Shopify::DataFeed', foreign_key: :parent_id
+    has_many :children, class_name: 'Shopify::DataFeed', foreign_key: :parent_id, dependent: :destroy
 
     validates :shopify_object_id, :shopify_object_type, presence: true
     validates :shopify_object_id, uniqueness: { scope: :shopify_object_type }
