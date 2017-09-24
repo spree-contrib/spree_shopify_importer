@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::ShippingRateCreator, type: :service do
+describe ShopifyImport::DataSavers::ShippingRates::ShippingRateCreator, type: :service do
   let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
   let(:shopify_shipping_line) { shopify_order.shipping_lines.first }
   let!(:spree_shipment) { create(:shipment) }

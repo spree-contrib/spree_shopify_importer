@@ -37,7 +37,7 @@ module ShopifyImport
         end
 
         def create_shipping_rate
-          ShopifyImport::Creators::ShippingRateCreator.new(shopify_shipping_line, shopify_order, @spree_shipment).save!
+          ShopifyImport::DataSavers::ShippingRates::ShippingRateCreator.new(shopify_shipping_line, shopify_order, @spree_shipment).save!
         end
 
         def create_inventory_units
