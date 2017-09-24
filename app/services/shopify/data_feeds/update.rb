@@ -14,6 +14,8 @@ module Shopify
           data_feed: shopify_object.to_json,
           parent: @parent
         )
+
+        @shopify_data_feed
       end
     end
   end
