@@ -42,7 +42,8 @@ module ShopifyImport
 
         def create_inventory_units
           shopify_fulfillment.line_items.each do |shopify_line_item|
-            ShopifyImport::Creators::InventoryUnitsCreator.new(shopify_line_item, @spree_shipment).save!
+            ShopifyImport::DataSavers::InventoryUnits::InventoryUnitsCreator.new(shopify_line_item,
+                                                                                 @spree_shipment).save!
           end
         end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::InventoryUnitsCreator, type: :service do
+describe ShopifyImport::DataSavers::InventoryUnits::InventoryUnitsCreator, type: :service do
   subject { described_class.new(shopify_line_item, spree_shipment) }
   before { authenticate_with_shopify }
 
