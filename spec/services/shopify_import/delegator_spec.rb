@@ -7,7 +7,7 @@ describe ShopifyImport::Delegator, type: :service do
 
   describe '#method_missing' do
     context 'respond to missing' do
-      %w[save save! create create!].each do |method_name|
+      %w[save save! create create! update update!].each do |method_name|
         it "sends method #{method_name} to target" do
           subject.send(method_name, 'args')
           expect(target).to have_received(method_name).with('args')

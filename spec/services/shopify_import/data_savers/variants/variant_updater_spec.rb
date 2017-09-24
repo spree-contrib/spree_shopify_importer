@@ -1,9 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
+RSpec.describe ShopifyImport::DataSavers::Variants::VariantUpdater, type: :service do
   include ActiveJob::TestHelper
 
-  let(:spree_product) { create(:product) }
+  let!(:spree_product) { create(:product) }
+  let!(:spree_variant) { create(:variant, product: spree_product) }
   let(:shopify_variant) { create(:shopify_variant, sku: '1234') }
   let(:option_type) { create(:option_type) }
   let(:shopify_data_feed) do
@@ -22,34 +23,23 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
     create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type)
   end
 
-  subject { described_class.new(shopify_data_feed, spree_product) }
+  subject { described_class.new(shopify_data_feed, spree_variant, spree_product) }
 
   before { spree_product.option_types << option_type }
 
-  describe '#save!' do
-    it 'creates spree variant' do
-      expect { subject.save! }.to change(Spree::Variant, :count).by(1)
-    end
-
-    it 'assigns new variant to product' do
-      expect { subject.save! }.to change { spree_product.variants.reload.count }.by(1)
-    end
-
-    it 'assings new variant to data feed' do
-      subject.save!
-      expect(shopify_data_feed.reload.spree_object).to eq Spree::Variant.last
+  describe '#update!' do
+    it 'does not create spree variant' do
+      expect { subject.update! }.not_to change(Spree::Variant, :count)
     end
 
     it 'assigns option values to product' do
-      subject.save!
-      variant = Spree::Variant.last
-      expect(variant.option_values).to contain_exactly(f_option_value, s_option_value, t_option_value)
+      subject.update!
+
+      expect(spree_variant.reload.option_values).to contain_exactly(f_option_value, s_option_value, t_option_value)
     end
 
     context 'base variant attributes' do
-      let(:spree_variant) { Spree::Variant.last }
-
-      before { subject.save! }
+      before { subject.update! }
 
       it 'saves variant sku' do
         expect(spree_variant.sku).to eq shopify_variant.sku
@@ -66,9 +56,7 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
 
     context 'variant stock' do
       context 'track inventory' do
-        let(:spree_variant) { Spree::Variant.last }
-
-        before { subject.save! }
+        before { subject.update! }
 
         context 'resource in shopify was tracking inventory' do
           let(:shopify_variant) { create(:shopify_variant, inventory_management: 'shopify') }
@@ -91,7 +79,7 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
         let(:stock_location) { Spree::StockLocation.find_by(name: I18n.t(:shopify)) }
         let(:spree_variant_stock_item) { Spree::Variant.last.stock_items.find_by(stock_location: stock_location) }
 
-        before { subject.save! }
+        before { subject.update! }
 
         context 'resource in shopify was backorderable' do
           let(:shopify_variant) { create(:shopify_variant, inventory_policy: 'continue') }
@@ -112,9 +100,9 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
 
       context 'inventory quantity' do
         let(:stock_location) { Spree::StockLocation.find_by(name: I18n.t(:shopify)) }
-        let(:spree_variant_stock_item) { Spree::Variant.last.stock_items.find_by(stock_location: stock_location) }
+        let(:spree_variant_stock_item) { spree_variant.stock_items.find_by(stock_location: stock_location) }
 
-        before { subject.save! }
+        before { subject.update! }
 
         context 'when variant is tracking inventory' do
           let(:shopify_variant) { create(:shopify_variant, inventory_management: 'shopify', inventory_quantity: 5) }
@@ -140,12 +128,12 @@ RSpec.describe ShopifyImport::Creators::VariantCreator, type: :service do
           'products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699'
         end
 
-        subject { described_class.new(shopify_data_feed, spree_product, shopify_image.to_json) }
+        subject { described_class.new(shopify_data_feed, spree_variant, spree_product, shopify_image.to_json) }
 
         it 'creates spree image' do
           expect do
             perform_enqueued_jobs do
-              subject.save!
+              subject.update!
             end
           end.to change(Spree::Image, :count).by(1)
         end

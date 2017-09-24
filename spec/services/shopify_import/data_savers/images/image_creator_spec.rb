@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ShopifyImport::Creators::ImageCreator, type: :service do
+describe ShopifyImport::DataSavers::Images::ImageCreator, type: :service do
   subject { described_class.new(shopify_data_feed, spree_object) }
   let(:spree_image) { Spree::Image.last }
   let(:shopify_data_feed) do
@@ -23,7 +23,7 @@ describe ShopifyImport::Creators::ImageCreator, type: :service do
       it_behaves_like 'create spree image'
 
       context 'sets associations' do
-        before { subject.save! }
+        before { subject.create! }
 
         it 'viewable object' do
           expect(spree_image.viewable).to eq spree_object.master
@@ -31,13 +31,13 @@ describe ShopifyImport::Creators::ImageCreator, type: :service do
       end
     end
 
-    context 'wit spree variant' do
+    context 'with spree variant' do
       let!(:spree_object) { create(:variant) }
 
       it_behaves_like 'create spree image'
 
       context 'sets associations' do
-        before { subject.save! }
+        before { subject.create! }
 
         it 'viewable object' do
           expect(spree_image.viewable).to eq spree_object

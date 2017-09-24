@@ -1,28 +1,45 @@
 module ShopifyImport
   module Importers
-    class ImageImporter
-      def initialize(resourece, parent_feed, spree_object)
+    class ImageImporter < BaseImporter
+      def initialize(resourece, parent_feed, spree_viewable)
         @resource = resourece
         @parent_feed = parent_feed
-        @spree_object = spree_object
+        @spree_viewable = spree_viewable
       end
 
       def import!
-        shopify_data_feed = create_data_feed
-        create_spree_image(shopify_data_feed)
+        data_feed = process_data_feed
+
+        if (spree_object = data_feed.spree_object).blank?
+          creator.new(data_feed, @spree_viewable).create!
+        else
+          updater.new(data_feed, spree_object, @spree_viewable).update!
+        end
       end
 
       private
 
+      def process_data_feed
+        (old_data_feed = find_existing_data_feed).blank? ? create_data_feed : update_data_feed(old_data_feed)
+      end
+
       def create_data_feed
-        Shopify::DataFeeds::Create.new(shopify_image, @parent_feed).save!
+        Shopify::DataFeeds::Create.new(shopify_object, @parent_feed).save!
       end
 
-      def create_spree_image(shopify_data_feed)
-        ShopifyImport::Creators::ImageCreator.new(shopify_data_feed, @spree_object).save!
+      def update_data_feed(old_data_feed)
+        Shopify::DataFeeds::Update.new(old_data_feed, shopify_object, @parent_feed).update!
       end
 
-      def shopify_image
+      def creator
+        ShopifyImport::DataSavers::Images::ImageCreator
+      end
+
+      def updater
+        ShopifyImport::DataSavers::Images::ImageUpdater
+      end
+
+      def shopify_object
         ShopifyAPI::Image.new(JSON.parse(@resource))
       end
     end

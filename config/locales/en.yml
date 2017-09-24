@@ -7,10 +7,11 @@ en:
     customers:
       no_user_found: Couldn't find Shopify Customer %{customer_id}. Enqueuing Customer import
     not_implemented:
-      resources: Resource fetcher is not implemented
       creator: Creator is not implemented
-      shopify_class: Shopify object class is not implemented
       job: Job is not implemented
+      updater: Updater is not implemented
+      resources: Resource fetcher is not implemented
+      shopify_class: Shopify object class is not implemented
     transaction:
       no_payment_state: 'no payment state for %{status}'
     line_items:
