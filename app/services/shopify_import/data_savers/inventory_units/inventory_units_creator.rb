@@ -9,7 +9,7 @@ module ShopifyImport
           @spree_shipment = spree_shipment
         end
 
-        def save!
+        def create!
           Spree::InventoryUnit.transaction do
             @shopify_line_item.quantity.times do
               create_inventory_unit
