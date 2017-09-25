@@ -9,7 +9,7 @@ module ShopifyImport
 
       def import!
         shopify_data_feed = create_data_feed
-        creator.new(shopify_data_feed, @parent_feed, @spree_order).save!
+        creator.new(shopify_data_feed, @parent_feed, @spree_order).create!
       end
 
       private

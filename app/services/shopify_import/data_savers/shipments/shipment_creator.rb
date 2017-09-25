@@ -10,7 +10,7 @@ module ShopifyImport
           @spree_order = spree_order
         end
 
-        def save!
+        def create!
           Spree::Shipment.transaction do
             find_or_initialize_shipment
             save_shipment_with_attributes

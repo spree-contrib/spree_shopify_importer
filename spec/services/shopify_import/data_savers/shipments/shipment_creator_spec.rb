@@ -5,7 +5,7 @@ describe ShopifyImport::DataSavers::Shipments::ShipmentCreator, type: :service d
 
   before { authenticate_with_shopify }
 
-  describe '#save!', vcr: { cassette_name: 'shopify/base_order' } do
+  describe '#create!', vcr: { cassette_name: 'shopify/base_order' } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:shopify_fulfillment) { shopify_order.fulfillments.first }
     let(:spree_order) { create(:order) }
@@ -25,11 +25,11 @@ describe ShopifyImport::DataSavers::Shipments::ShipmentCreator, type: :service d
     let(:spree_shipment) { Spree::Shipment.last }
 
     it 'creates spree shipment' do
-      expect { subject.save! }.to change(Spree::Shipment, :count).by(1)
+      expect { subject.create! }.to change(Spree::Shipment, :count).by(1)
     end
 
     context 'sets shipment attributes' do
-      before { subject.save! }
+      before { subject.create! }
 
       it 'number' do
         expect(spree_shipment.number).to eq "SH#{shopify_fulfillment.id}"
@@ -49,7 +49,7 @@ describe ShopifyImport::DataSavers::Shipments::ShipmentCreator, type: :service d
       let(:spree_shipping_rate) { Spree::ShippingRate.last }
       let(:spree_invetory_units) { Spree::InventoryUnit.all }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'spree order' do
         expect(spree_shipment.order).to eq spree_order
