@@ -10,18 +10,14 @@ module ShopifyImport
           @shopify_discount_code = shopify_discount_code
         end
 
-        def save!
+        def create!
           Spree::Adjustment.transaction do
-            create_adjustment
+            @spree_adjustment = @spree_order.adjustments.create!(attributes)
           end
           update_timestamps
         end
 
         private
-
-        def create_adjustment
-          @spree_adjustment = @spree_order.adjustments.create!(attributes)
-        end
 
         def update_timestamps
           @spree_adjustment.update_columns(timestamps)

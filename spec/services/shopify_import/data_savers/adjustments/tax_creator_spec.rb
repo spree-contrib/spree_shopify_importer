@@ -9,13 +9,13 @@ describe ShopifyImport::DataSavers::Adjustments::TaxCreator, type: :service do
     let(:shopify_tax_line) { create(:shopify_tax_line) }
 
     it 'creates tax adjustment' do
-      expect { subject.save! }.to change(Spree::Adjustment, :count).by(1)
+      expect { subject.create! }.to change(Spree::Adjustment, :count).by(1)
     end
 
     context 'sets an adjustment attributes' do
       let(:adjustment) { Spree::Adjustment.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'label' do
         expect(adjustment.label).to eq shopify_tax_line.title
@@ -33,7 +33,7 @@ describe ShopifyImport::DataSavers::Adjustments::TaxCreator, type: :service do
     context 'sets an adjustment associations' do
       let(:adjustment) { Spree::Adjustment.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'order' do
         expect(adjustment.order).to eq spree_order

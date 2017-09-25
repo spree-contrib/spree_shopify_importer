@@ -6,15 +6,15 @@ describe ShopifyImport::DataSavers::Adjustments::PromotionCreator, type: :servic
   let(:shopify_discount_code) { create(:shopify_discount_code) }
   subject { described_class.new(spree_order, spree_promotion, shopify_discount_code) }
 
-  describe '#save!' do
+  describe '#create!' do
     it 'creates spree adjustment' do
-      expect { subject.save! }.to change(Spree::Adjustment, :count).by(1)
+      expect { subject.create! }.to change(Spree::Adjustment, :count).by(1)
     end
 
     context 'sets attributes' do
       let(:adjustment) { Spree::Adjustment.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'amount' do
         expect(adjustment.amount).to eq(- shopify_discount_code.amount.to_d)
@@ -41,7 +41,7 @@ describe ShopifyImport::DataSavers::Adjustments::PromotionCreator, type: :servic
       let(:adjustment) { Spree::Adjustment.last }
       let(:source) { Spree::Promotion::Actions::CreateAdjustment.last }
 
-      before { subject.save! }
+      before { subject.create! }
 
       it 'source' do
         expect(adjustment.source).to eq source

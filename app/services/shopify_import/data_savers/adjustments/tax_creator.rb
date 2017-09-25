@@ -10,7 +10,7 @@ module ShopifyImport
           @spree_tax_rate = spree_tax_rate
         end
 
-        def save!
+        def create!
           Spree::Adjustment.transaction do
             @spree_order.adjustments.create!(attributes)
           end
