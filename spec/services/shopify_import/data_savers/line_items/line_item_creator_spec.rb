@@ -5,7 +5,7 @@ describe ShopifyImport::DataSavers::LineItems::LineItemCreator, type: :service d
 
   before { authenticate_with_shopify }
 
-  describe '#save', vcr: { cassette_name: 'shopify/base_order' } do
+  describe '#create', vcr: { cassette_name: 'shopify/base_order' } do
     let(:spree_order) { create(:order) }
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:shopify_line_item) { shopify_order.line_items.first }
@@ -19,11 +19,11 @@ describe ShopifyImport::DataSavers::LineItems::LineItemCreator, type: :service d
     let(:line_item) { Spree::LineItem.find_by(variant_id: variant.id) }
 
     it 'creates spree line item' do
-      expect { subject.save }.to change(Spree::LineItem, :count).by(1)
+      expect { subject.create }.to change(Spree::LineItem, :count).by(1)
     end
 
     context 'associations' do
-      before { subject.save }
+      before { subject.create }
 
       it 'assigns proper variant to spree line item' do
         expect(line_item.variant).to eq variant
@@ -35,7 +35,7 @@ describe ShopifyImport::DataSavers::LineItems::LineItemCreator, type: :service d
     end
 
     context 'line item attributes' do
-      before { subject.save }
+      before { subject.create }
 
       it 'sets quantity' do
         expect(line_item.quantity).to eq shopify_line_item.quantity

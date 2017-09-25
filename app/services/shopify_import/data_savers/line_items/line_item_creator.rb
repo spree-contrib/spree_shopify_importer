@@ -8,7 +8,7 @@ module ShopifyImport
           @spree_order = spree_order
         end
 
-        def save
+        def create
           line_item = @spree_order.line_items.find_or_initialize_by(variant: spree_variant)
           line_item.assign_attributes(line_item_attributes)
           line_item.save(validate: false)

@@ -36,7 +36,7 @@ module ShopifyImport
           shopify_order.line_items.each do |shopify_line_item|
             ShopifyImport::DataSavers::LineItems::LineItemCreator.new(shopify_line_item,
                                                                       shopify_order,
-                                                                      @spree_order).save
+                                                                      @spree_order).create
           end
         end
 
