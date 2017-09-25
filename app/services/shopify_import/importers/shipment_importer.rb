@@ -1,6 +1,6 @@
 module ShopifyImport
   module Importers
-    class ShipmentImporter
+    class ShipmentImporter < BaseImporter
       def initialize(fulfillment, parent_feed, spree_order)
         @fulfillment = fulfillment
         @parent_feed = parent_feed
@@ -8,16 +8,12 @@ module ShopifyImport
       end
 
       def import!
-        feed = ((old_data_feed = find_existing_data_feed).blank? ? create_data_feed : update_data_feed(old_data_feed))
+        data_feed = process_data_feed
 
-        creator.new(feed, @parent_feed, @spree_order).create!
+        creator.new(data_feed, @parent_feed, @spree_order).create!
       end
 
       private
-
-      def find_existing_data_feed
-        Shopify::DataFeed.find_by(shopify_object_id: @fulfillment.id, shopify_object_type: @fulfillment.class.to_s)
-      end
 
       def create_data_feed
         Shopify::DataFeeds::Create.new(@fulfillment, @parent_feed).save!
@@ -29,6 +25,10 @@ module ShopifyImport
 
       def creator
         ShopifyImport::DataSavers::Shipments::ShipmentCreator
+      end
+
+      def shopify_object
+        @fulfillment
       end
     end
   end

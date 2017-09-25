@@ -18,10 +18,6 @@ module ShopifyImport
 
       private
 
-      def process_data_feed
-        (old_data_feed = find_existing_data_feed).blank? ? create_data_feed : update_data_feed(old_data_feed)
-      end
-
       def creator
         ShopifyImport::DataSavers::Addresses::AddressCreator
       end
