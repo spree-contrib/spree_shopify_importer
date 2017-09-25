@@ -22,7 +22,7 @@ describe ShopifyImport::Importers::UserImporter, type: :service do
         create(:shopify_data_feed,
                shopify_object_id: shopify_customer.id,
                shopify_object_type: 'ShopifyAPI::Customer',
-               data_feed: resource)
+               data_feed: resource, spree_object: nil)
       end
 
       it 'creates shopify data feeds' do

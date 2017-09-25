@@ -40,7 +40,7 @@ describe ShopifyImport::Importers::ProductImporter, type: :service do
           create(:shopify_data_feed,
                  shopify_object_id: 11_101_525_828,
                  shopify_object_type: 'ShopifyAPI::Product',
-                 data_feed: resource.to_json)
+                 data_feed: resource.to_json, spree_object: nil)
         end
 
         it 'creates shopify data feeds' do

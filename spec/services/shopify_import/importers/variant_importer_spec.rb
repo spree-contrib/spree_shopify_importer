@@ -34,7 +34,7 @@ describe ShopifyImport::Importers::VariantImporter, type: :service do
         create(:shopify_data_feed,
                shopify_object_id: shopify_variant.id,
                shopify_object_type: 'ShopifyAPI::Variant',
-               data_feed: resource)
+               data_feed: resource, spree_object: nil)
       end
 
       it 'does not create shopify data feeds' do

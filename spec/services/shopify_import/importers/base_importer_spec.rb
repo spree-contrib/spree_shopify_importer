@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe ShopifyImport::Importers::BaseImporter, type: :service do
   describe '#import!' do
-    let(:data_feed) { double('DataFeed') }
+    let(:data_feed) { double('DataFeed', spree_object: nil) }
 
     before do
       allow_any_instance_of(Shopify::DataFeeds::Create).to receive(:save!).and_return(data_feed)
