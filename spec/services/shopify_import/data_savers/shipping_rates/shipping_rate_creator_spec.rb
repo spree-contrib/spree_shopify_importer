@@ -13,11 +13,11 @@ describe ShopifyImport::DataSavers::ShippingRates::ShippingRateCreator, type: :s
     let(:shipping_rate) { Spree::ShippingRate.last }
 
     it 'creates shipping rate' do
-      expect { subject.save! }.to change(Spree::ShippingRate, :count).by(1)
+      expect { subject.create! }.to change(Spree::ShippingRate, :count).by(1)
     end
 
     context 'sets a attributes' do
-      before { subject.save! }
+      before { subject.create! }
 
       it 'selected' do
         expect(shipping_rate).to be_selected
@@ -30,7 +30,7 @@ describe ShopifyImport::DataSavers::ShippingRates::ShippingRateCreator, type: :s
 
     context 'sets a associations' do
       let(:shipping_method) { Spree::ShippingMethod.last }
-      before { subject.save! }
+      before { subject.create! }
 
       it 'shipment' do
         expect(shipping_rate.shipment).to eq spree_shipment

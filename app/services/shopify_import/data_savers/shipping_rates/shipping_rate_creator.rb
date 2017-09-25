@@ -10,7 +10,7 @@ module ShopifyImport
           @spree_shipment = spree_shipment
         end
 
-        def save!
+        def create!
           @spree_shipment.shipping_rates.create!(attributes)
         end
 

@@ -41,7 +41,7 @@ module ShopifyImport
             shopify_shipping_line,
             shopify_order,
             @spree_shipment
-          ).save!
+          ).create!
         end
 
         def create_inventory_units
