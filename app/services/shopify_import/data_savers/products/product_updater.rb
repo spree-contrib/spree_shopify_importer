@@ -2,9 +2,9 @@ module ShopifyImport
   module DataSavers
     module Products
       class ProductUpdater < ProductBase
-        def initialize(spree_product, shopify_data_feed)
-          @spree_product = spree_product
+        def initialize(shopify_data_feed, spree_product)
           super(shopify_data_feed)
+          @spree_product = spree_product
         end
 
         def update!

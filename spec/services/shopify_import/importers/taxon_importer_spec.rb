@@ -27,7 +27,7 @@ describe ShopifyImport::Importers::TaxonImporter, type: :service do
         create(:shopify_data_feed,
                shopify_object_id: shopify_custom_collection.id,
                shopify_object_type: 'ShopifyAPI::CustomCollection',
-               data_feed: resource)
+               data_feed: resource, spree_object: nil)
       end
 
       it 'does not create shopify data feeds' do

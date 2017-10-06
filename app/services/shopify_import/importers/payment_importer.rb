@@ -1,6 +1,6 @@
 module ShopifyImport
   module Importers
-    class PaymentImporter
+    class PaymentImporter < BaseImporter
       def initialize(transaction, parent_feed, spree_order)
         @transaction = transaction
         @parent_feed = parent_feed
@@ -8,8 +8,9 @@ module ShopifyImport
       end
 
       def import!
-        shopify_data_feed = create_data_feed
-        create_spree_payment(shopify_data_feed)
+        data_feed = process_data_feed
+
+        creator.new(data_feed, @spree_order).create!
       end
 
       private
@@ -18,8 +19,16 @@ module ShopifyImport
         Shopify::DataFeeds::Create.new(@transaction, @parent_feed).save!
       end
 
-      def create_spree_payment(shopify_data_feed)
-        ShopifyImport::Creators::PaymentCreator.new(shopify_data_feed, @spree_order).save!
+      def update_data_feed(old_data_feed)
+        Shopify::DataFeeds::Update.new(old_data_feed, @transaction, @parent_feed).update!
+      end
+
+      def creator
+        ShopifyImport::DataSavers::Payments::PaymentCreator
+      end
+
+      def shopify_object
+        @transaction
       end
     end
   end

@@ -26,7 +26,7 @@ describe ShopifyImport::Importers::ImageImporter, type: :service do
         create(:shopify_data_feed,
                shopify_object_id: shopify_image.id,
                shopify_object_type: shopify_image.class.to_s,
-               data_feed: resource)
+               data_feed: resource, spree_object: nil)
       end
 
       it 'does not create shopify data feeds' do

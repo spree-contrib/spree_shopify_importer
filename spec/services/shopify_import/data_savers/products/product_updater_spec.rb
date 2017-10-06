@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
   include ActiveJob::TestHelper
 
-  subject { described_class.new(spree_product, product_data_feed) }
+  subject { described_class.new(product_data_feed, spree_product) }
 
   before { authenticate_with_shopify }
 
