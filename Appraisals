@@ -1,8 +1,16 @@
 # rubocop:disable Style/FileName
 appraise 'spree-3-2' do
-  gem 'spree', '~> 3.2.0.rc1'
-  gem 'spree_auth_devise', '~> 3.2.0.beta'
+  gem 'spree', '~> 3.2.0'
+  gem 'spree_auth_devise', '~> 3.3'
   gem 'activesupport', '~> 5.0.0'
+  gem 'activeresource', github: 'rails/activeresource'
+  gem 'rails-controller-testing'
+  gem 'curb'
+end
+
+appraise 'spree-3-3' do
+  gem 'spree', '~> 3.3.0'
+  gem 'spree_auth_devise', '~> 3.3'
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
