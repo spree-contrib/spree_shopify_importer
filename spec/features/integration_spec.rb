@@ -26,6 +26,11 @@ RSpec.feature 'end to end import' do
     expect(Spree::ShippingRate.count).to eq 3
     expect(Spree::InventoryUnit.count).to eq 8
     expect(Spree::Address.count).to eq 5
+    expect(Spree::ReturnAuthorization.count).to eq 1
+    expect(Spree::ReturnItem.count).to eq 1
+    expect(Spree::CustomerReturn.count).to eq 1
+    expect(Spree::Reimbursement.count).to eq 1
+    expect(Spree::Refund.count).to eq 1
   end
 
   it 'multiple imports successfully', vcr: { cassette_name: 'multiple_integration' } do
@@ -57,5 +62,10 @@ RSpec.feature 'end to end import' do
     expect(Spree::ShippingRate.count).to eq 3
     expect(Spree::InventoryUnit.count).to eq 8
     expect(Spree::Address.count).to eq 5
+    expect(Spree::ReturnAuthorization.count).to eq 1
+    expect(Spree::ReturnItem.count).to eq 1
+    expect(Spree::CustomerReturn.count).to eq 1
+    expect(Spree::Reimbursement.count).to eq 1
+    expect(Spree::Refund.count).to eq 1
   end
 end

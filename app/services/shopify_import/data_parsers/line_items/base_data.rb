@@ -35,7 +35,6 @@ module ShopifyImport
                                     shopify_object_id: variant_id).try(:spree_object)
         end
 
-        # TODO: rescue API limit
         def handle_missing_variant_exception
           product_id = @shopify_line_item.product_id
           shopify_product = ShopifyAPI::Product.find(product_id)

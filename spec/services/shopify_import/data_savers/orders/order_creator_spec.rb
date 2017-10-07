@@ -216,6 +216,33 @@ RSpec.describe ShopifyImport::DataSavers::Orders::OrderCreator, type: :service d
             expect(spree_order.bill_address.reload).to be_present
           end
         end
+
+        context 'with refunds', vcr: { cassette_name: 'shopify/order_with_refund' } do
+          it 'creates return authorization' do
+            expect { subject.save! }.to change(Spree::ReturnAuthorization, :count).by(1)
+          end
+
+          it 'creates customer returns' do
+            expect { subject.save! }.to change(Spree::CustomerReturn, :count).by(1)
+          end
+
+          it 'creates return items' do
+            expect { subject.save! }.to change(Spree::ReturnItem, :count).by(1)
+          end
+
+          it 'creates reimbursements' do
+            expect { subject.save! }.to change(Spree::Reimbursement, :count).by(1)
+          end
+
+          it 'creates refunds' do
+            expect { subject.save! }.to change(Spree::Refund, :count).by(1)
+          end
+
+          it 'changes payment total' do
+            subject.save!
+            expect(spree_order.payment_total).to eq 320
+          end
+        end
       end
     end
 

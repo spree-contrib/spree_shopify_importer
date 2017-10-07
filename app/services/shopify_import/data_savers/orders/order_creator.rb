@@ -16,15 +16,15 @@ module ShopifyImport
             create_spree_taxes
             create_spree_promotions
             create_spree_addresses
-            # TODO: refunds
+            create_spree_refunds
           end
           @spree_order.update_columns(timestamps)
         end
+
         # rubocop:enable Metrics/MethodLength
 
         private
 
-        # TODO: create user if missing
         def create_spree_order
           order = Spree::Order.new(user: user)
           order.assign_attributes(attributes)
@@ -135,8 +135,73 @@ module ShopifyImport
           @spree_order.save!(validate: false)
         end
 
+        def create_spree_refunds
+          shopify_order.refunds.each do |shopify_refund|
+            if shopify_refund.refund_line_items.blank?
+              refund_creator_class.new(shopify_refund).create
+            else
+              full_spree_refund_import(shopify_refund)
+            end
+          end
+          recalculate_totals
+        end
+
+        def refund_creator_class
+          ShopifyImport::DataSavers::Refunds::RefundsCreator
+        end
+
+        def full_spree_refund_import(shopify_refund)
+          authorization = create_return_authorization(shopify_refund)
+          return_items = create_return_items(shopify_refund, authorization)
+          customer_return = create_customer_return(shopify_refund, return_items)
+          reimbursement = create_reimbursement(shopify_refund, customer_return)
+
+          refund_creator_class.new(shopify_refund, reimbursement).create
+        end
+
+        def create_return_authorization(shopify_refund)
+          ShopifyImport::Importers::ReturnAuthorizationImporter.new(shopify_refund,
+                                                                    @shopify_data_feed,
+                                                                    @spree_order).import!
+        end
+
+        def create_return_items(shopify_refund, authorization)
+          return_items = []
+          shopify_refund.refund_line_items.each do |shopify_refund_line_item|
+            return_items << ShopifyImport::DataSavers::ReturnItems::ReturnItemsCreator.new(shopify_refund_line_item,
+                                                                                           shopify_refund,
+                                                                                           authorization,
+                                                                                           @spree_order).create
+          end
+          return_items.flatten
+        end
+
+        def create_customer_return(shopify_refund, return_items)
+          ShopifyImport::DataSavers::CustomerReturns::CustomerReturnCreator.new(shopify_refund, return_items).create
+        end
+
+        def create_reimbursement(shopify_refund, customer_return)
+          ShopifyImport::DataSavers::Reimbursements::ReimbursementCreator.new(shopify_refund,
+                                                                              customer_return,
+                                                                              @spree_order).create
+        end
+
         def address_creator
           ShopifyImport::DataSavers::Addresses::AddressCreator
+        end
+
+        def recalculate_totals
+          @spree_order.update_column(:payment_total, (attributes[:payment_total].to_d - refund_amount))
+        end
+
+        def refund_amount
+          refund_transactions = shopify_order.transactions.select do |t|
+            t.kind.eql?('refund') && t.status == 'success'
+          end
+
+          refund_transactions.sum do |t|
+            t.amount.to_d
+          end
         end
 
         def billing_address
