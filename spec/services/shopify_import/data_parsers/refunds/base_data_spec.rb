@@ -40,8 +40,8 @@ describe ShopifyImport::DataParsers::Refunds::BaseData, type: :service do
   describe '#timestamps' do
     let(:result) do
       {
-        created_at: shopify_refund.created_at,
-        updated_at: shopify_refund.processed_at
+        created_at: shopify_refund.created_at.to_datetime,
+        updated_at: shopify_refund.processed_at.to_datetime
       }
     end
 

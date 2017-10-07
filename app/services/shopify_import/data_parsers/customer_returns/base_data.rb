@@ -18,8 +18,8 @@ module ShopifyImport
 
         def timestamps
           @timestamps ||= {
-            created_at: @shopify_refund.created_at,
-            updated_at: @shopify_refund.processed_at
+            created_at: @shopify_refund.created_at.to_datetime,
+            updated_at: @shopify_refund.processed_at.try(:to_datetime)
           }
         end
 
