@@ -143,6 +143,7 @@ module ShopifyImport
               full_spree_refund_import(shopify_refund)
             end
           end
+          recalculate_totals
         end
 
         def refund_creator_class
@@ -187,6 +188,20 @@ module ShopifyImport
 
         def address_creator
           ShopifyImport::DataSavers::Addresses::AddressCreator
+        end
+
+        def recalculate_totals
+          @spree_order.update_column(:payment_total, (attributes[:payment_total].to_d - refund_amount))
+        end
+
+        def refund_amount
+          refund_transactions = shopify_order.transactions.select do |t|
+            t.kind.eql?('refund') && t.status == 'success'
+          end
+
+          refund_transactions.sum do |t|
+            t.amount.to_d
+          end
         end
 
         def billing_address

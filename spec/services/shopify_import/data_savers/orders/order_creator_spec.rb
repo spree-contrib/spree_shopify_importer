@@ -237,6 +237,11 @@ RSpec.describe ShopifyImport::DataSavers::Orders::OrderCreator, type: :service d
           it 'creates refunds' do
             expect { subject.save! }.to change(Spree::Refund, :count).by(1)
           end
+
+          it 'changes payment total' do
+            subject.save!
+            expect(spree_order.payment_total).to eq 320
+          end
         end
       end
     end

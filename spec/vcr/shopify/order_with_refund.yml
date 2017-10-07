@@ -603,4 +603,128 @@ http_interactions:
         X2NvZGUiOm51bGwsInNvdXJjZV9uYW1lIjoid2ViIn1dfQ==
     http_version: 
   recorded_at: Sat, 07 Oct 2017 13:05:10 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/transactions.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 07 Oct 2017 18:57:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      Strict-Transport-Security:
+      - max-age=7776000
+      X-Request-Id:
+      - 20c720d7-21a7-42eb-ab58-e7b741f2ac12
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=20c720d7-21a7-42eb-ab58-e7b741f2ac12'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ftransactions&source%5Bsection%5D=admin_api&source%5Buuid%5D=20c720d7-21a7-42eb-ab58-e7b741f2ac12
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0cmFuc2FjdGlvbnMiOlt7ImlkIjo1NzMyODIwMTAwLCJvcmRlcl9pZCI6
+        NTE4MjQzNzEyNCwiYW1vdW50IjoiNDcwLjAwIiwia2luZCI6ImF1dGhvcml6
+        YXRpb24iLCJnYXRld2F5IjoiYm9ndXMiLCJzdGF0dXMiOiJzdWNjZXNzIiwi
+        bWVzc2FnZSI6IkJvZ3VzIEdhdGV3YXk6IEZvcmNlZCBzdWNjZXNzIiwiY3Jl
+        YXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTI6MjgrMDI6MDAiLCJ0ZXN0Ijp0
+        cnVlLCJhdXRob3JpemF0aW9uIjoiNTM0MzMiLCJjdXJyZW5jeSI6IkVVUiIs
+        ImxvY2F0aW9uX2lkIjpudWxsLCJ1c2VyX2lkIjpudWxsLCJwYXJlbnRfaWQi
+        Om51bGwsImRldmljZV9pZCI6bnVsbCwicmVjZWlwdCI6eyJhdXRob3JpemVk
+        X2Ftb3VudCI6IjQ3MC4wMCJ9LCJlcnJvcl9jb2RlIjpudWxsLCJzb3VyY2Vf
+        bmFtZSI6IndlYiIsInBheW1lbnRfZGV0YWlscyI6eyJjcmVkaXRfY2FyZF9i
+        aW4iOiIxIiwiYXZzX3Jlc3VsdF9jb2RlIjpudWxsLCJjdnZfcmVzdWx0X2Nv
+        ZGUiOm51bGwsImNyZWRpdF9jYXJkX251bWJlciI6IuKAouKAouKAouKAoiDi
+        gKLigKLigKLigKIg4oCi4oCi4oCi4oCiIDEiLCJjcmVkaXRfY2FyZF9jb21w
+        YW55IjoiQm9ndXMifX0seyJpZCI6NTczMjgyMjc4OCwib3JkZXJfaWQiOjUx
+        ODI0MzcxMjQsImFtb3VudCI6IjQ3MC4wMCIsImtpbmQiOiJjYXB0dXJlIiwi
+        Z2F0ZXdheSI6ImJvZ3VzIiwic3RhdHVzIjoic3VjY2VzcyIsIm1lc3NhZ2Ui
+        OiJCb2d1cyBHYXRld2F5OiBGb3JjZWQgc3VjY2VzcyIsImNyZWF0ZWRfYXQi
+        OiIyMDE3LTA2LTE1VDE3OjUzOjI2KzAyOjAwIiwidGVzdCI6dHJ1ZSwiYXV0
+        aG9yaXphdGlvbiI6bnVsbCwiY3VycmVuY3kiOiJFVVIiLCJsb2NhdGlvbl9p
+        ZCI6bnVsbCwidXNlcl9pZCI6bnVsbCwicGFyZW50X2lkIjo1NzMyODIwMTAw
+        LCJkZXZpY2VfaWQiOm51bGwsInJlY2VpcHQiOnsicGFpZF9hbW91bnQiOiI0
+        NzAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIi
+        fSx7ImlkIjo3MjMzMDQwMDY4LCJvcmRlcl9pZCI6NTE4MjQzNzEyNCwiYW1v
+        dW50IjoiMTUwLjAwIiwia2luZCI6InJlZnVuZCIsImdhdGV3YXkiOiJib2d1
+        cyIsInN0YXR1cyI6InN1Y2Nlc3MiLCJtZXNzYWdlIjoiQm9ndXMgR2F0ZXdh
+        eTogRm9yY2VkIHN1Y2Nlc3MiLCJjcmVhdGVkX2F0IjoiMjAxNy0xMC0wN1Qx
+        Mzo1OTozMSswMjowMCIsInRlc3QiOnRydWUsImF1dGhvcml6YXRpb24iOm51
+        bGwsImN1cnJlbmN5IjoiRVVSIiwibG9jYXRpb25faWQiOm51bGwsInVzZXJf
+        aWQiOm51bGwsInBhcmVudF9pZCI6NTczMjgyMjc4OCwiZGV2aWNlX2lkIjpu
+        dWxsLCJyZWNlaXB0Ijp7InBhaWRfYW1vdW50IjoiMTUwLjAwIn0sImVycm9y
+        X2NvZGUiOm51bGwsInNvdXJjZV9uYW1lIjoid2ViIn1dfQ==
+    http_version: 
+  recorded_at: Sat, 07 Oct 2017 18:57:19 GMT
 recorded_with: VCR 3.0.3
