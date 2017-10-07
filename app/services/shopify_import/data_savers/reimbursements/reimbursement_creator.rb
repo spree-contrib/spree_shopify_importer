@@ -12,7 +12,7 @@ module ShopifyImport
 
         def create
           Spree::Reimbursement.transaction do
-            @spree_reimbursement = Spree::Reimbursement.new(number: number)
+            @spree_reimbursement = Spree::Reimbursement.first_or_initialize(number: number)
             update_spree_reimbursement
           end
           assign_return_items

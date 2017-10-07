@@ -11,7 +11,7 @@ module ShopifyImport
 
         def create
           Spree::ReturnAuthorization.transaction do
-            @spree_return_authorization = @spree_order.return_authorizations.new(number: number)
+            @spree_return_authorization = @spree_order.return_authorizations.first_or_initialize(number: number)
             update_attributes
             assign_spree_order_to_data_feed
           end

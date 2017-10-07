@@ -1,8 +1,9 @@
+# Create additional importer and updater
 module ShopifyImport
   module DataSavers
     module Refunds
       class RefundCreator < BaseDataSaver
-        delegate :attributes, :timestamps, to: :parser
+        delegate :attributes, :timestamps, :transaction_id, to: :parser
 
         def initialize(shopify_refund, shopify_transaction, spree_reimbursement = nil)
           @shopify_refund = shopify_refund
@@ -27,7 +28,7 @@ module ShopifyImport
 
         def create_refund
           Spree::Refund.transaction do
-            @spree_refund = Spree::Refund.new
+            @spree_refund = Spree::Refund.first_or_initialize(transaction_id: transaction_id)
             update_spree_refund
           end
         end
