@@ -1,0 +1,102 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/orders/5182437124/refunds/225207300.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/4.9.0 ActiveResource/5.0.0 Ruby/2.3.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 07 Oct 2017 14:11:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Sorting-Hat-Podid:
+      - '3'
+      X-Sorting-Hat-Podid-Cached:
+      - '0'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      X-Sorting-Hat-Section:
+      - pod
+      X-Sorting-Hat-Shopid-Cached:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '3'
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Stats-Userid:
+      - '0'
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      Strict-Transport-Security:
+      - max-age=7776000
+      X-Request-Id:
+      - a3196e83-636f-4349-a605-cff8934833bc
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; script-src https://cdn.shopify.com
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://maps.googleapis.com
+        https://stats.g.doubleclick.net https://www.google-analytics.com https://visitors.shopify.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Frefunds&source%5Bsection%5D=admin_api&source%5Buuid%5D=a3196e83-636f-4349-a605-cff8934833bc'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Frefunds&source%5Bsection%5D=admin_api&source%5Buuid%5D=a3196e83-636f-4349-a605-cff8934833bc
+      P3p:
+      - CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+      X-Dc:
+      - ash
+    body:
+      encoding: ASCII-8BIT
+      string: '{"refund":{"id":225207300,"order_id":5182437124,"created_at":"2017-10-07T13:59:31+02:00","note":"Broken","restock":null,"user_id":119976004,"processed_at":"2017-10-07T13:59:31+02:00","refund_line_items":[{"id":184858436,"quantity":1,"line_item_id":10069290756,"subtotal":150.0,"total_tax":0.0,"line_item":{"id":10069290756,"variant_id":41733347588,"title":"No
+        variants","quantity":3,"price":"150.00","grams":0,"sku":"","variant_title":"","vendor":"Spree
+        Shopify Importer Test Store","fulfillment_service":"manual","product_id":11055169028,"requires_shipping":true,"taxable":true,"gift_card":false,"name":"No
+        variants","variant_inventory_management":null,"properties":[],"product_exists":true,"fulfillable_quantity":0,"total_discount":"0.00","fulfillment_status":"fulfilled","tax_lines":[],"origin_location":{"id":3132499076,"country_code":"HR","province_code":"","name":"Spree
+        Shopify Importer Test Store","address1":"Osjecka 58","address2":"","city":"Split","zip":"21000"},"destination_location":{"id":3132500420,"country_code":"PL","province_code":"","name":"Peter
+        Pan","address1":"Some Street","address2":"5","city":"Warszawa","zip":"02-777"}}}],"transactions":[{"id":7233040068,"order_id":5182437124,"amount":"150.00","kind":"refund","gateway":"bogus","status":"success","message":"Bogus
+        Gateway: Forced success","created_at":"2017-10-07T13:59:31+02:00","test":true,"authorization":null,"currency":"EUR","location_id":null,"user_id":null,"parent_id":5732822788,"device_id":null,"receipt":{"paid_amount":"150.00"},"error_code":null,"source_name":"web"}],"order_adjustments":[]}}'
+    http_version: 
+  recorded_at: Sat, 07 Oct 2017 14:11:50 GMT
+recorded_with: VCR 3.0.3
