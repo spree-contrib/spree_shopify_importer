@@ -25,12 +25,16 @@ module ShopifyImport
           }
         end
 
-        private
-
         def payment
-          Shopify::DataFeed.find_by(shopify_object_id: @shopify_transaction.parent_id,
-                                    shopify_object_type: 'ShopifyAPI::Transaction').try(:spree_object)
+          @payment ||= Shopify::DataFeed.find_by(shopify_object_id: @shopify_transaction.parent_id,
+                                                 shopify_object_type: 'ShopifyAPI::Transaction').try(:spree_object)
         end
+
+        def transaction_id
+          @transaction_id ||= @shopify_transaction.authorization
+        end
+
+        private
 
         def reason
           Spree::RefundReason.create_with(active: false).find_or_create_by(name: I18n.t(:shopify))

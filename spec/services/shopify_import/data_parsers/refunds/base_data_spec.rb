@@ -31,6 +31,12 @@ describe ShopifyImport::DataParsers::Refunds::BaseData, type: :service do
     end
   end
 
+  describe '#transaction_id' do
+    it 'returns hash of refund attributes' do
+      expect(subject.transaction_id).to eq shopify_transaction.authorization
+    end
+  end
+
   describe '#timestamps' do
     let(:result) do
       {
