@@ -5,6 +5,7 @@ module ShopifyImport
 
   class Client
     include Singleton
+    attr_reader :connection
 
     # Authenticates to Shopify as either a Shopify app with oauth token or a private app
     # This method can raise various ActiveResource errors:
@@ -25,10 +26,10 @@ module ShopifyImport
     # ActiveResource::MethodNotAllowed < ClientError
     def get_connection(api_key: nil, password: nil, shop_domain: nil, token: nil)
       if api_key.present? && password.present?
-        ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
+        @connection = ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
       elsif token.present?
         session = ShopifyAPI::Session.new(shop_domain, token)
-        ShopifyAPI::Base.activate_session(session)
+        @connection = ShopifyAPI::Base.activate_session(session)
       else
         raise ShopifyImport::ClientError, I18n.t('shopify_import.client.missing_credentials')
       end

@@ -26,13 +26,18 @@ module ShopifyImport
     private
 
     def connect
+      set_current_credentials
       ShopifyImport::Client.instance.get_connection(@credentials)
     end
 
-    # TODO: custom params for importers
+    def set_current_credentials
+      Spree::Config[:shopify_current_credentials] = @credentials
+    end
+
+    # TODO: custom params for fetchers
     def initiate_import!
-      ROOT_FETCHERS.each do |importer|
-        importer.new.import!
+      ROOT_FETCHERS.each do |fetchers|
+        fetchers.new.import!
       end
     end
   end

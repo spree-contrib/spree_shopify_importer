@@ -30,6 +30,12 @@ RSpec.describe ShopifyImport::Invoker do
 
         ShopifyImport::Invoker.new(credentials: credentials).import!
       end
+
+      it 'sets current credentials' do
+        ShopifyImport::Invoker.new(credentials: credentials).import!
+
+        expect(Spree::Config[:shopify_current_credentials]).to eq credentials
+      end
     end
 
     context 'with config credentials' do

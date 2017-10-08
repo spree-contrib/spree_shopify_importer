@@ -3,6 +3,7 @@ module ShopifyImport
     class BaseImporter
       def initialize(resource = nil)
         @resource = resource
+        connect
       end
 
       def import!
@@ -47,6 +48,16 @@ module ShopifyImport
 
       def shopify_class
         raise NotImplementedError, I18n.t('errors.not_implemented.shopify_class')
+      end
+
+      def connect
+        client = ShopifyImport::Client.instance
+
+        client.get_connection(credentials) if credentials.present? && client.connection.blank?
+      end
+
+      def credentials
+        Spree::Config[:shopify_current_credentials]
       end
     end
   end
