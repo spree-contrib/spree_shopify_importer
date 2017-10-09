@@ -6,6 +6,7 @@ module ShopifyImport
         @parent_feed = parent_feed
         @spree_product = spree_product
         @shopify_image = shopify_image
+        connect
       end
 
       def import!
