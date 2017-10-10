@@ -26,6 +26,7 @@ describe ShopifyImport::DataSavers::Products::ProductCreator, type: :service do
 
       context 'product attributes' do
         let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
+        let(:shipping_category) { Spree::ShippingCategory.find_by!(name: I18n.t(:shopify)) }
 
         before { subject.create! }
 
@@ -47,7 +48,9 @@ describe ShopifyImport::DataSavers::Products::ProductCreator, type: :service do
 
         it 'price'
 
-        it 'shipping_category'
+        it 'shipping_category' do
+          expect(spree_product.shipping_category).to eq shipping_category
+        end
       end
 
       context 'product tags' do
