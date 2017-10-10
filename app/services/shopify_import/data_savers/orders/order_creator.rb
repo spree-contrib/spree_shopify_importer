@@ -168,6 +168,8 @@ module ShopifyImport
         def create_return_items(shopify_refund, authorization)
           return_items = []
           shopify_refund.refund_line_items.each do |shopify_refund_line_item|
+            next if shopify_refund_line_item.line_item.variant_id.blank?
+
             return_items << ShopifyImport::DataSavers::ReturnItems::ReturnItemsCreator.new(shopify_refund_line_item,
                                                                                            shopify_refund,
                                                                                            authorization,
