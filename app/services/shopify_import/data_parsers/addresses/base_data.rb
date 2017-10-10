@@ -26,19 +26,39 @@ module ShopifyImport
         private
 
         def country
-          @country ||= Spree::Country.find_or_create_by!(iso: @shopify_address.country_code) do |country|
-            country.name = @shopify_address.try(:country_name) || @shopify_address.try(:country)
-            country.iso_name = country.name.upcase
-          end
+          @country ||= find_country || create_country
         end
 
-        # TODO: find state
+        def find_country
+          Spree::Country.find_by(iso: iso) || Spree::Country.find_by(name: country_name)
+        end
+
+        def create_country
+          Spree::Country.create!(iso: iso,
+                                 name: country_name,
+                                 iso_name: country_name.upcase)
+        end
+
+        def iso
+          @iso ||= @shopify_address.country_code
+        end
+
+        def country_name
+          @country_name ||= @shopify_address.try(:country_name) || @shopify_address.try(:country)
+        end
+
         def state
           return if (abbr = @shopify_address.province_code).blank?
 
-          @state ||= country.states.find_or_create_by!(abbr: abbr) do |state|
-            state.name = @shopify_address.province
-          end
+          @state ||= find_state(abbr) || create_state(abbr)
+        end
+
+        def find_state(abbr)
+          country.states.find_by(abbr: abbr) || country.states.find_by(name: @shopify_address.province)
+        end
+
+        def create_state(abbr)
+          country.states.create!(abbr: abbr, name: @shopify_address.province)
         end
       end
     end
