@@ -41,7 +41,9 @@ describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
           expect(spree_product.created_at).to eq shopify_product.created_at
         end
 
-        it 'price'
+        it 'price' do
+          expect(spree_product.price).to eq shopify_product.variants.first.price.to_d
+        end
 
         it 'shipping_category' do
           expect(spree_product.shipping_category).to eq shipping_category
