@@ -21,6 +21,8 @@ describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
       end
 
       context 'product attributes' do
+        let(:shipping_category) { Spree::ShippingCategory.find_by!(name: I18n.t(:shopify)) }
+
         before { subject.update! }
 
         it 'description' do
@@ -39,9 +41,13 @@ describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
           expect(spree_product.created_at).to eq shopify_product.created_at
         end
 
-        it 'price'
+        it 'price' do
+          expect(spree_product.price).to eq shopify_product.variants.first.price.to_d
+        end
 
-        it 'shipping_category'
+        it 'shipping_category' do
+          expect(spree_product.shipping_category).to eq shipping_category
+        end
       end
 
       context 'product tags' do

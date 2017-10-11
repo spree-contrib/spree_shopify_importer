@@ -13,6 +13,7 @@ FactoryGirl.define do
     created_at '2011-10-20T14:05:13-04:00'
     updated_at '2011-10-20T14:05:13-04:00'
     published_at '2011-10-20T14:05:13-04:00'
+    variants []
     images []
 
     transient do
