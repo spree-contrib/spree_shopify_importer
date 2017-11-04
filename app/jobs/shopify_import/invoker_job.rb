@@ -1,5 +1,5 @@
 module ShopifyImport
-  class InvokerJob < ::ApplicationJob
+  class InvokerJob < ::ShopifyImportJob
     def perform(credentials: nil)
       ShopifyImport::Invoker.new(credentials: credentials).import!
     end
