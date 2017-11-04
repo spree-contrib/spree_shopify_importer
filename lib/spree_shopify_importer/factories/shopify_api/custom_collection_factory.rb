@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_custom_collection, class: ShopifyAPI::CustomCollection do
     skip_create
     sequence(:id) { |n| n }

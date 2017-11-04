@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_variant, class: ShopifyAPI::Variant do
     skip_create
     sequence(:id) { |n| 219_898_982 + n }

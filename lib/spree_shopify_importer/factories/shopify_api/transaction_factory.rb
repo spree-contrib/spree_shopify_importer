@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_transaction, class: ShopifyAPI::Transaction do
     skip_create
     sequence(:id) { |n| n }

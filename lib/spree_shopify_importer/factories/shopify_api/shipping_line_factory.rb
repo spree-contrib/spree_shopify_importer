@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_shipping_line, class: ShopifyAPI::ShippingLine do
     skip_create
     sequence(:id) { |n| n }

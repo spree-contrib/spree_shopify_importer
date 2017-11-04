@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_tax_line, class: ShopifyAPI::TaxLine do
     skip_create
     title 'VAT'

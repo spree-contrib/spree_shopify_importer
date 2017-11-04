@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_image, class: ShopifyAPI::Image do
     skip_create
 

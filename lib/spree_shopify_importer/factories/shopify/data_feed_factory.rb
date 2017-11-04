@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_data_feed, class: Shopify::DataFeed do
     sequence(:shopify_object_id)
     shopify_object_type 'ShopifyAPI::Product'

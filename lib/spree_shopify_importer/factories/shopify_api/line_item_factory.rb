@@ -1,5 +1,4 @@
-
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_line_item, class: ShopifyAPI::LineItem do
     skip_create
 
