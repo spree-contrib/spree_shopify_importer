@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_refund, class: ShopifyAPI::Refund do
     skip_create
     sequence(:id) { |n| n }

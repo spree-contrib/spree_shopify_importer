@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_discount_code, class: ShopifyAPI::DiscountCode do
     skip_create
     sequence(:id) { |n| n }

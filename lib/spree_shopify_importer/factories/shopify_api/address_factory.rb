@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_address, class: ShopifyAPI::Address do
     skip_create
     id 1

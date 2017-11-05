@@ -52,3 +52,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/SymbolArray:
   Enabled: false
+Style/DateTime:
+  Enabled: false

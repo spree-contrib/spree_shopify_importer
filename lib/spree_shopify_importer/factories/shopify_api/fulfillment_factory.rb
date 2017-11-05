@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shopify_fulfillment, class: ShopifyAPI::Fulfillment do
     skip_create
 
