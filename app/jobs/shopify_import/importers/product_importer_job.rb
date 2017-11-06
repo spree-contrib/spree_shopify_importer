@@ -1,6 +1,6 @@
 module ShopifyImport
   module Importers
-    class ProductImporterJob < ::ApplicationJob
+    class ProductImporterJob < ::ShopifyImportJob
       def perform(resource)
         ProductImporter.new(resource).import!
       end
