@@ -5,13 +5,22 @@
 SpreeShopifyImporter
 ====================
 
-Introduction goes here.
+The SpreeShopifyImporter gem allows users to easily import data from Shopify store to Spree application.
+It's compatible with Spree 3.2 and up.
+
+Behind-the-scenes, extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
+
+Currently, it's in version alpha. We welcome new pull requests!
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
   gem 'spree_shopify_importer', github: 'spark-solutions/spree_shopify_importer'
+  gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
+  gem 'spree_auth_devise', '~> 3.3'
+  gem 'curb'
+
   ```
 
 2. Install the gem using Bundler:
@@ -27,6 +36,10 @@ Introduction goes here.
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
+
+## Getting Started
+
+## Import Customizations
 
 ## Testing
 
