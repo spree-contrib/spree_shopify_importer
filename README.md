@@ -105,7 +105,24 @@ or
       }
     }
 ```
-## Import Customization
+## Import Model
+
+1. Shopify::DataFeed - this model contains copy of JSON imported from shopify and association to spree object.
+
+## Import Services
+
+Import services are divided into four main parts. Each of them could be customized.
+
+1. Data Fetchers are services which are fetching products, users, orders and collections from shopify.
+
+2. Importers are services which are saving shopify data feeds (as shadow copy of import), and 
+   starting create or update action for spree object.
+   
+3. Data Savers are services which are saving spree objects, each of them has parser method which can be 
+   override to change update/create attributes and associations.
+   
+4. Data Parsers are services which are changing shopify data to spree data.
+
 
 ## Testing
 
