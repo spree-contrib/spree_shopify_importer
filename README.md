@@ -39,7 +39,73 @@ Currently, it's in version alpha. We welcome new pull requests!
 
 ## Getting Started
 
-## Import Customizations
+We are recommending using sidekiq for background processing with this stack of gems
+
+```ruby
+gem 'sidekiq'
+gem 'sidekiq-limit_fetch'
+gem 'sidekiq-unique-jobs'
+```
+
+We also recommend having a limit **2** for import queue, due to API limit. Default queue name is **default** 
+but it can be change in Spree::AppConfiguration under shopify_import_queue key.
+
+### Default values
+   
+All default values are saved in Spree::AppConfiguration
+   
+- ShopifyAPI credentials - used for api authorization.
+  * shopify_api_key - nil
+  * shopify_password - nil
+  * shopify_shop_domain - nil
+  * shopify_token - nil
+- Import Rescue Limit - used for retrying API errors, for example API limit hit.
+  * shopify_rescue_limit - 5
+- Import Queue Name
+  * shopify_import_queue - 'default'
+  
+   
+### Import
+
+Currently, you need to have access to the console to start the import.
+
+1. To start import, in console run:
+
+With default values
+
+```ruby
+ ShopifyImport::InvokerJob.new.import!
+```
+
+or with credentials.
+
+```ruby
+ ShopifyImport::InvokerJob.new(credentials).import!
+```
+
+Where credentials could have two formats:
+
+```ruby
+    {
+      credentials: {
+        api_key: 'api_key', 
+        password: 'password',
+        shop_domain: 'shop_domain'
+      }
+    }
+```
+
+or 
+
+```ruby
+    {
+      credentials: {
+        token: 'token',
+        shop_domain: 'shop_domain'
+      }
+    }
+```
+## Import Customization
 
 ## Testing
 
