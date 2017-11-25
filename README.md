@@ -6,11 +6,11 @@ SpreeShopifyImporter
 ====================
 
 The SpreeShopifyImporter gem allows users to easily import data from Shopify store to Spree application.
-It's compatible with Spree 3.2 and up.
+It's compatible with Spree 3.2 and above.
 
 Behind-the-scenes, extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
 
-Currently, it's in version alpha. We welcome new pull requests!
+Currently, it's in version 0.1.0. We welcome new pull requests!
 
 ## Installation
 
@@ -36,6 +36,8 @@ Currently, it's in version alpha. We welcome new pull requests!
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
+  
+5. Setup credentials and change default values if needed.
 
 ## Getting Started
 
@@ -48,7 +50,7 @@ gem 'sidekiq-unique-jobs'
 ```
 
 We also recommend having a limit **2** for import queue, due to API limit. Default queue name is **default** 
-but it can be change in Spree::AppConfiguration under shopify_import_queue key.
+but it can be change in **Spree::AppConfiguration** under *shopify_import_queue* key.
 
 ### Default values
    
@@ -145,4 +147,20 @@ require 'spree_shopify_importer/factories'
 
 We welcome new pull requests!
 
-Copyright (c) 2017 Spark Solutions, released under the New BSD License
+## License
+
+Spree Shopify Importer is copyright © 2015-2017
+[Spark Solutions Sp. z o.o.][spark]. It is free software,
+and may be redistributed under the terms specified in the
+[LICENSE](LICENSE.md) file.
+
+## About Spark Solutions
+[![Spark Solutions](http://sparksolutions.co/wp-content/uploads/2015/01/logo-ss-tr-221x100.png)][spark]
+
+Spree Shopify Importer is maintained and funded by [Spark Solutions Sp. z o.o.](http://sparksolutions.co?utm_source=github)
+The names and logos are trademarks of Spark Solutions Sp. z o.o.
+
+We are passionate about open source software.
+We are [available for hire][spark].
+
+[spark]:http://sparksolutions.co?utm_source=github
