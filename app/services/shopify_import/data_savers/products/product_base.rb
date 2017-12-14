@@ -11,7 +11,7 @@ module ShopifyImport
         end
 
         def add_tags
-          @spree_product.tag_list.add(tags, parse: true)
+          @spree_product.tag_list = tags
           @spree_product.save!
         end
 
