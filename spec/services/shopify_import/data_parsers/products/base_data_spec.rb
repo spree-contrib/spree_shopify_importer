@@ -37,8 +37,8 @@ RSpec.describe ShopifyImport::DataParsers::Products::BaseData, type: :service do
     let(:shopify_product) { create(:shopify_product_multiple_variants, variants_count: 2, options_count: 2) }
     let(:option_types) do
       {
-        shopify_product.options.first.name.downcase => shopify_product.options.first.values.map(&:downcase),
-        shopify_product.options.last.name.downcase => shopify_product.options.last.values.map(&:downcase)
+        shopify_product.options.first.name => shopify_product.options.first.values,
+        shopify_product.options.last.name => shopify_product.options.last.values
       }
     end
 
