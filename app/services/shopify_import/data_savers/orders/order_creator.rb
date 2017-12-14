@@ -20,7 +20,6 @@ module ShopifyImport
           end
           @spree_order.update_columns(timestamps)
         end
-
         # rubocop:enable Metrics/MethodLength
 
         private
@@ -229,3 +228,4 @@ module ShopifyImport
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

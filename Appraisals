@@ -31,3 +31,4 @@ appraise 'spree-master' do
   gem 'rails-controller-testing'
   gem 'curb'
 end
+# rubocop:enable Style/FileName
