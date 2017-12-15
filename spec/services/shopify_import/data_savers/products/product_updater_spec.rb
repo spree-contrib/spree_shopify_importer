@@ -151,6 +151,20 @@ describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
           expect(spree_product.option_types.pluck(:name)).to match_array option_types_names
         end
 
+        context 'with case insensitive option values' do
+          let!(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+
+          it 'creates option types' do
+            expect { subject.update! }.to change(Spree::OptionType, :count).by(1)
+          end
+
+          it 'assigns option types to product' do
+            subject.update!
+
+            expect(spree_product.option_types).to include option_type1
+          end
+        end
+
         context 'option values' do
           let(:option_type1) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
           let(:option_type2) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
@@ -165,6 +179,19 @@ describe ShopifyImport::DataSavers::Products::ProductUpdater, type: :service do
             subject.update!
             expect(option_type1.option_values.pluck(:name)).to match_array option_type1_values
             expect(option_type2.option_values.pluck(:name)).to match_array option_type2_values
+          end
+
+          context 'with case insensitive' do
+            let!(:option_type2) { create(:option_type, name: shopify_product.options.first.name) }
+            let!(:option_type2_values) do
+              shopify_product.options.last.values.map do |value|
+                create(:option_value, option_type: option_type2, name: value)
+              end
+            end
+
+            it 'creates option values' do
+              expect { subject.update! }.to change(Spree::OptionValue, :count).by(3)
+            end
           end
         end
       end

@@ -24,7 +24,7 @@ module ShopifyImport
 
         def option_types
           @option_types ||= @shopify_product.options.map do |option|
-            { option.name.strip.downcase => option_values(option.values) }
+            { option.name.strip => option_values(option.values) }
           end.inject(:merge)
         end
 
@@ -35,9 +35,7 @@ module ShopifyImport
         end
 
         def option_values(values)
-          values.map do |value|
-            value.strip.downcase
-          end
+          values.map(&:strip)
         end
       end
     end
