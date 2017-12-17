@@ -1,4 +1,4 @@
-class CreateShopifyDataFeeds < ActiveRecord::Migration[5.0]
+class CreateShopifyDataFeeds < SpreeExtension::Migration[4.2]
   def change
     create_table :shopify_data_feeds do |t|
       t.integer :shopify_object_id, limit: 8, null: false
