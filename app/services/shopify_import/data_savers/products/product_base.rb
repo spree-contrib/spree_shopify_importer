@@ -23,10 +23,12 @@ module ShopifyImport
 
         def create_option_types
           option_types.map do |option_type, option_values|
-            spree_option_type = find_or_create_option_type(option_type)
+            Spree::OptionType.transaction do
+              spree_option_type = find_or_create_option_type(option_type)
 
-            create_option_values(spree_option_type, option_values)
-            spree_option_type.id
+              create_option_values(spree_option_type, option_values)
+              spree_option_type.id
+            end
           end
         end
 
@@ -40,12 +42,14 @@ module ShopifyImport
 
         def create_option_values(spree_option_type, option_values)
           option_values.each do |option_value|
-            option_value_name = option_value.downcase
+            Spree::OptionValue.transaction do
+              option_value_name = option_value.downcase
 
-            spree_option_type
-              .option_values
-              .where('lower(name) = ?', option_value_name)
-              .first_or_create!(name: option_value_name, presentation: option_value)
+              spree_option_type
+                .option_values
+                .where('lower(name) = ?', option_value_name)
+                .first_or_create!(name: option_value_name, presentation: option_value)
+            end
           end
         end
 
