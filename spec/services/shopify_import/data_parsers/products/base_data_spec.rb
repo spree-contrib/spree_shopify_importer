@@ -33,17 +33,11 @@ RSpec.describe ShopifyImport::DataParsers::Products::BaseData, type: :service do
     end
   end
 
-  describe '#option_types' do
+  describe '#options' do
     let(:shopify_product) { create(:shopify_product_multiple_variants, variants_count: 2, options_count: 2) }
-    let(:option_types) do
-      {
-        shopify_product.options.first.name => shopify_product.options.first.values,
-        shopify_product.options.last.name => shopify_product.options.last.values
-      }
-    end
 
-    it '#option_types' do
-      expect(subject.option_types).to eq option_types
+    it '#options' do
+      expect(subject.options).to eq shopify_product.options
     end
   end
 end

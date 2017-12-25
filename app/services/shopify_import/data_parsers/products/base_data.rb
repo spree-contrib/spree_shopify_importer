@@ -22,10 +22,8 @@ module ShopifyImport
           @tags ||= @shopify_product.tags
         end
 
-        def option_types
-          @option_types ||= @shopify_product.options.map do |option|
-            { option.name.strip => option_values(option.values) }
-          end.inject(:merge)
+        def options
+          @options ||= @shopify_product.options
         end
 
         private
