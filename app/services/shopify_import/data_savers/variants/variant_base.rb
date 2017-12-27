@@ -8,7 +8,7 @@ module ShopifyImport
         private
 
         def add_option_values
-          @spree_variant.assign_attributes(option_value_ids: parser.option_value_ids)
+          @spree_variant.assign_attributes(option_value_ids: option_value_ids)
         end
 
         def set_stock_data

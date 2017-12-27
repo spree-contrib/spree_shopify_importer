@@ -2,7 +2,7 @@ module ShopifyImport
   module DataSavers
     module Products
       class ProductBase < BaseDataSaver
-        delegate :attributes, :tags, :option_types, to: :parser
+        delegate :attributes, :tags, :options, to: :parser
 
         private
 
@@ -16,36 +16,17 @@ module ShopifyImport
         end
 
         def add_option_types
-          return if shopify_product.options.blank?
+          return if options.blank?
 
           @spree_product.update!(option_type_ids: create_option_types)
         end
 
         def create_option_types
-          option_types.map do |option_type, option_values|
-            spree_option_type = find_or_create_option_type(option_type)
-
-            create_option_values(spree_option_type, option_values)
-            spree_option_type.id
-          end
-        end
-
-        def find_or_create_option_type(option_type)
-          option_type_name = option_type.downcase
-
-          Spree::OptionType
-            .where('lower(name) = ?', option_type_name)
-            .first_or_create!(name: option_type_name, presentation: option_type)
-        end
-
-        def create_option_values(spree_option_type, option_values)
-          option_values.each do |option_value|
-            option_value_name = option_value.downcase
-
-            spree_option_type
-              .option_values
-              .where('lower(name) = ?', option_value_name)
-              .first_or_create!(name: option_value_name, presentation: option_value)
+          options.map do |option|
+            Spree::OptionType.transaction do
+              option_type = ShopifyImport::DataSavers::OptionTypes::OptionTypeCreator.new(option).create!
+              option_type.id
+            end
           end
         end
 
