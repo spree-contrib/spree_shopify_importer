@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rubocop'
   s.add_development_dependency 'guard-spring'
   s.add_development_dependency 'mysql2'
-  s.add_development_dependency 'pg'
+  s.add_development_dependency 'pg', '~> 0.18'
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rubocop-rspec'
