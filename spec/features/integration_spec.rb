@@ -5,7 +5,7 @@ RSpec.feature 'end to end import' do
 
   it 'imports successfully', vcr: { cassette_name: 'integration' } do
     perform_enqueued_jobs do
-      ShopifyImport::Invoker.new(
+      SpreeShopifyImporter::Invoker.new(
         credentials: {
           api_key: '0a9445b7b067719a0af024610364ee34', password: '800f97d6ea1a768048851cdd99a9101a',
           shop_domain: 'spree-shopify-importer-test-store.myshopify.com'
@@ -35,13 +35,13 @@ RSpec.feature 'end to end import' do
 
   it 'multiple imports successfully', vcr: { cassette_name: 'multiple_integration' } do
     perform_enqueued_jobs do
-      ShopifyImport::Invoker.new(
+      SpreeShopifyImporter::Invoker.new(
         credentials: {
           api_key: '0a9445b7b067719a0af024610364ee34', password: '800f97d6ea1a768048851cdd99a9101a',
           shop_domain: 'spree-shopify-importer-test-store.myshopify.com'
         }
       ).import!
-      ShopifyImport::Invoker.new(
+      SpreeShopifyImporter::Invoker.new(
         credentials: {
           api_key: '0a9445b7b067719a0af024610364ee34', password: '800f97d6ea1a768048851cdd99a9101a',
           shop_domain: 'spree-shopify-importer-test-store.myshopify.com'
