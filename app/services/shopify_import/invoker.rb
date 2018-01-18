@@ -27,7 +27,7 @@ module ShopifyImport
 
     def connect
       set_current_credentials
-      ShopifyImport::Client.instance.get_connection(@credentials)
+      ShopifyImport::Connections::Client.instance.get_connection(@credentials)
     end
 
     def set_current_credentials

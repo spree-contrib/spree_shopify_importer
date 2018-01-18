@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe ShopifyImport::Invoker do
   describe '#import!' do
     before do
-      allow(ShopifyImport::Client.instance).to receive(:get_connection)
+      allow(ShopifyImport::Connections::Client.instance).to receive(:get_connection)
       ShopifyImport::Invoker::ROOT_FETCHERS.each do |importer|
         allow_any_instance_of(importer).to receive(:import!)
       end
@@ -20,7 +20,7 @@ RSpec.describe ShopifyImport::Invoker do
       it 'gets the connection from the client' do
         ShopifyImport::Invoker.new(credentials: credentials).import!
 
-        expect(ShopifyImport::Client.instance).to have_received(:get_connection).with(credentials)
+        expect(ShopifyImport::Connections::Client.instance).to have_received(:get_connection).with(credentials)
       end
 
       it 'calls all the importers' do
@@ -48,7 +48,7 @@ RSpec.describe ShopifyImport::Invoker do
       it 'creates connection to Shopify API using preferences' do
         ShopifyImport::Invoker.new.import!
 
-        expect(ShopifyImport::Client.instance).to have_received(:get_connection).with(
+        expect(ShopifyImport::Connections::Client.instance).to have_received(:get_connection).with(
           api_key: Spree::Config[:shopify_api_key],
           password: Spree::Config[:shopify_password],
           shop_domain: Spree::Config[:shopify_shop_domain],

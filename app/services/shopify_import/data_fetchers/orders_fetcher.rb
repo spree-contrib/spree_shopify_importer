@@ -4,7 +4,7 @@ module ShopifyImport
       private
 
       def resources
-        ShopifyImport::Order.all(@params)
+        ShopifyImport::Connections::Order.all(@params)
       end
 
       def job

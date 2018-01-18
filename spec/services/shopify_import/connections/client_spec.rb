@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Client, type: :model do
+RSpec.describe ShopifyImport::Connections::Client, type: :model do
   describe '#get_connection' do
     let(:client) { described_class.instance }
 
@@ -85,7 +85,7 @@ RSpec.describe ShopifyImport::Client, type: :model do
         credentials = { shop_domain: 'spree-shopify-importer-test-store.myshopify.com' }
 
         expect { client.get_connection(credentials) }
-          .to raise_error(ShopifyImport::ClientError, I18n.t('shopify_import.client.missing_credentials'))
+          .to raise_error(ShopifyImport::Connections::ClientError, I18n.t('shopify_import.client.missing_credentials'))
       end
     end
   end

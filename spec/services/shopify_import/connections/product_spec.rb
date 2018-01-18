@@ -1,13 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Product, type: :module do
+RSpec.describe ShopifyImport::Connections::Product, type: :module do
   subject { described_class }
 
   before { authenticate_with_shopify }
-
-  it 'is inheriting from base' do
-    expect(described_class.superclass).to eq ShopifyImport::Base
-  end
 
   describe '.count', vcr: { cassette_name: 'shopify/product/count' } do
     let(:result) { { 'count' => 2 } }

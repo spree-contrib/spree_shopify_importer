@@ -1,16 +1,12 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::CustomCollection, type: :model do
+RSpec.describe ShopifyImport::Connections::CustomCollection, type: :model do
   subject { described_class }
   let(:credentials) do
     { api_key: 'api_key', password: 'password', shop_domain: 'shop_domain.myshopify.com' }.freeze
   end
 
   before { authenticate_with_shopify(credentials) }
-
-  it 'is inheriting from base' do
-    expect(described_class.superclass).to eq ShopifyImport::Base
-  end
 
   describe '.count', vcr: { cassette_name: 'shopify/custom_collection/count' } do
     let(:result) { { 'count' => 2 } }

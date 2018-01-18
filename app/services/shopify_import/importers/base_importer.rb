@@ -51,7 +51,7 @@ module ShopifyImport
       end
 
       def connect
-        client = ShopifyImport::Client.instance
+        client = ShopifyImport::Connections::Client.instance
 
         client.get_connection(credentials) if credentials.present? && client.connection.blank?
       end

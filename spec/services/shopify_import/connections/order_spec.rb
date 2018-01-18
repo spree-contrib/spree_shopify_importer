@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ShopifyImport::Order, type: :model do
+RSpec.describe ShopifyImport::Connections::Order, type: :model do
   subject { described_class }
 
   before { authenticate_with_shopify }
