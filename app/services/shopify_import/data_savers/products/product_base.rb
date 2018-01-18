@@ -23,10 +23,8 @@ module ShopifyImport
 
         def create_option_types
           options.map do |option|
-            Spree::OptionType.transaction do
-              option_type = ShopifyImport::DataSavers::OptionTypes::OptionTypeCreator.new(option).create!
-              option_type.id
-            end
+            option_type = ShopifyImport::DataSavers::OptionTypes::OptionTypeCreator.new(option).create!
+            option_type.id
           end
         end
 
