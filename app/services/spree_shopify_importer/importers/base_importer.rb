@@ -23,15 +23,16 @@ module SpreeShopifyImporter
       end
 
       def find_existing_data_feed
-        Shopify::DataFeed.find_by(shopify_object_id: shopify_object.id, shopify_object_type: shopify_object.class.to_s)
+        SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: shopify_object.id,
+                                               shopify_object_type: shopify_object.class.to_s)
       end
 
       def create_data_feed
-        Shopify::DataFeeds::Create.new(shopify_object).save!
+        SpreeShopifyImporter::DataFeeds::Create.new(shopify_object).save!
       end
 
       def update_data_feed(old_data_feed)
-        Shopify::DataFeeds::Update.new(old_data_feed, shopify_object).update!
+        SpreeShopifyImporter::DataFeeds::Update.new(old_data_feed, shopify_object).update!
       end
 
       def shopify_object

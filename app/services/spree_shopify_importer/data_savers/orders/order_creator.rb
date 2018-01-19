@@ -121,7 +121,7 @@ module SpreeShopifyImporter
           return if billing_address.blank?
 
           # HACK: shopify order address does not have id, so i'm not saving data feed.
-          address_data_feed = Shopify::DataFeed.new(data_feed: billing_address.to_json)
+          address_data_feed = SpreeShopifyImporter::DataFeed.new(data_feed: billing_address.to_json)
           @spree_order.bill_address = address_creator.new(address_data_feed, user, true).create!
           @spree_order.save!(validate: false)
         end
@@ -130,7 +130,7 @@ module SpreeShopifyImporter
           return if ship_address.blank?
 
           # HACK: shopify order address does not have id, so i'm not saving data feed.
-          address_data_feed = Shopify::DataFeed.new(data_feed: ship_address.to_json)
+          address_data_feed = SpreeShopifyImporter::DataFeed.new(data_feed: ship_address.to_json)
           @spree_order.ship_address = address_creator.new(address_data_feed, user, true).create!
           @spree_order.save!(validate: false)
         end

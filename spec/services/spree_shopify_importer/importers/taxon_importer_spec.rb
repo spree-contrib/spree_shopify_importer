@@ -10,7 +10,7 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
     let(:resource) { shopify_custom_collection.to_json }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree taxonomy' do
@@ -31,7 +31,7 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
       end
 
       it 'does not create shopify data feeds' do
-        expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+        expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
       it 'creates spree taxonomy' do
@@ -54,7 +54,7 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
         let(:spree_taxonomy) { create(:taxonomy, name: I18n.t('shopify_custom_collections')) }
 
         it 'does not create shopify data feeds' do
-          expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+          expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
         it 'does not create spree taxonomy' do

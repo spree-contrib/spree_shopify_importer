@@ -11,7 +11,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
     let(:spree_user) { create(:user) }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree address' do
@@ -27,7 +27,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
       end
 
       it 'does not create shopify data feeds' do
-        expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+        expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
       it 'creates spree address' do
@@ -44,7 +44,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
         end
 
         it 'does not create shopify data feeds' do
-          expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+          expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
         it 'does not create spree address' do

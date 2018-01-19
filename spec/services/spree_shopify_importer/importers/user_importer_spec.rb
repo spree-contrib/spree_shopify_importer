@@ -10,7 +10,7 @@ describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
     let(:resource) { shopify_customer.to_json }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree users' do
@@ -26,7 +26,7 @@ describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
       end
 
       it 'creates shopify data feeds' do
-        expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+        expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
       it 'creates spree users' do
@@ -42,7 +42,7 @@ describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
         end
 
         it 'creates shopify data feeds' do
-          expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+          expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
         it 'creates spree users' do

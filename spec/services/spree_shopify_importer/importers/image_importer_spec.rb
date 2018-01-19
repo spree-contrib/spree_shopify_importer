@@ -14,7 +14,7 @@ describe SpreeShopifyImporter::Importers::ImageImporter, type: :service do
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/importers/image_importer' } do
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree variant' do
@@ -30,7 +30,7 @@ describe SpreeShopifyImporter::Importers::ImageImporter, type: :service do
       end
 
       it 'does not create shopify data feeds' do
-        expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+        expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
       it 'creates spree image' do
@@ -46,7 +46,7 @@ describe SpreeShopifyImporter::Importers::ImageImporter, type: :service do
         end
 
         it 'does not create shopify data feeds' do
-          expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+          expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
         it 'does not create spree image' do

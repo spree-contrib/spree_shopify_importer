@@ -26,7 +26,7 @@ describe SpreeShopifyImporter::Importers::OrderImporter, type: :service do
     end
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(5)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(5)
     end
 
     it 'creates spree orders' do

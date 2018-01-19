@@ -11,8 +11,9 @@ module SpreeShopifyImporter
         def user
           return if (customer = @shopify_order.customer).blank?
 
-          @user ||= Shopify::DataFeed.find_by(shopify_object_id: customer.id,
-                                              shopify_object_type: 'ShopifyAPI::Customer').try(:spree_object)
+          @user ||= SpreeShopifyImporter::DataFeed
+                    .find_by(shopify_object_id: customer.id, shopify_object_type: 'ShopifyAPI::Customer')
+                    .try(:spree_object)
 
           return @user if @user.present?
 

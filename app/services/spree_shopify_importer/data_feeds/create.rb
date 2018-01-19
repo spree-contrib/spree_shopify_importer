@@ -1,4 +1,4 @@
-module Shopify
+module SpreeShopifyImporter
   module DataFeeds
     class Create
       attr_reader :shopify_object
@@ -9,7 +9,7 @@ module Shopify
       end
 
       def save!
-        Shopify::DataFeed.create!(
+        SpreeShopifyImporter::DataFeed.create!(
           shopify_object_id: shopify_object.id,
           shopify_object_type: shopify_type,
           data_feed: shopify_object.to_json,

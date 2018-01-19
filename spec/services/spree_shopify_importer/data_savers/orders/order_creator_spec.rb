@@ -150,8 +150,10 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
 
         context 'payments' do
           it 'creates shopify data feeds' do
+            payment_scope = { shopify_object_type: 'ShopifyAPI::Transaction' }
+
             expect { subject.save! }
-              .to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Transaction').reload.count }.by(1)
+              .to change { SpreeShopifyImporter::DataFeed.where(payment_scope).reload.count }.by(1)
           end
 
           it 'creates spree payments' do
@@ -161,8 +163,10 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
 
         context 'shipments' do
           it 'creates shopify data feeds' do
+            shipment_scope = { shopify_object_type: 'ShopifyAPI::Fulfillment' }
+
             expect { subject.save! }
-              .to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Fulfillment').reload.count }.by(2)
+              .to change { SpreeShopifyImporter::DataFeed.where(shipment_scope).reload.count }.by(2)
           end
 
           it 'creates spree payments' do

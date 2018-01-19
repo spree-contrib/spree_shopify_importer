@@ -13,7 +13,7 @@ describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service do
     let(:fulfillment) { shopify_order.fulfillments.first }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree shipment' do

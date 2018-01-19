@@ -15,7 +15,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
         perform_enqueued_jobs do
           subject.import!
         end
-      end.to change(Shopify::DataFeed, :count).by(3)
+      end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
     end
 
     it 'creates spree products' do
@@ -48,7 +48,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
             perform_enqueued_jobs do
               subject.import!
             end
-          end.to change(Shopify::DataFeed, :count).by(2)
+          end.to change(SpreeShopifyImporter::DataFeed, :count).by(2)
         end
 
         it 'creates spree products' do
@@ -81,7 +81,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
               perform_enqueued_jobs do
                 subject.import!
               end
-            end.to change(Shopify::DataFeed, :count).by(2)
+            end.to change(SpreeShopifyImporter::DataFeed, :count).by(2)
           end
 
           it 'does not create spree products' do

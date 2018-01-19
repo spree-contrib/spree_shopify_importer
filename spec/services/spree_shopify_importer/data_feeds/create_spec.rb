@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Shopify::DataFeeds::Create, type: :service do
+RSpec.describe SpreeShopifyImporter::DataFeeds::Create, type: :service do
   subject { described_class.new(shopify_object) }
 
   describe 'save!' do
@@ -8,7 +8,7 @@ RSpec.describe Shopify::DataFeeds::Create, type: :service do
       let!(:shopify_object) { create(:shopify_product) }
 
       it 'creates shopify data feed' do
-        expect { subject.save! }.to change(Shopify::DataFeed, :count).by(1)
+        expect { subject.save! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
       end
 
       context 'saves' do

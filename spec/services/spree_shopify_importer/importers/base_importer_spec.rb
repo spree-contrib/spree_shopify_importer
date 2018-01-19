@@ -5,7 +5,7 @@ RSpec.describe SpreeShopifyImporter::Importers::BaseImporter, type: :service do
     let(:data_feed) { double('DataFeed', spree_object: nil) }
 
     before do
-      allow_any_instance_of(Shopify::DataFeeds::Create).to receive(:save!).and_return(data_feed)
+      allow_any_instance_of(SpreeShopifyImporter::DataFeeds::Create).to receive(:save!).and_return(data_feed)
     end
 
     context 'shopify class' do

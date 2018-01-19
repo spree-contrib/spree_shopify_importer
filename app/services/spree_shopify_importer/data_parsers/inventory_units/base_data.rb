@@ -29,8 +29,8 @@ module SpreeShopifyImporter
         end
 
         def variant
-          @variant ||= Shopify::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
-                                                 shopify_object_id: shopify_variant_id).try(:spree_object)
+          @variant ||= SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
+                                                              shopify_object_id: shopify_variant_id).try(:spree_object)
         end
 
         def inventory_unit_state

@@ -31,8 +31,8 @@ module SpreeShopifyImporter
         private
 
         def find_variant(variant_id)
-          Shopify::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
-                                    shopify_object_id: variant_id).try(:spree_object)
+          SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
+                                                 shopify_object_id: variant_id).try(:spree_object)
         end
 
         def handle_missing_variant_exception

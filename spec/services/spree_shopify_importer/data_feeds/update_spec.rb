@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Shopify::DataFeeds::Update, type: :service do
+describe SpreeShopifyImporter::DataFeeds::Update, type: :service do
   subject { described_class.new(shopify_data_feed, shopify_object) }
 
   describe '#update!' do

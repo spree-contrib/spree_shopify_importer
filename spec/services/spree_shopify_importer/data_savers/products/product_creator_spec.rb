@@ -88,11 +88,13 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
         end
 
         it 'creates data feeds' do
+          variant_scope = { shopify_object_type: 'ShopifyAPI::Variant' }
+
           expect do
             perform_enqueued_jobs do
               subject.create!
             end
-          end.to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Variant').reload.count }.by(1)
+          end.to change { SpreeShopifyImporter::DataFeed.where(variant_scope).reload.count }.by(1)
         end
 
         context 'with variant image', vcr: { cassette_name: 'shopify/product_with_variant_image' } do
@@ -130,11 +132,13 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
         end
 
         it 'creates data feeds' do
+          image_scope = { shopify_object_type: 'ShopifyAPI::Image' }
+
           expect do
             perform_enqueued_jobs do
               subject.create!
             end
-          end.to change { Shopify::DataFeed.where(shopify_object_type: 'ShopifyAPI::Image').reload.count }.by(1)
+          end.to change { SpreeShopifyImporter::DataFeed.where(image_scope).reload.count }.by(1)
         end
       end
 

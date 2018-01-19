@@ -13,7 +13,7 @@ describe SpreeShopifyImporter::Importers::PaymentImporter, type: :service do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
 
     it 'creates shopify data feeds' do
-      expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+      expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
     it 'creates spree payment' do
@@ -29,7 +29,7 @@ describe SpreeShopifyImporter::Importers::PaymentImporter, type: :service do
       end
 
       it 'creates shopify data feeds' do
-        expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+        expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
       it 'creates spree payment' do

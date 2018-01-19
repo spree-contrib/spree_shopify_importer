@@ -12,7 +12,7 @@ describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :se
       let(:shopify_refund) { ShopifyAPI::Order.find(5_182_437_124).refunds.first }
 
       it 'creates shopify data feeds' do
-        expect { subject.import! }.to change(Shopify::DataFeed, :count).by(1)
+        expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
       end
 
       it 'creates spree return authorization' do
@@ -28,7 +28,7 @@ describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :se
         end
 
         it 'does not create shopify data feeds' do
-          expect { subject.import! }.not_to change(Shopify::DataFeed, :count)
+          expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
         it 'creates spree return authorization' do

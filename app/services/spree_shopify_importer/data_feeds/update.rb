@@ -1,4 +1,4 @@
-module Shopify
+module SpreeShopifyImporter
   module DataFeeds
     class Update
       attr_reader :shopify_object

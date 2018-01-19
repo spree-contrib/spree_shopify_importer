@@ -16,11 +16,11 @@ module SpreeShopifyImporter
       private
 
       def create_data_feed
-        Shopify::DataFeeds::Create.new(@shopify_refund, @parent_feed).save!
+        SpreeShopifyImporter::DataFeeds::Create.new(@shopify_refund, @parent_feed).save!
       end
 
       def update_data_feed(old_data_feed)
-        Shopify::DataFeeds::Update.new(old_data_feed, @shopify_refund, @parent_feed).update!
+        SpreeShopifyImporter::DataFeeds::Update.new(old_data_feed, @shopify_refund, @parent_feed).update!
       end
 
       def creator

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :shopify_data_feed, class: Shopify::DataFeed do
+  factory :shopify_data_feed, class: SpreeShopifyImporter::DataFeed do
     sequence(:shopify_object_id)
     shopify_object_type 'ShopifyAPI::Product'
     sequence(:spree_object_id)
