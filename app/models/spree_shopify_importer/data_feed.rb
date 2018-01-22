@@ -1,6 +1,6 @@
 module SpreeShopifyImporter
   class DataFeed < ApplicationRecord
-    self.table_name_prefix = :shopify_
+    self.table_name_prefix = :spree_shopify_importer_
 
     belongs_to :spree_object, polymorphic: true, required: false, inverse_of: false
     belongs_to :parent, class_name: 'SpreeShopifyImporter::DataFeed', required: false, inverse_of: :children
