@@ -24,8 +24,10 @@ RSpec.describe SpreeShopifyImporter::Invoker do
       end
 
       it 'calls all the importers' do
-        SpreeShopifyImporter::Invoker::ROOT_FETCHERS.each do |importer|
-          expect_any_instance_of(importer).to receive(:import!)
+        aggregate_failures 'testing each importer' do
+          SpreeShopifyImporter::Invoker::ROOT_FETCHERS.each do |importer|
+            expect_any_instance_of(importer).to receive(:import!)
+          end
         end
 
         SpreeShopifyImporter::Invoker.new(credentials: credentials).import!
