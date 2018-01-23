@@ -10,14 +10,10 @@ module SpreeShopifyImporter
 
         def user
           return if (customer = @shopify_order.customer).blank?
-
-          @user ||= SpreeShopifyImporter::DataFeed
-                    .find_by(shopify_object_id: customer.id, shopify_object_type: 'ShopifyAPI::Customer')
-                    .try(:spree_object)
-
           return @user if @user.present?
+          return handle_missing_user(customer) if (data_feed = user_data_feed(customer)).blank?
 
-          handle_missing_user(customer)
+          @user ||= data_feed.spree_object
         end
 
         def attributes
@@ -37,6 +33,11 @@ module SpreeShopifyImporter
         end
 
         private
+
+        def user_data_feed(customer)
+          @user_data_feed ||= SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: customer.id,
+                                                                     shopify_object_type: 'ShopifyAPI::Customer')
+        end
 
         def handle_missing_user(customer)
           SpreeShopifyImporter::Importers::UserImporterJob.perform_later(customer.to_json)

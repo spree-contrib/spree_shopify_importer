@@ -47,6 +47,24 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
         end
       end
 
+      context 'with not existing user' do
+        let!(:user_data_feed) do
+          create(:shopify_data_feed,
+                 spree_object: nil,
+                 shopify_object_id: shopify_order.customer.id,
+                 shopify_object_type: 'ShopifyAPI::Customer')
+        end
+
+        it 'creates spree order' do
+          expect { subject.save! }.to change(Spree::Order, :count).by(1)
+        end
+
+        it 'creates order as guest one' do
+          subject.save!
+          expect(spree_order.reload.user).to be_nil
+        end
+      end
+
       context 'sets order attributes' do
         before { subject.save! }
 
@@ -268,12 +286,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
       end
 
       context 'missing user data' do
-        let!(:user_data_feed) do
-          create(:shopify_data_feed,
-                 spree_object: nil,
-                 shopify_object_id: shopify_order.customer.id,
-                 shopify_object_type: 'ShopifyAPI::Customer')
-        end
+        let!(:user_data_feed) { nil }
 
         it 'raises variant not found error, do not create objects and enqueue product import' do
           expect { subject.save! }.to raise_error(SpreeShopifyImporter::DataParsers::Orders::UserNotFound)
