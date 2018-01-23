@@ -45,9 +45,21 @@ describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
           expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
-        it 'creates spree users' do
+        it 'does not create spree users' do
           expect { subject.import! }.not_to change(Spree.user_class, :count)
         end
+      end
+    end
+
+    context 'when email is empty' do
+      let(:shopify_customer) { create(:shopify_customer, email: nil) }
+
+      it 'creates data feed' do
+        expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
+      end
+
+      it 'does not create spree users' do
+        expect { subject.import! }.not_to change(Spree.user_class, :count)
       end
     end
   end
