@@ -2,10 +2,10 @@
 [![Code Climate](https://codeclimate.com/github/spark-solutions/spree_shopify_importer/badges/gpa.svg)](https://codeclimate.com/github/spark-solutions/spree_shopify_importer)
 [![Test Coverage](https://codeclimate.com/github/spark-solutions/spree_shopify_importer/badges/coverage.svg)](https://codeclimate.com/github/spark-solutions/spree_shopify_importer/coverage)
 
-SpreeShopifyImporter
+Spree Shopify Importer
 ====================
 
-The SpreeShopifyImporter gem allows you to easily import data from Shopify store to Spree application.
+The Spree Shopify Importer gem allows you to easily import data from Shopify store to Spree application.
 It's compatible with Spree 3.2 and above.
 
 Behind-the-scenes, this extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
