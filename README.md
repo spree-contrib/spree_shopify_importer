@@ -5,21 +5,20 @@
 SpreeShopifyImporter
 ====================
 
-The SpreeShopifyImporter gem allows users to easily import data from Shopify store to Spree application.
+The SpreeShopifyImporter gem allows you to easily import data from Shopify store to Spree application.
 It's compatible with Spree 3.2 and above.
 
-Behind-the-scenes, extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
+Behind-the-scenes, this extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
 
-Currently, it's in version 0.1.0. We welcome new pull requests!
+Currently, it's in version 0.1.0. It has been tested with thousands of real life orders, but we welcome new pull requests!
 
 ## Installation
 
-1. Add this extension to your Gemfile with this line:
+1. Add this extension to your Gemfile with this:
   ```ruby
   gem 'spree_shopify_importer', github: 'spark-solutions/spree_shopify_importer'
   gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
   gem 'spree_auth_devise', '~> 3.3'
-  gem 'curb'
 
   ```
 
@@ -28,12 +27,12 @@ Currently, it's in version 0.1.0. We welcome new pull requests!
   bundle install
   ```
 
-3. Copy & run migrations
+3. Copy & run migrations:
   ```shell
   bundle exec rails g spree_shopify_importer:install
   ```
 
-4. Restart your server
+4. Restart your server:
 
   If your server was running, restart it so that it can find the assets properly.
   
@@ -41,7 +40,7 @@ Currently, it's in version 0.1.0. We welcome new pull requests!
 
 ## Getting Started
 
-We are recommending using sidekiq for background processing with this stack of gems
+We are recommending using sidekiq for background processing with this stack of gems:
 
 ```ruby
 gem 'sidekiq'
@@ -50,7 +49,7 @@ gem 'sidekiq-unique-jobs'
 ```
 
 We also recommend having a limit **2** for import queue, due to API limit. Default queue name is **default** 
-but it can be change in **Spree::AppConfiguration** under *shopify_import_queue* key.
+but it can be changed in **Spree::AppConfiguration** under *shopify_import_queue* key.
 
 ### Default values
    
@@ -76,13 +75,13 @@ Currently, you need to have access to the console to start the import.
 With default values
 
 ```ruby
- ShopifyImport::InvokerJob.new.import!
+ SpreeShopifyImporter::InvokerJob.new.import!
 ```
 
 or with credentials.
 
 ```ruby
- ShopifyImport::InvokerJob.new(credentials).import!
+ SpreeShopifyImporter::InvokerJob.new(credentials).import!
 ```
 
 Where credentials could have two formats:
@@ -109,21 +108,21 @@ or
 ```
 ## Import Model
 
-1. Shopify::DataFeed - this model contains copy of JSON imported from shopify and association to spree object.
+1. SpreeShopifyImporter::DataFeed - this model contains copy of JSON imported from shopify and association to spree object.
 
 ## Import Services
 
 Import services are divided into four main parts. Each of them could be customized.
 
-1. Data Fetchers are services which are fetching products, users, orders and collections from shopify.
+1. Data Fetchers are services which are fetching products, users, orders and collections from Shopify.
 
-2. Importers are services which are saving shopify data feeds (as shadow copy of import), and 
-   starting create or update action for spree object.
+2. Importers are services which are saving Shopify data feeds (as shadow copy of import), and 
+   starting a create or update action for spree object.
    
-3. Data Savers are services which are saving spree objects, each of them has parser method which can be 
-   override to change update/create attributes and associations.
+3. Data Savers are services which are saving spree objects, each of them has a parser method which can be 
+   overridden to change update/create attributes and associations.
    
-4. Data Parsers are services which are changing shopify data to spree data.
+4. Data Parsers are services which are changing Shopify data to spree data.
 
 
 ## Testing
@@ -149,7 +148,7 @@ We welcome new pull requests!
 
 ## License
 
-Spree Shopify Importer is copyright © 2015-2017
+Spree Shopify Importer is copyright © 2015-2018
 [Spark Solutions Sp. z o.o.][spark]. It is free software,
 and may be redistributed under the terms specified in the
 [LICENSE](LICENSE.md) file.
