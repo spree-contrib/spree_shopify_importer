@@ -2,7 +2,7 @@ module SpreeShopifyImporter
   module DataSavers
     module Images
       class ImageBase < BaseDataSaver
-        delegate :attributes, :timestamps, :name, :valid_path?, to: :parser
+        delegate :attributes, :timestamps, :name, :valid_path?, :attachment, to: :parser
 
         private
 
@@ -16,6 +16,10 @@ module SpreeShopifyImporter
 
         def parser
           @parser ||= SpreeShopifyImporter::DataParsers::Images::BaseData.new(shopify_image)
+        end
+
+        def attributes_with_attachement
+          attributes.merge(attachment: attachment)
         end
 
         def shopify_image

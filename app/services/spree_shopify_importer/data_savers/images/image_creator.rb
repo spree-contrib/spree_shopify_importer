@@ -21,7 +21,7 @@ module SpreeShopifyImporter
         private
 
         def create_spree_image
-          @spree_image = @spree_object.images.create!(attributes)
+          @spree_image = @spree_object.images.create!(attributes_with_attachement)
         end
       end
     end

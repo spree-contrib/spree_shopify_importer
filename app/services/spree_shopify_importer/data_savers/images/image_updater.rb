@@ -21,7 +21,7 @@ module SpreeShopifyImporter
         private
 
         def update_spree_image
-          @spree_image.update!(attributes)
+          @spree_image.update!(attributes_with_attachement)
         end
       end
     end
