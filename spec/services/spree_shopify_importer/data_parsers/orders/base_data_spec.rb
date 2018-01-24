@@ -19,17 +19,25 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
     end
 
     context 'where user is not imported' do
-      let!(:shopify_data_feed) do
-        create(:shopify_data_feed,
-               spree_object: nil,
-               shopify_object_id: shopify_order.customer.id,
-               shopify_object_type: 'ShopifyAPI::Customer')
-      end
+      let!(:shopify_data_feed) { nil }
 
       it 'raise NoUserFound error and start user import job' do
         expect { subject.user }
           .to raise_error(SpreeShopifyImporter::DataParsers::Orders::UserNotFound)
           .and enqueue_job(SpreeShopifyImporter::Importers::UserImporterJob)
+      end
+
+      context 'when customer data feed was imported but user cannot be created' do
+        let!(:shopify_data_feed) do
+          create(:shopify_data_feed,
+                 spree_object: nil,
+                 shopify_object_id: shopify_order.customer.id,
+                 shopify_object_type: 'ShopifyAPI::Customer')
+        end
+
+        it 'return nil' do
+          expect(subject.user).to be_nil
+        end
       end
     end
   end

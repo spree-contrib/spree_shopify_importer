@@ -36,7 +36,7 @@ module SpreeShopifyImporter
       end
 
       def shopify_object
-        shopify_class.new(JSON.parse(@resource))
+        @shopify_object ||= shopify_class.new(JSON.parse(@resource))
       end
 
       def creator
