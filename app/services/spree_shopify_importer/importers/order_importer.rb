@@ -27,7 +27,7 @@ module SpreeShopifyImporter
       end
 
       def shopify_class
-        ShopifyAPI::Product
+        ShopifyAPI::Order
       end
     end
   end

@@ -28,7 +28,7 @@ module SpreeShopifyImporter
 
         def create_refund
           Spree::Refund.transaction do
-            @spree_refund = Spree::Refund.first_or_initialize(transaction_id: transaction_id)
+            @spree_refund = Spree::Refund.find_or_initialize_by(transaction_id: transaction_id)
             update_spree_refund
           end
         end

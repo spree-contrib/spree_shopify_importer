@@ -27,7 +27,7 @@ module SpreeShopifyImporter
 
         def create_customer_return
           Spree::CustomerReturn.transaction do
-            @customer_return = Spree::CustomerReturn.first_or_initialize(number: number)
+            @customer_return = Spree::CustomerReturn.find_or_initialize_by(number: number)
             update_attributes
           end
         end
