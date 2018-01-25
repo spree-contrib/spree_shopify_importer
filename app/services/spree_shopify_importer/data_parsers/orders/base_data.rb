@@ -83,11 +83,11 @@ module SpreeShopifyImporter
             %w[sale capture].include?(t.kind)
           end
 
-          transactions.select { |t| t.status == 'success' }.sum(&:amount)
+          transactions.select { |t| t.status == 'success' }.sum { |t| t.amount.to_d }
         end
 
         def shipment_total
-          @shopify_order.shipping_lines.sum(&:price)
+          @shopify_order.shipping_lines.sum { |sl| sl.price.to_d }
         end
 
         def order_state

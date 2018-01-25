@@ -60,8 +60,8 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
         item_total: shopify_order.total_line_items_price,
         additional_tax_total: shopify_order.total_tax,
         promo_total: -shopify_order.total_discounts.to_d,
-        payment_total: shopify_transaction.amount,
-        shipment_total: shopify_order.shipping_lines.sum(&:price)
+        payment_total: shopify_transaction.amount.to_d,
+        shipment_total: shopify_order.shipping_lines.sum { |sl| sl.price.to_d }
       }
     end
     let(:order_states) do
@@ -81,6 +81,32 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
 
     it 'prepare hash of order attributes' do
       expect(subject.attributes).to eq result
+    end
+
+    context 'with multiple transactions' do
+      let(:shopify_order) { create(:shopify_order) }
+      let(:shopify_transaction1) { create(:shopify_transaction, order: shopify_order) }
+      let(:shopify_transaction2) { create(:shopify_transaction, order: shopify_order) }
+
+      before do
+        allow_any_instance_of(ShopifyAPI::Order)
+          .to receive(:transactions).and_return([shopify_transaction1, shopify_transaction2])
+      end
+
+      let(:order_totals) do
+        {
+          total: shopify_order.total_price,
+          item_total: shopify_order.total_line_items_price,
+          additional_tax_total: shopify_order.total_tax,
+          promo_total: -shopify_order.total_discounts.to_d,
+          payment_total: shopify_transaction1.amount.to_d + shopify_transaction2.amount.to_d,
+          shipment_total: shopify_order.shipping_lines.sum { |sl| sl.price.to_d }
+        }
+      end
+
+      it 'prepare hash of order attributes' do
+        expect(subject.attributes).to eq result
+      end
     end
 
     context 'other order states'
