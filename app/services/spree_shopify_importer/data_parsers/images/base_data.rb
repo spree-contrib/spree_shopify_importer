@@ -10,10 +10,13 @@ module SpreeShopifyImporter
 
         def attributes
           @attributes ||= {
-            attachment: @shopify_image.src,
             position: @shopify_image.position,
             alt: name
           }
+        end
+
+        def attachment
+          @attachment ||= open(@shopify_image.src)
         end
 
         def timestamps
