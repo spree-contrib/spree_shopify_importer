@@ -5,6 +5,7 @@ AllCops:
    - 'db/schema.rb'
    - 'vendor/bundle/**/*'
    - 'spec/dummy/**/*'
+   - 'gemfiles/*'
   Include:
     - 'lib/tasks/**/*'
     - '**/Gemfile'
@@ -51,6 +52,8 @@ Rails/ActiveRecordAliases:
 Rails/SkipsModelValidations:
   Enabled: false
 Rails/Output:
+  Enabled: false
+Security/Open:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
