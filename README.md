@@ -16,7 +16,7 @@ Currently, it's in version 0.1.0. It has been tested with thousands of real life
 
 1. Add this extension to your Gemfile with this:
   ```ruby
-  gem 'spree_shopify_importer', github: 'spark-solutions/spree_shopify_importer'
+  gem 'spree_shopify_importer', github: 'spree-contrib/spree_shopify_importer'
   gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
   gem 'spree_auth_devise', '~> 3.3'
 
