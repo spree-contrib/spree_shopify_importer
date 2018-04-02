@@ -17,7 +17,7 @@ module SpreeShopifyImporter
         end
 
         def attributes
-          @attribtues ||= [
+          @attributes ||= [
             base_order_attributes,
             order_totals,
             order_states
