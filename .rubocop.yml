@@ -46,6 +46,8 @@ Lint/AmbiguousBlockAssociation:
    - 'spec/support/shared_examples/**'
 Rails:
   Enabled: true
+Rails/ActiveRecordAliases:
+  Enabled: false
 Rails/SkipsModelValidations:
   Enabled: false
 Rails/Output:
