@@ -5,6 +5,7 @@ AllCops:
    - 'db/schema.rb'
    - 'vendor/bundle/**/*'
    - 'spec/dummy/**/*'
+   - 'gemfiles/*'
   Include:
     - 'lib/tasks/**/*'
     - '**/Gemfile'
@@ -32,6 +33,8 @@ Metrics/ModuleLength:
   Exclude:
     - '**/*_spec.rb'
     - 'spec/support/shared_examples/**'
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
 Lint/Debugger:
   Enabled: false
 Lint/DefEndAlignment:
@@ -44,9 +47,13 @@ Lint/AmbiguousBlockAssociation:
    - 'spec/support/shared_examples/**'
 Rails:
   Enabled: true
+Rails/ActiveRecordAliases:
+  Enabled: false
 Rails/SkipsModelValidations:
   Enabled: false
 Rails/Output:
+  Enabled: false
+Security/Open:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false

@@ -216,7 +216,7 @@ module SpreeShopifyImporter
         end
 
         def ship_address
-          @shipping_address ||= shopify_order.shipping_address
+          @ship_address ||= shopify_order.shipping_address
         end
 
         def parser
